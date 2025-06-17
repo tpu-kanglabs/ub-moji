@@ -1,0 +1,53 @@
+---
+import { CheckCircle, Lock, Users, Video } from "@lucide/astro";
+
+const features = [
+  {
+    title: "Japanese Fingerspelling Coverage",
+    description: "Supports syllables, 5-character sequences, and full words",
+    icon: CheckCircle,
+    iconBg: "bg-gradient-to-br from-indigo-100 to-indigo-200",
+  },
+  {
+    title: "Temporal Annotation",
+    description: "Precise start-end timing for every fingerspelled unit",
+    icon: Video,
+    iconBg: "bg-gradient-to-br from-pink-100 to-pink-200",
+  },
+  {
+    title: "Rich Participant Metadata",
+    description:
+      "Includes detailed demographic and consent metadata for participant-aware modeling and analysis.",
+    icon: Users,
+    iconBg: "bg-gradient-to-br from-teal-100 to-teal-200",
+  },
+  {
+    title: "Academic-Only License",
+    description:
+      "Available under terms restricting use to non-commercial academic research",
+    icon: Lock,
+    iconBg: "bg-gradient-to-br from-yellow-100 to-yellow-200",
+  },
+];
+---
+
+<section class="bg-white py-20">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-neutral-900 mb-12">
+      ub-MOJI Features
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(({ title, description, icon: Icon, iconBg }) => (
+        <div class="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]">
+          <div class={`w-12 h-12 mb-4 mx-auto flex items-center justify-center rounded-full ${iconBg}`}>
+            <Icon class="w-6 h-6 text-neutral-800" />
+          </div>
+          <h3 class="text-lg font-semibold text-neutral-900 mb-1">
+            {title}
+          </h3>
+          <p class="text-sm text-neutral-600">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
