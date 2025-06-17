@@ -1,8 +1,16 @@
 ---
-import { Button } from "@/components/ui/button";
+import Authers from "@/components/Authors.astro";
+import FeatureCards from "@/components/FeatureCards.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header/index.astro";
+import Hero from "../components/Hero/index.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Button>Button</Button>
+	<Header />
+	<Hero />
+	<FeatureCards />
+	<Authers />
+	<Footer />
 </Layout>

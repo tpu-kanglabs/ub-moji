@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/logo.png";
+import MobileNav from "./MobileNav.tsx";
+---
+
+<header class="w-full border-b bg-white sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/ub-moji" class="flex items-center gap-3">
+      <Image src={logo} alt="ub-MOJI logo" width={40} height={40} class="h-8 w-8 object-contain" loading="eager" />
+      <span class="text-lg font-semibold text-gray-900 tracking-tight">ub-MOJI | AI Vision Lab</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+      <a href="/ub-moji/news">News</a>
+    </nav>
+
+    <!-- Mobile nav (React Island) -->
+    <div class="md:hidden">
+      <MobileNav client:load />
+    </div>
+  </div>
+</header>
