@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -10,6 +12,7 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/ub-moji/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>ub-MOJI | AI Vision Lab</title>
+		{isProd && <GoogleAnalytics />}
 	</head>
 	<body>
 		<slot />
