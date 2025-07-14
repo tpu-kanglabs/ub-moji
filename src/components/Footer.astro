@@ -1,21 +1,25 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-neutral-200 bg-neutral-100 mt-20">
   <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between text-sm text-neutral-600">
     <div class="mb-4 md:mb-0 text-center md:text-left">
-      &copy; {year} AI Vision Lab. All rights reserved.
+      &copy; {year} AI Vision Lab. {t('footer.copyright')}
     </div>
     <div class="flex gap-6">
       <a href="https://www.kanglabs.net/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        Website
+        {t('footer.website')}
       </a>
       <a href="https://github.com/tpu-kanglabs" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        GitHub
+        {t('footer.github')}
       </a>
       <a href="https://huggingface.co/kanglabs" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        Hugging Face
+        {t('footer.huggingface')}
       </a>
     </div>
   </div>

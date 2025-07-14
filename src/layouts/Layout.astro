@@ -1,17 +1,21 @@
 ---
 import "../styles/global.css";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
+
 const isProd = import.meta.env.PROD;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/ub-moji/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>ub-MOJI | AI Vision Lab</title>
+		<title>{t('site.title')}</title>
 		{isProd && <GoogleAnalytics />}
 	</head>
 	<body>

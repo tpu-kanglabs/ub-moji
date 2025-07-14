@@ -12,6 +12,14 @@ export default defineConfig({
   site: "https://tpu-kanglabs.github.io",
   base: "/ub-moji",
 
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "ja"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

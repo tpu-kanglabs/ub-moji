@@ -1,24 +1,40 @@
 ---
 import { Image } from "astro:assets";
+import {
+  getLangFromUrl,
+  getLocalizedPath,
+  useTranslations,
+} from "@/i18n/utils";
 import logo from "../../assets/logo.png";
+import LanguageSwitcher from "../LanguageSwitcher.astro";
 import MobileNav from "./MobileNav.tsx";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="w-full border-b bg-white sticky top-0 z-50">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="/ub-moji" class="flex items-center gap-3">
+    <a href={getLocalizedPath("/ub-moji", lang)} class="flex items-center gap-3">
       <Image src={logo} alt="ub-MOJI logo" width={40} height={40} class="h-8 w-8 object-contain" loading="eager" />
-      <span class="text-lg font-semibold text-gray-900 tracking-tight">ub-MOJI | AI Vision Lab</span>
+      <span class="text-lg font-semibold text-gray-900 tracking-tight">{t('site.title')}</span>
     </a>
 
-    <!-- Desktop nav -->
-    <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-      <a href="/ub-moji/news">News</a>
-    </nav>
+    <div class="flex items-center gap-4">
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+        <a href={getLocalizedPath("/ub-moji/news", lang)}>{t('nav.news')}</a>
+      </nav>
 
-    <!-- Mobile nav (React Island) -->
-    <div class="md:hidden">
-      <MobileNav client:load />
+      <!-- Language switcher -->
+      <div class="hidden md:block">
+        <LanguageSwitcher />
+      </div>
+
+      <!-- Mobile nav (React Island) -->
+      <div class="md:hidden">
+        <MobileNav client:load />
+      </div>
     </div>
   </div>
 </header>
