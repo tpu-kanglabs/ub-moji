@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { useTranslations } from "@/i18n/utils";
 import { CheckCircle, Lock, Users, Video } from "@lucide/astro";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
 
 const features = [
   {

@@ -1,16 +1,16 @@
 ---
 import { languages } from "@/i18n/ui";
-import { getLangFromUrl, getLocalizedPath } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-const lang = getLangFromUrl(Astro.url);
+const currentLang = Astro.currentLocale || "en";
 ---
 
 <div class="flex gap-2">
   {Object.entries(languages).map(([langCode, langName]) => (
     <a 
-      href={getLocalizedPath('/ub-moji', langCode)}
+      href={getRelativeLocaleUrl(langCode, "")}
       class={`px-2 py-1 rounded text-sm ${
-        lang === langCode 
+        currentLang === langCode 
           ? 'bg-gray-900 text-white' 
           : 'text-gray-700 hover:bg-gray-100'
       }`}

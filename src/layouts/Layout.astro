@@ -1,11 +1,11 @@
 ---
 import "../styles/global.css";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { useTranslations } from "@/i18n/utils";
 import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
 
 const isProd = import.meta.env.PROD;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
 ---
 
 <!doctype html>

@@ -1,21 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import {
-  getLangFromUrl,
-  getLocalizedPath,
-  useTranslations,
-} from "@/i18n/utils";
+import { useTranslations } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import logo from "../../assets/logo.png";
 import LanguageSwitcher from "../LanguageSwitcher.astro";
 import MobileNav from "./MobileNav.tsx";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
 ---
 
 <header class="w-full border-b bg-white sticky top-0 z-50">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-    <a href={getLocalizedPath("/ub-moji", lang)} class="flex items-center gap-3">
+    <a href={getRelativeLocaleUrl(lang, "")} class="flex items-center gap-3">
       <Image src={logo} alt="ub-MOJI logo" width={40} height={40} class="h-8 w-8 object-contain" loading="eager" />
       <span class="text-lg font-semibold text-gray-900 tracking-tight">{t('site.title')}</span>
     </a>
@@ -23,7 +20,7 @@ const t = useTranslations(lang);
     <div class="flex items-center gap-4">
       <!-- Desktop nav -->
       <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-        <a href={getLocalizedPath("/ub-moji/news", lang)}>{t('nav.news')}</a>
+        <a href={getRelativeLocaleUrl(lang, "news")}>{t('nav.news')}</a>
       </nav>
 
       <!-- Language switcher -->
