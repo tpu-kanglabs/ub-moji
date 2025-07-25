@@ -1,11 +1,15 @@
 ---
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/i18n/utils";
+
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
 ---
 
 <div class="flex justify-center gap-4">
   <a href="https://huggingface.co/datasets/kanglabs/ub-MOJI" target="_blank" rel="noopener noreferrer">
     <Button className="text-base px-6 py-4">
-      View Dataset
+      {t('hero.cta')}
     </Button>
   </a>
 </div>

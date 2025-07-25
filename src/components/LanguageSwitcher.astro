@@ -1,0 +1,23 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { languages } from "@/i18n/ui";
+import DropdownLanguageSwitcher from "./DropdownLanguageSwitcher.tsx";
+
+const currentLang = Astro.currentLocale || "en";
+
+// Pre-generate all language URLs
+const languageUrls = Object.keys(languages).reduce(
+  (acc, lang) => {
+    acc[lang] = getRelativeLocaleUrl(lang, "");
+    return acc;
+  },
+  {} as Record<string, string>,
+);
+---
+
+<DropdownLanguageSwitcher 
+  currentLang={currentLang}
+  languages={languages}
+  languageUrls={languageUrls}
+  client:load
+/>

@@ -1,8 +1,15 @@
+---
+import { useTranslations } from "@/i18n/utils";
+
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
+---
+
 <div class="max-w-3xl mx-auto">
   <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-    ub-MOJI: A Japanese Fingerspelling Video Dataset
+    {t('hero.title')}
   </h1>
   <p class="mt-6 text-lg text-gray-600">
-    ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition
+    {t('hero.description')}
   </p>
 </div>
