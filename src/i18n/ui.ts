@@ -53,7 +53,7 @@ export const ui = {
     "features.license.description":
       "非商用学術研究での使用に制限される条件の下で利用可能",
     "authors.title": "著者",
-    "footer.copyright": "全権利保持",
+    "footer.copyright": "All rights reserved.",
     "footer.website": "ウェブサイト",
     "footer.github": "GitHub",
     "footer.huggingface": "Hugging Face",

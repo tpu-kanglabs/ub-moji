@@ -1,13 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { languages } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import logo from "../../assets/logo.png";
 import LanguageSwitcher from "../LanguageSwitcher.astro";
 import MobileNav from "./MobileNav.tsx";
 
 const lang = Astro.currentLocale || "en";
 const t = useTranslations(lang as "en" | "ja");
+
+// Pre-generate all language URLs for mobile nav
+const languageUrls = Object.keys(languages).reduce(
+  (acc, lang) => {
+    acc[lang] = getRelativeLocaleUrl(lang, "");
+    return acc;
+  },
+  {} as Record<string, string>,
+);
 ---
 
 <header class="w-full border-b bg-white sticky top-0 z-50">
@@ -30,7 +40,14 @@ const t = useTranslations(lang as "en" | "ja");
 
       <!-- Mobile nav (React Island) -->
       <div class="md:hidden">
-        <MobileNav client:load />
+        <MobileNav 
+          currentLang={lang}
+          newsText={t('nav.news')}
+          newsUrl={getRelativeLocaleUrl(lang, "news")}
+          languages={languages}
+          languageUrls={languageUrls}
+          client:load 
+        />
       </div>
     </div>
   </div>
