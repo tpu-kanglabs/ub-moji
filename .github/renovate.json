@@ -1,0 +1,7 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>tpu-kanglabs/renovate-config"],
+  "patch": {
+    "automerge": true
+  }
+}
