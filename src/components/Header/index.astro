@@ -29,8 +29,8 @@ const languageUrls = Object.keys(languages).reduce(
 
     <div class="flex items-center gap-4">
       <!-- Desktop nav -->
-      <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-        <a href={getRelativeLocaleUrl(lang, "news")}>{t('nav.news')}</a>
+  <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+        <a href={getRelativeLocaleUrl(lang, "papers")}>{t('nav.papers')}</a>
       </nav>
 
       <!-- Language switcher -->
@@ -42,8 +42,8 @@ const languageUrls = Object.keys(languages).reduce(
       <div class="md:hidden">
         <MobileNav 
           currentLang={lang}
-          newsText={t('nav.news')}
-          newsUrl={getRelativeLocaleUrl(lang, "news")}
+          papersText={t('nav.papers')}
+          papersUrl={getRelativeLocaleUrl(lang, "papers")}
           languages={languages}
           languageUrls={languageUrls}
           client:load 
