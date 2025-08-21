@@ -6,16 +6,16 @@ import DropdownLanguageSwitcher from "../DropdownLanguageSwitcher.tsx";
 
 interface MobileNavProps {
   currentLang: string;
-  newsText: string;
-  newsUrl: string;
+  papersText: string;
+  papersUrl: string;
   languages: Record<string, string>;
   languageUrls: Record<string, string>;
 }
 
 export default function MobileNav({
   currentLang,
-  newsText,
-  newsUrl,
+  papersText,
+  papersUrl,
   languages,
   languageUrls,
 }: MobileNavProps) {
@@ -30,12 +30,13 @@ export default function MobileNav({
         </button>
       </SheetTrigger>
       <SheetContent side="right" className="w-64 p-6">
+        {/* Related Papers */}
         <nav className="flex flex-col gap-4">
           <a
-            href={newsUrl}
+            href={papersUrl}
             className="text-sm text-gray-800 font-medium py-2 px-3 rounded hover:bg-gray-100 transition"
           >
-            {newsText}
+            {papersText}
           </a>
 
           <div className="pt-4 border-t">
