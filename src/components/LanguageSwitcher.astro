@@ -5,10 +5,26 @@ import DropdownLanguageSwitcher from "./DropdownLanguageSwitcher.tsx";
 
 const currentLang = Astro.currentLocale || "en";
 
-// Pre-generate all language URLs
+// Get current page path without language prefix
+const currentPath = Astro.url.pathname;
+const basePath = currentPath.startsWith("/ja/")
+  ? currentPath.slice(4) // Remove '/ja/' prefix
+  : currentPath.startsWith("/ja") && currentPath === "/ja"
+    ? "" // Handle '/ja' exactly
+    : currentPath.startsWith("/ub-moji/ja/")
+      ? currentPath.slice(12) // Remove '/ub-moji/ja/' prefix for production
+      : currentPath.startsWith("/ub-moji/ja") && currentPath === "/ub-moji/ja"
+        ? "" // Handle '/ub-moji/ja' exactly
+        : currentPath.startsWith("/ub-moji/")
+          ? currentPath.slice(9) // Remove '/ub-moji/' prefix for production
+          : currentPath.startsWith("/")
+            ? currentPath.slice(1) // Remove leading '/' for local dev
+            : currentPath;
+
+// Pre-generate all language URLs preserving current page
 const languageUrls = Object.keys(languages).reduce(
   (acc, lang) => {
-    acc[lang] = getRelativeLocaleUrl(lang, "");
+    acc[lang] = getRelativeLocaleUrl(lang, basePath);
     return acc;
   },
   {} as Record<string, string>,
