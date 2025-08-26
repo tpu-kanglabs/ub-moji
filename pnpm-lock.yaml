@@ -16,7 +16,7 @@ importers:
         version: 4.3.0(@types/node@22.15.29)(@types/react-dom@19.1.7(@types/react@19.1.11))(@types/react@19.1.11)(jiti@2.5.1)(lightningcss@1.30.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@lucide/astro':
         specifier: ^0.540.0
-        version: 0.540.0(astro@5.13.2(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3))
+        version: 0.540.0(astro@5.13.3(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3))
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.1.7(@types/react@19.1.11))(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -33,8 +33,8 @@ importers:
         specifier: ^19.1.7
         version: 19.1.7(@types/react@19.1.11)
       astro:
-        specifier: ^5.13.2
-        version: 5.13.2(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)
+        specifier: ^5.13.3
+        version: 5.13.3(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -1146,8 +1146,8 @@ packages:
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  astro@5.13.2:
-    resolution: {integrity: sha512-yjcXY0Ua3EwjpVd3GoUXa65HQ6qgmURBptA+M9GzE0oYvgfuyM7bIbH8IR/TWIbdefVUJR5b7nZ0oVnMytmyfQ==}
+  astro@5.13.3:
+    resolution: {integrity: sha512-V0mUOUK70UZ7xqXp5Noqse/SREU0P756KgFufBEluq5LkmBejzC2GENMUA2Na+PFwUjemElJtRlpKyrnKpFhSQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2843,9 +2843,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@lucide/astro@0.540.0(astro@5.13.2(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3))':
+  '@lucide/astro@0.540.0(astro@5.13.3(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3))':
     dependencies:
-      astro: 5.13.2(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)
+      astro: 5.13.3(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -3274,7 +3274,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.13.2(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3):
+  astro@5.13.3(@types/node@22.15.29)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.2
