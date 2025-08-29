@@ -1,8 +1,8 @@
 "use client";
 
+import DropdownLanguageSwitcher from "@/components/LanguageSwitcher/DropdownLanguageSwitcher";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import DropdownLanguageSwitcher from "../DropdownLanguageSwitcher.tsx";
 
 interface MobileNavProps {
   currentLang: string;
