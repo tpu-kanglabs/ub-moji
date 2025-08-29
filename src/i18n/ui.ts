@@ -58,7 +58,8 @@ export const ui = {
       "Dominant hand: `0=right`, `1=left`, `-1` if unspecified",
     "participantsTable.descriptions.experienceYears":
       "Years of sign language experience: one of `1-3`, `4-6`, ..., `51+` or `-1`",
-      "Self-reported hearing ability: `0` (no issue) to `4` (severe), or `-1` (unknown)`",
+    "participantsTable.descriptions.hearingLevel":
+      "Self-reported hearing ability: `0` (no issue) to `4` (severe), or `-1`(unknown)`",
     "participantsTable.descriptions.faceVisibility":
       "Face visibility consent: `1=agreed`, `0=declined`",
     "authors.title": "Authors",
