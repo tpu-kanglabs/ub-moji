@@ -1,44 +1,37 @@
 ---
 import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher.astro";
 import { languages } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
+import { computeRel } from "@/lib/utils";
 import logo from "../../assets/logo.png";
-import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher.astro";
 import MobileNav from "./MobileNav.tsx";
 
-const lang = Astro.currentLocale || "en";
-const t = useTranslations(lang as "en" | "ja");
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslations(currentLang as "en" | "ja");
+const pathname = Astro.url.pathname;
 
-// Get current page path without language prefix
-const currentPath = Astro.url.pathname;
-const basePath = currentPath.startsWith("/ja/")
-  ? currentPath.slice(4) // Remove '/ja/' prefix
-  : currentPath.startsWith("/ja") && currentPath === "/ja"
-    ? "" // Handle '/ja' exactly
-    : currentPath.startsWith("/ub-moji/ja/")
-      ? currentPath.slice(12) // Remove '/ub-moji/ja/' prefix for production
-      : currentPath.startsWith("/ub-moji/ja") && currentPath === "/ub-moji/ja"
-        ? "" // Handle '/ub-moji/ja' exactly
-        : currentPath.startsWith("/ub-moji/")
-          ? currentPath.slice(9) // Remove '/ub-moji/' prefix for production
-          : currentPath.startsWith("/")
-            ? currentPath.slice(1) // Remove leading '/' for local dev
-            : currentPath;
+const REPO_SLUG = import.meta.env.BASE_URL
+  ? import.meta.env.BASE_URL.replace(/^\/+|\/+$/g, "")
+  : "";
 
-// Pre-generate all language URLs for mobile nav preserving current page
-const languageUrls = Object.keys(languages).reduce(
-  (acc, lang) => {
-    acc[lang] = getRelativeLocaleUrl(lang, basePath);
-    return acc;
-  },
-  {} as Record<string, string>,
+const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
+
+const rel = computeRel(pathname, REPO_SLUG, LOCALES);
+
+// If rel is empty, it means the root page
+const languageUrls = Object.fromEntries(
+  Object.keys(languages).map((lang) => [
+    lang,
+    rel ? getRelativeLocaleUrl(lang, rel) : getRelativeLocaleUrl(lang),
+  ]),
 );
 ---
 
 <header class="w-full border-b bg-white sticky top-0 z-50">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-    <a href={getRelativeLocaleUrl(lang, "")} class="flex items-center gap-3">
+    <a href={getRelativeLocaleUrl(currentLang, "")} class="flex items-center gap-3">
       <Image src={logo} alt="ub-MOJI logo" width={40} height={40} class="h-8 w-8 object-contain" loading="eager" />
       <span class="text-lg font-semibold text-gray-900 tracking-tight">{t('site.title')}</span>
     </a>
@@ -46,7 +39,7 @@ const languageUrls = Object.keys(languages).reduce(
     <div class="flex items-center gap-4">
       <!-- Desktop nav -->
   <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-        <a href={getRelativeLocaleUrl(lang, "papers")}>{t('nav.papers')}</a>
+        <a href={getRelativeLocaleUrl(currentLang, "papers")}>{t('nav.papers')}</a>
       </nav>
 
       <!-- Language switcher -->
@@ -57,9 +50,9 @@ const languageUrls = Object.keys(languages).reduce(
       <!-- Mobile nav (React Island) -->
       <div class="md:hidden">
         <MobileNav 
-          currentLang={lang}
+          currentLang={currentLang}
           papersText={t('nav.papers')}
-          papersUrl={getRelativeLocaleUrl(lang, "papers")}
+          papersUrl={getRelativeLocaleUrl(currentLang, "papers")}
           languages={languages}
           languageUrls={languageUrls}
           client:load 

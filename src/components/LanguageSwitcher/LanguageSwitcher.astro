@@ -1,6 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { languages } from "@/i18n/ui";
+import { computeRel } from "@/lib/utils";
 import DropdownLanguageSwitcher from "./DropdownLanguageSwitcher.tsx";
 
 const currentLang = Astro.currentLocale || "en";
@@ -12,24 +13,7 @@ const REPO_SLUG = import.meta.env.BASE_URL
 
 const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
 
-function computeRel(path: string) {
-  // Remove leading/trailing slashes, split by '/', filter out empty segments
-  const segs = path
-    .replace(/^\/+|\/+$/g, "")
-    .split("/")
-    .filter(Boolean);
-  let i = 0;
-
-  // If first segment is repo slug, skip it
-  if (segs[i] === REPO_SLUG) i++;
-
-  // If next segment is a locale, skip it
-  if (segs[i] && LOCALES.includes(segs[i] as (typeof LOCALES)[number])) i++;
-
-  return segs.slice(i).join("/");
-}
-
-const rel = computeRel(pathname);
+const rel = computeRel(pathname, REPO_SLUG, LOCALES);
 
 // If rel is empty, it means the root page
 const languageUrls = Object.fromEntries(
