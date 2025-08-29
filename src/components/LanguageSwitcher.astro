@@ -10,7 +10,7 @@ const REPO_SLUG = import.meta.env.BASE_URL
   ? import.meta.env.BASE_URL.replace(/^\/+|\/+$/g, "")
   : "";
 
-const LOCALES = ["ja", "en"] as const;
+const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
 
 function computeRel(path: string) {
   // Remove leading/trailing slashes, split by '/', filter out empty segments
