@@ -1,0 +1,53 @@
+---
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { ui } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+
+export interface DataRow {
+  field: string;
+  type: string;
+  descriptionKey: keyof (typeof ui)["en"];
+}
+
+export interface Props {
+  captionKey: keyof (typeof ui)["en"];
+  data: DataRow[];
+}
+
+const { captionKey, data } = Astro.props;
+
+const lang = (Astro.currentLocale === "ja" ? "ja" : "en") as "en" | "ja";
+const t = useTranslations(lang);
+---
+
+<Table>
+  <TableCaption>{t(captionKey)}</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>{t("datasetTable.field")}</TableHead>
+      <TableHead>{t("datasetTable.type")}</TableHead>
+      <TableHead>{t("datasetTable.description")}</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {
+      data.map((item) => (
+        <TableRow>
+          <TableCell className="font-bold">{item.field}</TableCell>
+          <TableCell className="italic">{item.type}</TableCell>
+          <TableCell>
+            {t(item.descriptionKey as keyof (typeof ui)["en"])}
+          </TableCell>
+        </TableRow>
+      ))
+    }
+  </TableBody>
+</Table>

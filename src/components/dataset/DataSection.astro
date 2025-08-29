@@ -1,0 +1,21 @@
+---
+import DataTable from "@/components/dataset/DataTable.astro";
+import { useTranslations } from "@/i18n/utils";
+import { metadata, participants } from "@/lib/dataset-definitions";
+
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
+---
+
+<section class="flex flex-col items-center space-y-8">
+  <h2 class="text-2xl font-bold text-neutral-900">{t('datasetTable.title')}</h2>
+  <!-- Table for metadata -->
+  <div class="w-full max-w-2xl mx-auto">
+    <DataTable captionKey="datasetTable.caption" data={metadata} />
+  </div>
+
+  <!-- Table for participants -->
+  <div class="w-full max-w-2xl mx-auto">
+    <DataTable captionKey="participantsTable.caption" data={participants} />
+  </div>
+</section>
