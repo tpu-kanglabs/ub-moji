@@ -1,4 +1,4 @@
-import type { DataRow } from "@/components/dataset/DataTable.astro";
+import type { DataRow } from "@/components/Dataset/DataTable.astro";
 
 export const metadata: DataRow[] = [
   {
