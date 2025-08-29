@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { languages } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import logo from "../../assets/logo.png";
-import LanguageSwitcher from "../LanguageSwitcher.astro";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher.astro";
 import MobileNav from "./MobileNav.tsx";
 
 const lang = Astro.currentLocale || "en";

@@ -2,7 +2,7 @@
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import DropdownLanguageSwitcher from "../DropdownLanguageSwitcher.tsx";
+import DropdownLanguageSwitcher from "@/components/LanguageSwitcher/DropdownLanguageSwitcher";
 
 interface MobileNavProps {
   currentLang: string;
