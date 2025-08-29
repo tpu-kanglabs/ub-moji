@@ -4,34 +4,43 @@ import { languages } from "@/i18n/ui";
 import DropdownLanguageSwitcher from "./DropdownLanguageSwitcher.tsx";
 
 const currentLang = Astro.currentLocale || "en";
+const pathname = Astro.url.pathname;
 
-// Get current page path without language prefix
-const currentPath = Astro.url.pathname;
-const basePath = currentPath.startsWith("/ja/")
-  ? currentPath.slice(4) // Remove '/ja/' prefix
-  : currentPath.startsWith("/ja") && currentPath === "/ja"
-    ? "" // Handle '/ja' exactly
-    : currentPath.startsWith("/ub-moji/ja/")
-      ? currentPath.slice(12) // Remove '/ub-moji/ja/' prefix for production
-      : currentPath.startsWith("/ub-moji/ja") && currentPath === "/ub-moji/ja"
-        ? "" // Handle '/ub-moji/ja' exactly
-        : currentPath.startsWith("/ub-moji/")
-          ? currentPath.slice(9) // Remove '/ub-moji/' prefix for production
-          : currentPath.startsWith("/")
-            ? currentPath.slice(1) // Remove leading '/' for local dev
-            : currentPath;
+const REPO_SLUG = import.meta.env.BASE_URL
+  ? import.meta.env.BASE_URL.replace(/^\/+|\/+$/g, "")
+  : "";
 
-// Pre-generate all language URLs preserving current page
-const languageUrls = Object.keys(languages).reduce(
-  (acc, lang) => {
-    acc[lang] = getRelativeLocaleUrl(lang, basePath);
-    return acc;
-  },
-  {} as Record<string, string>,
+const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
+
+function computeRel(path: string) {
+  // Remove leading/trailing slashes, split by '/', filter out empty segments
+  const segs = path
+    .replace(/^\/+|\/+$/g, "")
+    .split("/")
+    .filter(Boolean);
+  let i = 0;
+
+  // If first segment is repo slug, skip it
+  if (segs[i] === REPO_SLUG) i++;
+
+  // If next segment is a locale, skip it
+  if (segs[i] && LOCALES.includes(segs[i] as (typeof LOCALES)[number])) i++;
+
+  return segs.slice(i).join("/");
+}
+
+const rel = computeRel(pathname);
+
+// If rel is empty, it means the root page
+const languageUrls = Object.fromEntries(
+  Object.keys(languages).map((lang) => [
+    lang,
+    rel ? getRelativeLocaleUrl(lang, rel) : getRelativeLocaleUrl(lang),
+  ]),
 );
 ---
 
-<DropdownLanguageSwitcher 
+<DropdownLanguageSwitcher
   currentLang={currentLang}
   languages={languages}
   languageUrls={languageUrls}
