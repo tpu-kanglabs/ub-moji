@@ -28,8 +28,11 @@ export const ui = {
     "features.license.title": "Academic-Only License",
     "features.license.description":
       "Available under terms restricting use to non-commercial academic research",
-    "datasetTable.title": "Metadata Overview",
-    "datasetTable.caption": "metadata.csv",
+    "metadata.title": "Metadata Overview",
+    "metadata.caption":
+      "An overview of the basic information and participant information included in this dataset. Provided as CSV files.",
+    "datasetTable.caption":
+      "Basic information such as the video file path, category, and recording conditions.",
     "datasetTable.field": "Field Name",
     "datasetTable.type": "Type",
     "datasetTable.description": "Description",
@@ -43,7 +46,8 @@ export const ui = {
     "datasetTable.descriptions.recordingDate":
       "Year and month of recording (e.g., `202403`)",
     "datasetTable.descriptions.fps": "Frames per second (e.g., `30`)",
-    "participantsTable.caption": "participants.csv",
+    "participantsTable.caption":
+      "Anonymized attribute information of participants who cooperated in data collection.",
     "participantsTable.descriptions.participantId":
       "Participant identifier (e.g., `18`)",
     "participantsTable.descriptions.ageGroup":
@@ -86,8 +90,11 @@ export const ui = {
     "features.license.title": "学術専用ライセンス",
     "features.license.description":
       "非商用学術研究での使用に制限される条件の下で利用可能",
-    "datasetTable.title": "メタデータ概要",
-    "datasetTable.caption": "metadata.csv",
+    "metadata.title": "メタデータ概要",
+    "metadata.caption":
+      "本データセットに含まれる基本情報と参加者情報の一覧。csvファイルで提供されます。",
+    "datasetTable.caption":
+      "動画ファイルのパス、カテゴリ、収録条件などの基本情報。",
     "datasetTable.field": "フィールド名",
     "datasetTable.type": "型",
     "datasetTable.description": "説明",
@@ -99,7 +106,8 @@ export const ui = {
     "datasetTable.descriptions.participantId": "参加者識別子 (例: `18`)",
     "datasetTable.descriptions.recordingDate": "記録年月 (例: `202403`)",
     "datasetTable.descriptions.fps": "フレームレート (例: `30`)",
-    "participantsTable.caption": "participants.csv",
+    "participantsTable.caption":
+      "データ収集に協力した参加者の匿名化された属性情報。",
     "participantsTable.descriptions.participantId": "参加者識別子 (例: `18`)",
     "participantsTable.descriptions.ageGroup":
       "年齢層 (例: `40` は40-49歳; `-1` は提供なし)",
