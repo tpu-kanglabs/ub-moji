@@ -1,7 +1,9 @@
 ---
 import "../styles/global.css";
+import ogpImage from "@/assets/ogp.png";
 import { useTranslations } from "@/i18n/utils";
 import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
+import { SEO } from "astro-seo";
 
 const isProd = import.meta.env.PROD;
 const lang = Astro.currentLocale || "en";
@@ -16,6 +18,17 @@ const t = useTranslations(lang as "en" | "ja");
 		<link rel="icon" type="image/svg+xml" href="/ub-moji/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{t('site.title')}</title>
+		<SEO
+		  title="ub-MOJI | AI Vision Lab"
+		  description="A Japanese fingerspelling video dataset designed to advance research in sign language recognition."
+		  openGraph={{
+			basic: {
+			title: "ub-MOJI",
+			type: "website",
+			image: ogpImage.src,
+		  }
+      }}
+		/>
 		{isProd && <GoogleAnalytics />}
 	</head>
 	<body>
