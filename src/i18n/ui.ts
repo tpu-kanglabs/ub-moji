@@ -8,6 +8,8 @@ export const defaultLang = "en";
 export const ui = {
   en: {
     "site.title": "ub-MOJI | AI Vision Lab",
+    "site.description":
+      "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition.",
     "nav.papers": "Papers",
     "papers.title": "Related Papers",
     "papers.description": "Publications using this dataset",
@@ -70,12 +72,14 @@ export const ui = {
   },
   ja: {
     "site.title": "ub-MOJI | AI Vision Lab",
+    "site.description":
+      "ub-MOJIは手話認識研究のための日本語指文字映像データセットです。",
     "nav.papers": "Papers",
     "papers.title": "関連論文",
     "papers.description": "本データセットを用いた研究成果",
     "hero.title": "ub-MOJI: 日本語指文字映像データセット",
     "hero.description":
-      "ub-MOJIは手話認識研究の発展を目的とした日本語指文字映像データセットです",
+      "ub-MOJIは手話認識研究のための日本語指文字映像データセットです。",
     "hero.cta": "データセットを見る",
     "features.title": "ub-MOJIの特徴",
     "features.fingerspelling.title": "日本語指文字カバレッジ",
