@@ -1,7 +1,9 @@
 ---
 import "../styles/global.css";
+import ogpImage from "@/assets/ogp.png";
 import { useTranslations } from "@/i18n/utils";
 import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
+import { SEO } from "astro-seo";
 
 const isProd = import.meta.env.PROD;
 const lang = Astro.currentLocale || "en";
@@ -13,9 +15,20 @@ const t = useTranslations(lang as "en" | "ja");
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/ub-moji/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/ub-moji/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{t('site.title')}</title>
+		<SEO
+		  title="ub-MOJI | AI Vision Lab"
+		  description={t('site.description')}
+		  openGraph={{
+			basic: {
+			title: "ub-MOJI",
+			type: "website",
+			image: ogpImage.src,
+		  }
+      }}
+		/>
 		{isProd && <GoogleAnalytics />}
 	</head>
 	<body>
