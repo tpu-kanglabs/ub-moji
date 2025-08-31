@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+import demoVideo from "@/assets/demo.mp4";
 import ogpImage from "@/assets/ogp.png";
+import demoPoster from "@/assets/poster.jpg";
 import { useTranslations } from "@/i18n/utils";
 import GoogleAnalytics from "@/lib/GoogleAnalytics.astro";
 import { SEO } from "astro-seo";
@@ -17,6 +19,8 @@ const ogImageUrl = new URL(ogpImage.src, Astro.site).toString();
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/ub-moji/favicon.ico" />
+		<link rel="preload" as="video" href={demoVideo} type="video/mp4">
+		<link rel="preload" as="image" href={demoPoster.src} fetchpriority="high">
 		<meta name="generator" content={Astro.generator} />
 		<title>{t('site.title')}</title>
 		<SEO
