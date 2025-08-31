@@ -64,6 +64,9 @@ export const ui = {
       "Self-reported hearing ability: `0` (no issue) to `4` (severe), or `-1`(unknown)`",
     "participantsTable.descriptions.faceVisibility":
       "Face visibility consent: `1=agreed`, `0=declined`",
+    "temporalAnnotation.title": "Temporal Annotation",
+    "temporalAnnotation.caption":
+      "ub-MOJI supports temporal action detection tasks. It provides annotations in TOML files indicating the start and end positions of finger-spelling classes for each video sample. Each top-level TOML table represents a single video identified by a unique video ID. All annotations were manually performed by authors or contributors.",
     "authors.title": "Authors",
     "footer.copyright": "All rights reserved.",
     "footer.website": "Website",
@@ -125,6 +128,9 @@ export const ui = {
       "自己申告による聴力レベル: `0` (問題なし) から `4` (重度), または `-1` (不明)",
     "participantsTable.descriptions.faceVisibility":
       "顔の可視性に関する同意: `1=同意`, `0=拒否`",
+    "temporalAnnotation.title": "時間的アノテーション",
+    "temporalAnnotation.caption":
+      "ub-MOJIは時系列行動検出タスクに対応しています。各ビデオサンプルに対する指文字クラスの開始および終了位置を示すアノテーションをTOMLファイルで提供します。各最上位のTOMLテーブルは、一意の動画IDで識別される単一の動画を表します。すべてのアノテーションは著者または貢献者によって手動で行われました。",
     "authors.title": "著者",
     "footer.copyright": "All rights reserved.",
     "footer.website": "ウェブサイト",

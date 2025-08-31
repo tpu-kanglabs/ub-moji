@@ -1,5 +1,6 @@
 ---
 import DataTable from "@/components/Dataset/DataTable.astro";
+import TemporalAnn from "@/components/Dataset/TemporalAnn.astro";
 import { useTranslations } from "@/i18n/utils";
 import { metadata, participants } from "@/lib/dataset-definitions";
 
@@ -23,4 +24,5 @@ const t = useTranslations(lang as "en" | "ja");
   <div class="w-full max-w-2xl mx-auto">
     <DataTable data={participants} />
   </div>
+  <TemporalAnn />
 </section>
