@@ -8,6 +8,7 @@ import { SEO } from "astro-seo";
 const isProd = import.meta.env.PROD;
 const lang = Astro.currentLocale || "en";
 const t = useTranslations(lang as "en" | "ja");
+const ogImageUrl = new URL(ogpImage.src, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -25,7 +26,7 @@ const t = useTranslations(lang as "en" | "ja");
 			basic: {
 			title: "ub-MOJI",
 			type: "website",
-			image: ogpImage.src,
+			image: ogImageUrl,
 		  }
       }}
 		/>
