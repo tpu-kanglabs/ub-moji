@@ -1,0 +1,22 @@
+---
+import video from "@/assets/demo.mp4";
+import poster from "@/assets/poster.jpg";
+---
+<div class="mx-auto max-w-2xl md:px-0 px-4">
+  <figure class="rounded-2xl overflow-hidden shadow">
+    <div class="relative aspect-video">
+      <video
+        class="absolute inset-0 h-full w-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster={poster.src}
+      >
+        <source src={video} type="video/mp4">
+      </video>
+    </div>
+    <figcaption class="sr-only">Dataset Demo</figcaption>
+  </figure>
+</div>
