@@ -1,0 +1,32 @@
+---
+import { Code } from "astro:components";
+
+const bibtexDataset = String.raw`@misc{ubmoji2025,
+  title     = {ub-MOJI},
+  author    = {Tamon Kondo and Ryota Murai and Naoto Tsuta and Yousun Kang},
+  year      = {2025},
+  url       = {https://huggingface.co/datasets/kanglabs/ub-MOJI},
+  publisher = {Hugging Face}
+}
+`;
+
+const bibtexPaper = String.raw`@inproceedings{Murai2025pointSupervisedJF,
+  title     = {Point-Supervised Japanese Fingerspelling Localization via HR-Pro and Contrastive Learning},
+  author    = {Ryota Murai and Naoto Tsuta and Duk Shin and Yousun Kang},
+  booktitle = {Proceedings of 2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
+  year      = {2025},
+}
+`;
+---
+<section class="flex flex-col items-center space-y-8 px-4">
+  <h2 class="text-2xl font-bold text-neutral-900 mt-4 text-center">Citation</h2>
+
+  <div class="container mx-auto flex flex-col gap-8 w-full">
+    <div class="w-full max-w-2xl mx-auto">
+      <Code code={bibtexDataset} class="p-4" lang="bibtex" theme="material-theme-lighter" />
+    </div>
+    <div class="w-full max-w-2xl mx-auto">
+      <Code code={bibtexPaper} class="p-4" lang="bibtex" theme="material-theme-lighter" />
+    </div>
+  </div>
+</section>
