@@ -7,6 +7,8 @@ import react from "@astrojs/react";
 
 import partytown from "@astrojs/partytown";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://tpu-kanglabs.github.io",
@@ -27,5 +29,6 @@ export default defineConfig({
   integrations: [
     react(),
     partytown({ config: { forward: ["dataLayer.push"] } }),
+    sitemap(),
   ],
 });
