@@ -40,6 +40,7 @@ const languageUrls = Object.fromEntries(
       <!-- Desktop nav -->
   <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
         <a href={getRelativeLocaleUrl(currentLang, "papers")}>{t('nav.papers')}</a>
+        <a href={getRelativeLocaleUrl(currentLang, "news")}>{t('nav.news')}</a>
       </nav>
 
       <!-- Language switcher -->
@@ -53,6 +54,8 @@ const languageUrls = Object.fromEntries(
           currentLang={currentLang}
           papersText={t('nav.papers')}
           papersUrl={getRelativeLocaleUrl(currentLang, "papers")}
+          newsText={t('nav.news')}
+          newsUrl={getRelativeLocaleUrl(currentLang, "news")}
           languages={languages}
           languageUrls={languageUrls}
           client:load 
