@@ -72,6 +72,9 @@ export const ui = {
     "footer.website": "Website",
     "footer.github": "GitHub",
     "footer.huggingface": "Hugging Face",
+    "news.title": "News",
+    "news.description": "Latest updates and announcements",
+    "news.empty": "No news published yet.",
   },
   ja: {
     "site.title": "ub-MOJI | AI Vision Lab",
@@ -136,5 +139,8 @@ export const ui = {
     "footer.website": "ウェブサイト",
     "footer.github": "GitHub",
     "footer.huggingface": "Hugging Face",
+    "news.title": "ニュース",
+    "news.description": "最新のお知らせと更新情報",
+    "news.empty": "ニュースはまだ公開されていません。",
   },
 } as const;
