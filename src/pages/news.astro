@@ -1,10 +1,9 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
+import NewsCard from "@/components/News/NewsCard.astro";
 import { useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
-import NewsCard from "@/components/News/NewsCard.astro";
- 
 
 const lang = Astro.currentLocale || "en";
 const t = useTranslations(lang as "en" | "ja");
@@ -23,8 +22,12 @@ type Post = {
 const posts = (await Astro.glob("./news/*.md")) as unknown as Post[];
 
 const sorted = posts.sort((a, b) => {
-  const ad = new Date(a.frontmatter.pubDate || a.frontmatter.date || 0).getTime();
-  const bd = new Date(b.frontmatter.pubDate || b.frontmatter.date || 0).getTime();
+  const ad = new Date(
+    a.frontmatter.pubDate || a.frontmatter.date || 0,
+  ).getTime();
+  const bd = new Date(
+    b.frontmatter.pubDate || b.frontmatter.date || 0,
+  ).getTime();
   return bd - ad;
 });
 
