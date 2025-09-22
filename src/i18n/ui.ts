@@ -76,6 +76,7 @@ export const ui = {
     "news.title": "News",
     "news.description": "Latest updates and announcements",
     "news.empty": "No news published yet.",
+    "news.backToList": "Back to list",
   },
   ja: {
     "site.title": "ub-MOJI | AI Vision Lab",
@@ -144,5 +145,6 @@ export const ui = {
     "news.title": "ニュース",
     "news.description": "最新のお知らせと更新情報",
     "news.empty": "ニュースはまだ公開されていません。",
+    "news.backToList": "一覧に戻る",
   },
 } as const;
