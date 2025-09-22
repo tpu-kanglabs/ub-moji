@@ -8,6 +8,20 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
 import Hero from "@/components/Hero/index.astro";
 import Layout from "@/layouts/Layout.astro";
+import { createT } from "@/lib/i18n";
+import { DEFAULT_LOCALE, LOCALES, isLocale } from "@/lib/locales";
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined } },         // → `/` (default locale)
+    { params: { lang: "en" } },              // → `/en`
+    { params: { lang: "ja" } },              // → `/ja`
+  ];
+}
+
+const raw = Astro.params.lang;
+const lang = isLocale(raw) ? raw : DEFAULT_LOCALE; // fallback to default locale
+const t = createT(lang);
 ---
 
 <Layout>
