@@ -6,7 +6,7 @@ description: '濁音・半濁音・長音の追加'
 tags: ["Release"]
 ---
 
-ub-MOJIバージョン25.09 を公開しました。
+ub-MOJI[バージョン25.09](https://huggingface.co/datasets/kanglabs/ub-MOJI/tree/v25.09) を公開しました。
 
 本リリースでは、新たに以下のデータを追加しました。
 
