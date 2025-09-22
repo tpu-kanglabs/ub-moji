@@ -4,7 +4,7 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/i18n/utils";
+import { createT } from "@/lib/i18n";
 import Layout from "./Layout.astro";
 
 type Frontmatter = {
@@ -17,7 +17,7 @@ type Frontmatter = {
 
 const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
 const lang = Astro.currentLocale || "en";
-const t = useTranslations(lang as "en" | "ja");
+const t = createT(lang as "en" | "ja");
 
 const dateVal = frontmatter.pubDate || frontmatter.date;
 const dateLabel = dateVal

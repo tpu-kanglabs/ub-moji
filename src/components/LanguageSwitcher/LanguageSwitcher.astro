@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { languages } from "@/i18n/ui";
+import { LANGUAGES } from "@/lib/locales";
 import { computeRel } from "@/lib/utils";
 import DropdownLanguageSwitcher from "./DropdownLanguageSwitcher.tsx";
 
@@ -11,13 +11,13 @@ const REPO_SLUG = import.meta.env.BASE_URL
   ? import.meta.env.BASE_URL.replace(/^\/+|\/+$/g, "")
   : "";
 
-const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
+const LOCALES = Object.keys(LANGUAGES) as Array<keyof typeof LANGUAGES>;
 
 const rel = computeRel(pathname, REPO_SLUG, LOCALES);
 
 // If rel is empty, it means the root page
 const languageUrls = Object.fromEntries(
-  Object.keys(languages).map((lang) => [
+  Object.keys(LANGUAGES).map((lang) => [
     lang,
     rel ? getRelativeLocaleUrl(lang, rel) : getRelativeLocaleUrl(lang),
   ]),
@@ -26,7 +26,7 @@ const languageUrls = Object.fromEntries(
 
 <DropdownLanguageSwitcher
   currentLang={currentLang}
-  languages={languages}
+  languages={LANGUAGES}
   languageUrls={languageUrls}
   client:load
 />

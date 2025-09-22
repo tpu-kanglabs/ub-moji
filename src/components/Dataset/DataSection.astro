@@ -1,11 +1,11 @@
 ---
 import DataTable from "@/components/Dataset/DataTable.astro";
 import TemporalAnn from "@/components/Dataset/TemporalAnn.astro";
-import { useTranslations } from "@/i18n/utils";
 import { metadata, participants } from "@/lib/dataset-definitions";
+import { createT } from "@/lib/i18n";
 
 const lang = Astro.currentLocale || "en";
-const t = useTranslations(lang as "en" | "ja");
+const t = createT(lang as "en" | "ja");
 ---
 
 <section class="flex flex-col items-center space-y-8 px-4">

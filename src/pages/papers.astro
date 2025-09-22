@@ -1,12 +1,12 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
-import { useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
+import { createT } from "@/lib/i18n";
 import { papers } from "@/lib/papers";
 
 const lang = Astro.currentLocale || "en";
-const t = useTranslations(lang as "en" | "ja");
+const t = createT(lang as "en" | "ja");
 ---
 
 <Layout>
@@ -18,7 +18,7 @@ const t = useTranslations(lang as "en" | "ja");
     <p class="text-gray-600 mb-6">{t('papers.description')}</p>
 
     {papers.length === 0 ? (
-      <p class="text-gray-600">No papers listed yet.</p>
+      <p class="text-gray-600">{lang === 'ja' ? '関連論文はまだ登録されていません。' : 'No papers listed yet.'}</p>
     ) : (
       <ul class="space-y-6">
         {papers.map((p) => (
@@ -30,7 +30,9 @@ const t = useTranslations(lang as "en" | "ja");
             </div>
             {p.url && (
               <div class="mt-3">
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" class="hover:underline">View paper</a>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                    {lang === 'ja' ? '論文を読む' : 'View paper'}
+                  </a>
               </div>
             )}
           </li>
@@ -40,4 +42,4 @@ const t = useTranslations(lang as "en" | "ja");
   </main>
 
   <Footer />
-  </Layout>
+</Layout>

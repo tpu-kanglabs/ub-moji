@@ -8,8 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ui } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
+import { createT } from "@/lib/i18n";
 
 export interface DataRow {
   field: string;
@@ -24,7 +23,7 @@ export interface Props {
 const { data } = Astro.props;
 
 const lang = (Astro.currentLocale === "ja" ? "ja" : "en") as "en" | "ja";
-const t = useTranslations(lang);
+const t = createT(lang);
 ---
 
 <Table>

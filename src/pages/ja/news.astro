@@ -2,11 +2,11 @@
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
 import NewsCard from "@/components/News/NewsCard.astro";
-import { useTranslations } from "@/i18n/utils";
+import { createT } from "@/lib/i18n";
 import Layout from "../../layouts/Layout.astro";
 
 const lang = Astro.currentLocale || "ja";
-const t = useTranslations(lang as "en" | "ja");
+const t = createT(lang as "en" | "ja");
 
 type Post = {
   frontmatter: {

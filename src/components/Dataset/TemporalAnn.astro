@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import tomlImg from "@/assets/temporal_ann.png";
-import { useTranslations } from "@/i18n/utils";
+import { createT } from "@/lib/i18n";
 
 const lang = Astro.currentLocale || "en";
-const t = useTranslations(lang as "en" | "ja");
+const t = createT(lang as "en" | "ja");
 ---
 <h2 class="text-2xl font-bold text-neutral-900 mt-4">{t('temporalAnnotation.title')}</h2>
     <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
