@@ -1,0 +1,74 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header/index.astro";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/i18n/utils";
+import Layout from "./Layout.astro";
+
+type Frontmatter = {
+  title?: string;
+  description?: string;
+  pubDate?: string | Date;
+  date?: string | Date;
+  tags?: string[];
+};
+
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+const lang = Astro.currentLocale || "en";
+const t = useTranslations(lang as "en" | "ja");
+
+const dateVal = frontmatter.pubDate || frontmatter.date;
+const dateLabel = dateVal
+  ? new Intl.DateTimeFormat(lang as string, {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    }).format(new Date(dateVal))
+  : undefined;
+---
+
+<Layout>
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-10 min-h-screen">
+    <nav class="mb-6">
+      <Button variant="outline" asChild>
+        <a href={getRelativeLocaleUrl(lang as "en" | "ja", "news")}>
+          {t("news.backToList")}
+        </a>
+      </Button>
+    </nav>
+    <header class="mb-8">
+      {frontmatter.title && (
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 mb-3">
+          {frontmatter.title}
+        </h1>
+      )}
+      <div class="flex items-center gap-3 flex-wrap">
+        {dateLabel && (
+          <Badge variant="secondary" asChild>
+            <time datetime={String(dateVal)}>{dateLabel}</time>
+          </Badge>
+        )}
+        {Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {frontmatter.tags.map((tag) => (
+              <Badge variant="outline">{tag}</Badge>
+            ))}
+          </div>
+        )}
+      </div>
+      {frontmatter.description && (
+        <p class="mt-4 text-gray-700">{frontmatter.description}</p>
+      )}
+    </header>
+
+    <article class="md-content">
+      <slot />
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

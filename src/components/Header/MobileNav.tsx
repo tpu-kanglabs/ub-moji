@@ -8,6 +8,8 @@ interface MobileNavProps {
   currentLang: string;
   papersText: string;
   papersUrl: string;
+  newsText: string;
+  newsUrl: string;
   languages: Record<string, string>;
   languageUrls: Record<string, string>;
 }
@@ -16,6 +18,8 @@ export default function MobileNav({
   currentLang,
   papersText,
   papersUrl,
+  newsText,
+  newsUrl,
   languages,
   languageUrls,
 }: MobileNavProps) {
@@ -37,6 +41,12 @@ export default function MobileNav({
             className="text-sm text-gray-800 font-medium py-2 px-3 rounded hover:bg-gray-100 transition"
           >
             {papersText}
+          </a>
+          <a
+            href={newsUrl}
+            className="text-sm text-gray-800 font-medium py-2 px-3 rounded hover:bg-gray-100 transition"
+          >
+            {newsText}
           </a>
 
           <div className="pt-4 border-t">

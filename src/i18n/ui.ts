@@ -11,6 +11,7 @@ export const ui = {
     "site.description":
       "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition.",
     "nav.papers": "Papers",
+    "nav.news": "News",
     "papers.title": "Related Papers",
     "papers.description": "Publications using this dataset",
     "hero.title": "ub-MOJI: A Japanese Fingerspelling Video Dataset",
@@ -72,12 +73,17 @@ export const ui = {
     "footer.website": "Website",
     "footer.github": "GitHub",
     "footer.huggingface": "Hugging Face",
+    "news.title": "News",
+    "news.description": "Latest updates and announcements",
+    "news.empty": "No news published yet.",
+    "news.backToList": "Back to list",
   },
   ja: {
     "site.title": "ub-MOJI | AI Vision Lab",
     "site.description":
       "ub-MOJIは手話認識研究のための日本語指文字映像データセットです。",
     "nav.papers": "Papers",
+    "nav.news": "News",
     "papers.title": "関連論文",
     "papers.description": "本データセットを用いた研究成果",
     "hero.title": "ub-MOJI: 日本語指文字映像データセット",
@@ -136,5 +142,9 @@ export const ui = {
     "footer.website": "ウェブサイト",
     "footer.github": "GitHub",
     "footer.huggingface": "Hugging Face",
+    "news.title": "ニュース",
+    "news.description": "最新のお知らせと更新情報",
+    "news.empty": "ニュースはまだ公開されていません。",
+    "news.backToList": "一覧に戻る",
   },
 } as const;
