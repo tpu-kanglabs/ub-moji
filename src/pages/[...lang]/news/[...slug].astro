@@ -3,61 +3,30 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header/index.astro";
 import Layout from "@/layouts/Layout.astro";
-import { createT } from "@/lib/i18n";
-import { DEFAULT_LOCALE, LOCALES, isLocale } from "@/lib/locales";
+import { useTranslations } from "@/lib/i18n";
+import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
+import {
+  type NewsPost,
+  generatePathsFromPosts,
+  renderNewsPostContent,
+} from "@/lib/news";
 
 export async function getStaticPaths() {
-  const paths = [];
-
   // Get English news posts
-  const enPosts = await Astro.glob("../../news/*.md");
-  for (const post of enPosts) {
-    const slug = post.file.split("/").pop()?.replace(".md", "") || "";
-    
-    // Default locale: /news/slug
-    paths.push({
-      params: { lang: undefined, slug },
-      props: { post, locale: "en" },
-    });
-    
-    // Explicit en: /en/news/slug
-    paths.push({
-      params: { lang: "en", slug },
-      props: { post, locale: "en" },
-    });
-  }
-
+  const enPosts = (await Astro.glob("../../news/*.md")) as NewsPost[];
+  
   // Get Japanese news posts
-  const jaPosts = await Astro.glob("../../ja/news/*.md");
-  for (const post of jaPosts) {
-    const slug = post.file.split("/").pop()?.replace(".md", "") || "";
-    
-    // Japanese locale: /ja/news/slug
-    paths.push({
-      params: { lang: "ja", slug },
-      props: { post, locale: "ja" },
-    });
-  }
-
-  return paths;
+  const jaPosts = (await Astro.glob("../../ja/news/*.md")) as NewsPost[];
+  
+  return generatePathsFromPosts(enPosts, jaPosts);
 }
 
-const raw = Astro.params.lang;
-const lang = isLocale(raw) ? raw : DEFAULT_LOCALE;
-const t = createT(lang);
-const { post } = Astro.props;
+const raw: string | undefined = Astro.params.lang;
+const lang: Locale = isLocale(raw) ? raw : DEFAULT_LOCALE;
+const t = useTranslations(lang);
+const { post }: { post: NewsPost } = Astro.props;
 
-// Check if post has a render method (for Astro.glob imports)
-let Content;
-if (post.render && typeof post.render === 'function') {
-  const rendered = await post.render();
-  Content = rendered.Content;
-} else if (post.Content) {
-  Content = post.Content;
-} else {
-  // Fallback: the post itself might be the content
-  Content = post;
-}
+const Content = await renderNewsPostContent(post);
 ---
 
 <Layout>

@@ -11,7 +11,7 @@ export function getDict(locale: Locale) {
   return dictionaries[locale] || dictionaries.en;
 }
 
-export function createT(locale: Locale) {
+export function useTranslations(locale: Locale) {
   const dict = getDict(locale);
 
   return function t(key: string): string {

@@ -1,9 +1,9 @@
 ---
 import { Button } from "@/components/ui/button";
-import { createT } from "@/lib/i18n";
+import { useTranslations } from "@/lib/i18n";
 
 const lang = Astro.currentLocale || "en";
-const t = createT(lang as "en" | "ja");
+const t = useTranslations(lang as "en" | "ja");
 ---
 
 <div class="flex justify-center gap-4">

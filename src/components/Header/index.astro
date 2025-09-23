@@ -2,14 +2,14 @@
 import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher.astro";
-import { createT } from "@/lib/i18n";
+import { useTranslations } from "@/lib/i18n";
 import { LANGUAGES } from "@/lib/locales";
 import { computeRel } from "@/lib/utils";
 import logo from "../../assets/logo.png";
 import MobileNav from "./MobileNav.tsx";
 
 const currentLang = Astro.currentLocale || "en";
-const t = createT(currentLang as "en" | "ja");
+const t = useTranslations(currentLang as "en" | "ja");
 const pathname = Astro.url.pathname;
 
 const REPO_SLUG = import.meta.env.BASE_URL

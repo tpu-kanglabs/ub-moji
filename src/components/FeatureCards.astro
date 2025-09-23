@@ -1,9 +1,9 @@
 ---
-import { createT } from "@/lib/i18n";
+import { useTranslations } from "@/lib/i18n";
 import { CheckCircle, Lock, Users, Video } from "@lucide/astro";
 
 const lang = Astro.currentLocale || "en";
-const t = createT(lang as "en" | "ja");
+const t = useTranslations(lang as "en" | "ja");
 
 const features = [
   {
