@@ -37,6 +37,8 @@ const fmt = new Intl.DateTimeFormat(lang as string, {
   month: "short",
   day: "2-digit",
 });
+
+const baseUrl = import.meta.env.BASE_URL || "/";
 ---
 
 <Layout>
@@ -57,7 +59,7 @@ const fmt = new Intl.DateTimeFormat(lang as string, {
           
           // Generate URL based on locale using logical slug
           const logicalSlug = extractLogicalSlugFromEntry(post);
-          const url = lang === 'ja' ? `/ja/news/${logicalSlug}` : `/news/${logicalSlug}`;
+          const url = lang === 'ja' ? `${baseUrl}/ja/news/${logicalSlug}` : `${baseUrl}/news/${logicalSlug}`;
           
           return (
             <NewsCard
