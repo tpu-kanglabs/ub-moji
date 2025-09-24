@@ -5,7 +5,11 @@ import NewsCard from "@/components/News/NewsCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { useTranslations } from "@/lib/i18n";
 import { DEFAULT_LOCALE, LOCALES, isLocale } from "@/lib/locales";
-import { getNewsByLocale, extractLogicalSlugFromEntry, type NewsEntry } from "@/lib/news";
+import {
+  type NewsEntry,
+  extractLogicalSlugFromEntry,
+  getNewsByLocale,
+} from "@/lib/news";
 
 export async function getStaticPaths() {
   return [

@@ -6,16 +6,16 @@ import Layout from "@/layouts/Layout.astro";
 import { useTranslations } from "@/lib/i18n";
 import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
 import {
-	type NewsEntry,
-	generatePathsFromEntries,
-	getNewsCollection,
+  type NewsEntry,
+  generatePathsFromEntries,
+  getNewsCollection,
 } from "@/lib/news";
 
 export async function getStaticPaths() {
-	// Get all news entries from Content Collections
-	const allEntries = await getNewsCollection();
+  // Get all news entries from Content Collections
+  const allEntries = await getNewsCollection();
 
-	return generatePathsFromEntries(allEntries);
+  return generatePathsFromEntries(allEntries);
 }
 
 const raw: string | undefined = Astro.params.lang;
