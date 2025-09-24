@@ -16,8 +16,8 @@ export interface NewsPostPath {
 }
 
 export function extractLogicalSlugFromEntry(entry: NewsEntry): string {
-  // Remove locale suffix from slug (e.g., "release-2505-en" -> "release-2505")
-  return entry.slug.replace(/-(?:en|ja)$/, "");
+  // Extract filename from subdirectory path (e.g., "en/release-2505" -> "release-2505")
+  return entry.slug.split("/").pop() || entry.slug;
 }
 
 export async function getNewsCollection(): Promise<NewsEntry[]> {
