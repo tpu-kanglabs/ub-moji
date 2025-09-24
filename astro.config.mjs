@@ -29,6 +29,11 @@ export default defineConfig({
   integrations: [
     react(),
     partytown({ config: { forward: ["dataLayer.push"] } }),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: { en: "en", ja: "ja" },
+      }
+    }),
   ],
 });
