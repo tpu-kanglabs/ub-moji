@@ -1,86 +1,66 @@
+import { getCollection, type CollectionEntry } from "astro:content";
 import type { Locale } from "./locales";
 
-// Astro component type for rendered content
-// biome-ignore lint/suspicious/noExplicitAny: Astro component types are inherently dynamic
-export type AstroComponentType = any;
-
-export interface NewsPost {
-  file: string;
-  frontmatter: {
-    title: string;
-    description?: string;
-    pubDate: string | Date;
-    date?: string | Date;
-    tags?: string[];
-    layout?: string;
-  };
-  render?: () => Promise<{ Content: AstroComponentType }>;
-  Content?: AstroComponentType;
-}
+// Content Collection entry type
+export type NewsEntry = CollectionEntry<"news">;
 
 export interface NewsPostPath {
-  params: {
-    lang: Locale | undefined;
-    slug: string;
-  };
-  props: {
-    post: NewsPost;
-    locale: Locale;
-  };
+	params: {
+		lang: Locale | undefined;
+		slug: string;
+	};
+	props: {
+		post: NewsEntry;
+		locale: Locale;
+	};
 }
 
-export function extractSlugFromFile(filePath: string): string {
-  return filePath.split("/").pop()?.replace(".md", "") || "";
+export function extractLogicalSlugFromEntry(entry: NewsEntry): string {
+	// Remove locale suffix from slug (e.g., "release-2505-en" -> "release-2505")
+	return entry.slug.replace(/-(?:en|ja)$/, "");
 }
 
-export function generatePathsFromPosts(
-  enPosts: NewsPost[],
-  jaPosts: NewsPost[],
+export async function getNewsCollection(): Promise<NewsEntry[]> {
+	return await getCollection("news", ({ data }) => {
+		// Filter out draft posts
+		return !data.draft;
+	});
+}
+
+export async function getNewsByLocale(locale: Locale): Promise<NewsEntry[]> {
+	const allNews = await getNewsCollection();
+	return allNews.filter((entry) => entry.data.locale === locale);
+}
+
+export function generatePathsFromEntries(
+	allEntries: NewsEntry[],
 ): NewsPostPath[] {
-  const paths: NewsPostPath[] = [];
+	const paths: NewsPostPath[] = [];
 
-  // Process English news posts
-  for (const post of enPosts) {
-    const slug = extractSlugFromFile(post.file);
+	for (const entry of allEntries) {
+		const slug = extractLogicalSlugFromEntry(entry);
+		const locale = entry.data.locale;
 
-    // Default locale: /news/slug
-    paths.push({
-      params: { lang: undefined, slug },
-      props: { post, locale: "en" },
-    });
+		if (locale === "en") {
+			// Default locale: /news/slug
+			paths.push({
+				params: { lang: undefined, slug },
+				props: { post: entry, locale: "en" },
+			});
 
-    // Explicit en: /en/news/slug
-    paths.push({
-      params: { lang: "en", slug },
-      props: { post, locale: "en" },
-    });
-  }
+			// Explicit en: /en/news/slug
+			paths.push({
+				params: { lang: "en", slug },
+				props: { post: entry, locale: "en" },
+			});
+		} else if (locale === "ja") {
+			// Japanese locale: /ja/news/slug
+			paths.push({
+				params: { lang: "ja", slug },
+				props: { post: entry, locale: "ja" },
+			});
+		}
+	}
 
-  // Process Japanese news posts
-  for (const post of jaPosts) {
-    const slug = extractSlugFromFile(post.file);
-
-    // Japanese locale: /ja/news/slug
-    paths.push({
-      params: { lang: "ja", slug },
-      props: { post, locale: "ja" },
-    });
-  }
-
-  return paths;
-}
-
-export async function renderNewsPostContent(
-  post: NewsPost,
-): Promise<AstroComponentType> {
-  // Check if post has a render method (for Astro.glob imports)
-  if (post.render && typeof post.render === "function") {
-    const rendered = await post.render();
-    return rendered.Content;
-  }
-  if (post.Content) {
-    return post.Content;
-  }
-  // Fallback: the post itself might be the content
-  return post;
+	return paths;
 }

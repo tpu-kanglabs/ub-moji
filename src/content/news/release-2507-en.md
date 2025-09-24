@@ -1,9 +1,9 @@
 ---
-layout: ../../layouts/NewsPostLayout.astro
 title: 'Release of version 25.07'
 pubDate: 2025-07-07
 description: 'New participants, classes.csv, and dataset library support in version 25.07.'
 tags: ["Release"]
+locale: en
 ---
 
 We are pleased to announce the release of [version 25.07](https://huggingface.co/datasets/kanglabs/ub-MOJI/tree/v25.07).

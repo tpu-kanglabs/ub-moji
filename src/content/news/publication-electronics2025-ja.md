@@ -1,9 +1,9 @@
 ---
-layout: ../../../layouts/NewsPostLayout.astro
 title: 'ub-MOJIを用いた研究論文が出版されました'
 pubDate: 2025-07-30
 description: 'ub-MOJIを活用した研究成果が、学術誌 Electronics に掲載されました。'
 tags: ["Publication"]
+locale: ja
 ---
 
 [論文リンク](https://www.mdpi.com/2079-9292/14/15/3052) | [大学広報ページ](https://www.t-kougei.ac.jp/activity/archives/2025/article_86510.html)

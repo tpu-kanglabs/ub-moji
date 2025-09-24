@@ -6,27 +6,24 @@ import Layout from "@/layouts/Layout.astro";
 import { useTranslations } from "@/lib/i18n";
 import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
 import {
-  type NewsPost,
-  generatePathsFromPosts,
-  renderNewsPostContent,
+	type NewsEntry,
+	generatePathsFromEntries,
+	getNewsCollection,
 } from "@/lib/news";
 
 export async function getStaticPaths() {
-  // Get English news posts
-  const enPosts = (await Astro.glob("../../news/*.md")) as NewsPost[];
+	// Get all news entries from Content Collections
+	const allEntries = await getNewsCollection();
 
-  // Get Japanese news posts
-  const jaPosts = (await Astro.glob("../../ja/news/*.md")) as NewsPost[];
-
-  return generatePathsFromPosts(enPosts, jaPosts);
+	return generatePathsFromEntries(allEntries);
 }
 
 const raw: string | undefined = Astro.params.lang;
 const lang: Locale = isLocale(raw) ? raw : DEFAULT_LOCALE;
 const t = useTranslations(lang);
-const { post }: { post: NewsPost } = Astro.props;
+const { post }: { post: NewsEntry } = Astro.props;
 
-const Content = await renderNewsPostContent(post);
+const { Content } = await post.render();
 ---
 
 <Layout>
@@ -42,15 +39,15 @@ const Content = await renderNewsPostContent(post);
     <article class="prose prose-lg max-w-4xl mx-auto">
       <header class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-4">
-          {post.frontmatter.title}
+          {post.data.title}
         </h1>
-        {post.frontmatter.pubDate && (
+        {post.data.pubDate && (
           <time class="text-gray-600">
             {new Intl.DateTimeFormat(lang, {
               year: "numeric",
               month: "long",
               day: "numeric",
-            }).format(new Date(post.frontmatter.pubDate))}
+            }).format(new Date(post.data.pubDate))}
           </time>
         )}
       </header>

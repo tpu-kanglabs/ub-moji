@@ -5,6 +5,7 @@ import NewsCard from "@/components/News/NewsCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { useTranslations } from "@/lib/i18n";
 import { DEFAULT_LOCALE, LOCALES, isLocale } from "@/lib/locales";
+import { getNewsByLocale, extractLogicalSlugFromEntry, type NewsEntry } from "@/lib/news";
 
 export async function getStaticPaths() {
   return [
@@ -18,32 +19,12 @@ const raw = Astro.params.lang;
 const lang = isLocale(raw) ? raw : DEFAULT_LOCALE; // fallback to default locale
 const t = useTranslations(lang);
 
-type Post = {
-  frontmatter: {
-    pubDate?: string | Date;
-    date?: string | Date;
-    title?: string;
-    description?: string;
-    tags?: string[];
-  };
-  url: string;
-};
-
-// Get posts based on locale
-let posts: Post[] = [];
-if (lang === "ja") {
-  posts = (await Astro.glob("../ja/news/*.md")) as unknown as Post[];
-} else {
-  posts = (await Astro.glob("../news/*.md")) as unknown as Post[];
-}
+// Get posts based on locale from Content Collections
+const posts = await getNewsByLocale(lang);
 
 const sorted = posts.sort((a, b) => {
-  const ad = new Date(
-    a.frontmatter.pubDate || a.frontmatter.date || 0,
-  ).getTime();
-  const bd = new Date(
-    b.frontmatter.pubDate || b.frontmatter.date || 0,
-  ).getTime();
+  const ad = new Date(a.data.pubDate).getTime();
+  const bd = new Date(b.data.pubDate).getTime();
   return bd - ad;
 });
 
@@ -66,17 +47,22 @@ const fmt = new Intl.DateTimeFormat(lang as string, {
     ) : (
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {sorted.map((post) => {
-          const d = post.frontmatter.pubDate || post.frontmatter.date;
+          const d = post.data.pubDate;
           const iso = d ? String(d) : undefined;
           const label = d ? fmt.format(new Date(d)) : undefined;
+          
+          // Generate URL based on locale using logical slug
+          const logicalSlug = extractLogicalSlugFromEntry(post);
+          const url = lang === 'ja' ? `/ja/news/${logicalSlug}` : `/news/${logicalSlug}`;
+          
           return (
             <NewsCard
-              url={post.url}
-              title={post.frontmatter.title || ""}
-              description={post.frontmatter.description}
+              url={url}
+              title={post.data.title}
+              description={post.data.description}
               dateISO={iso}
               dateLabel={label}
-              tags={post.frontmatter.tags as string[] | undefined}
+              tags={post.data.tags}
             />
           );
         })}
