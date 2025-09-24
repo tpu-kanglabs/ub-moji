@@ -19,7 +19,7 @@ const lang = isLocale(raw) ? raw : DEFAULT_LOCALE; // fallback to default locale
 const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout title={t('papers.title')} description={t('papers.description')}>
   <Header />
 
   <main class="container mx-auto px-4 py-10">

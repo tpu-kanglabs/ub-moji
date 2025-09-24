@@ -3,6 +3,10 @@
     "title": "ub-MOJI | AI Vision Lab",
     "description": "ub-MOJIは、手話認識研究の発展を目的とした日本語指文字動画データセットです。"
   },
+  "home": {
+    "title": "ホーム",
+    "description": "ub-MOJIは、手話認識研究の発展を目的とした日本語指文字動画データセットです。"
+  },
   "nav": {
     "papers": "関連論文",
     "news": "ニュース"
