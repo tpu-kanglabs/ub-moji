@@ -14,10 +14,10 @@ import {
 export async function getStaticPaths() {
   // Get English news posts
   const enPosts = (await Astro.glob("../../news/*.md")) as NewsPost[];
-  
+
   // Get Japanese news posts
   const jaPosts = (await Astro.glob("../../ja/news/*.md")) as NewsPost[];
-  
+
   return generatePathsFromPosts(enPosts, jaPosts);
 }
 
