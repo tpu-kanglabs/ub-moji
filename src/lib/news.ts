@@ -29,8 +29,7 @@ export function getLocaleFromEntry(entry: NewsEntry): Locale {
   ) {
     return pathParts[0] as Locale;
   }
-  // Fallback to frontmatter locale
-  return entry.data.locale;
+  return "en"; // Default locale
 }
 
 export async function getNewsCollection(): Promise<NewsEntry[]> {
