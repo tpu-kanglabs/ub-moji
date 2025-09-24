@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/NewsPostLayout.astro
 title: 'Release of version 25.09'
 pubDate: 2025-09-23
 description: 'Add new data for voiced sounds, semi-voiced sounds, and long vowels'

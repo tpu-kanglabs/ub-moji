@@ -1,10 +1,10 @@
 ---
-layout: ../../../layouts/NewsPostLayout.astro
 title: 'バージョン 25.05のリリース'
 pubDate: 2025-05-30
 description: '日本初となる日本語指文字データセット「ub-MOJI」を公開しました。'
 tags: ["Release"]
 ---
+
 ![](https://cdn-uploads.huggingface.co/production/uploads/666bac404e6657b7d191de98/ftTv970hei0Cc0aCQtmgx.png)
 
 [バージョン 25.05](https://huggingface.co/datasets/kanglabs/ub-MOJI/tree/v25.05) をリリースしました。  
@@ -22,4 +22,4 @@ tags: ["Release"]
 
 今後も参加者やデータの種類を拡充し、より幅広い研究用途に対応できるようアップデートを重ねていく予定です。  
 
-日本語指文字を活用した研究が発展し、教育や支援技術の向上に役立つことを願っています。  
+日本語指文字を活用した研究が発展し、教育や支援技術の向上に役立つことを願っています。

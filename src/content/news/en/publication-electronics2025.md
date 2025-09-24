@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/NewsPostLayout.astro
 title: 'A Research Paper Using ub-MOJI Has Been Published'
 pubDate: 2025-07-30
 description: 'A research paper utilizing ub-MOJI has been published in the journal Electronics.'
@@ -32,3 +31,4 @@ ARTICLE-NUMBER = {3052},
 URL = {https://www.mdpi.com/2079-9292/14/15/3052},
 DOI = {10.3390/electronics14153052}
 }
+```

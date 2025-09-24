@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/NewsPostLayout.astro
 title: 'バージョン 25.07のリリース'
 pubDate: 2025-07-07
 description: 'バージョン 25.07 では、12名の新規参加者データ、classes.csv の追加、Hugging Face データセット形式への対応を行いました。'

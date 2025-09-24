@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/NewsPostLayout.astro
 title: 'バージョン 25.09のリリース'
 pubDate: 2025-09-23
 description: '濁音・半濁音・長音の追加'

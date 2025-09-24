@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/NewsPostLayout.astro
 title: 'ub-MOJIを用いた研究論文が出版されました'
 pubDate: 2025-07-30
 description: 'ub-MOJIを活用した研究成果が、学術誌 Electronics に掲載されました。'

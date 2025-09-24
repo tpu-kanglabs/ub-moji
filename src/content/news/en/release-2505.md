@@ -1,10 +1,10 @@
 ---
-layout: ../../layouts/NewsPostLayout.astro
 title: 'Release of Version 25.05'
 pubDate: 2025-05-30
 description: 'We are excited to announce the public release of ub-MOJI, the first Japanese fingerspelling dataset.'
 tags: ["Release"]
 ---
+
 ![](https://cdn-uploads.huggingface.co/production/uploads/666bac404e6657b7d191de98/ftTv970hei0Cc0aCQtmgx.png)
 
 We are excited to announce the release of [Version 25.05](https://huggingface.co/datasets/kanglabs/ub-MOJI/tree/v25.05).  
@@ -24,5 +24,4 @@ The initial release (v25.05) includes:
 
 We plan to expand the dataset with more participants and additional data types in future releases, making it suitable for a wider range of research applications.  
 
-We hope that ub-MOJI will support advances in research on fingerspelling recognition, education, and assistive technologies.  
-
+We hope that ub-MOJI will support advances in research on fingerspelling recognition, education, and assistive technologies.

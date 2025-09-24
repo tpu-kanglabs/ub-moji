@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/NewsPostLayout.astro
 title: 'Release of version 25.07'
 pubDate: 2025-07-07
 description: 'New participants, classes.csv, and dataset library support in version 25.07.'
