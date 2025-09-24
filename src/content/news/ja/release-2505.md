@@ -3,7 +3,6 @@ title: 'バージョン 25.05のリリース'
 pubDate: 2025-05-30
 description: '日本初となる日本語指文字データセット「ub-MOJI」を公開しました。'
 tags: ["Release"]
-locale: ja
 ---
 
 ![](https://cdn-uploads.huggingface.co/production/uploads/666bac404e6657b7d191de98/ftTv970hei0Cc0aCQtmgx.png)

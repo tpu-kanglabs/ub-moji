@@ -3,7 +3,6 @@ title: 'バージョン 25.09のリリース'
 pubDate: 2025-09-23
 description: '濁音・半濁音・長音の追加'
 tags: ["Release"]
-locale: ja
 ---
 
 ub-MOJI[バージョン25.09](https://huggingface.co/datasets/kanglabs/ub-MOJI/tree/v25.09) を公開しました。

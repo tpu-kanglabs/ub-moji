@@ -8,7 +8,6 @@ const newsCollection = defineCollection({
     description: z.string().optional(),
     tags: z.array(z.string()).optional(),
     draft: z.boolean().default(false),
-    locale: z.enum(["en", "ja"]),
   }),
 });
 

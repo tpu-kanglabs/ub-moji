@@ -3,7 +3,6 @@ title: 'Release of Version 25.05'
 pubDate: 2025-05-30
 description: 'We are excited to announce the public release of ub-MOJI, the first Japanese fingerspelling dataset.'
 tags: ["Release"]
-locale: en
 ---
 
 ![](https://cdn-uploads.huggingface.co/production/uploads/666bac404e6657b7d191de98/ftTv970hei0Cc0aCQtmgx.png)
