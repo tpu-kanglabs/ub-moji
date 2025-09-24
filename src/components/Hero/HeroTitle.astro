@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from "@/i18n/utils";
+import { useTranslations } from "@/lib/i18n";
 
 const lang = Astro.currentLocale || "en";
 const t = useTranslations(lang as "en" | "ja");

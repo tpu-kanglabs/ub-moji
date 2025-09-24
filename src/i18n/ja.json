@@ -1,0 +1,88 @@
+{
+  "site": {
+    "title": "ub-MOJI | AI Vision Lab",
+    "description": "ub-MOJIは、手話認識研究の発展を目的とした日本語指文字動画データセットです。"
+  },
+  "nav": {
+    "papers": "関連論文",
+    "news": "ニュース"
+  },
+  "hero": {
+    "title": "ub-MOJI: 日本語指文字動画データセット",
+    "description": "ub-MOJIは、手話認識研究の発展を目的とした日本語指文字動画データセットです",
+    "cta": "データセットを見る"
+  },
+  "features": {
+    "title": "ub-MOJI の特徴",
+    "fingerspelling": {
+      "title": "日本語指文字の網羅的収録",
+      "description": "音節、5文字シーケンス、単語の各カテゴリに対応"
+    },
+    "temporal": {
+      "title": "時間的アノテーション",
+      "description": "指文字の各単位に対する正確な開始・終了時刻"
+    },
+    "metadata": {
+      "title": "詳細な参加者メタデータ",
+      "description": "参加者を考慮したモデリングと分析のための詳細な人口統計情報と同意メタデータを含む"
+    },
+    "license": {
+      "title": "学術利用専用ライセンス",
+      "description": "非商用の学術研究に使用を制限する条件の下で利用可能"
+    }
+  },
+  "papers": {
+    "title": "関連論文",
+    "description": "このデータセットを使用した研究論文"
+  },
+  "news": {
+    "title": "ニュース",
+    "description": "最新のお知らせと更新情報",
+    "empty": "ニュースはまだ公開されていません。",
+    "backToList": "一覧に戻る"
+  },
+  "authors": {
+    "title": "著者"
+  },
+  "metadata": {
+    "title": "メタデータ概要",
+    "caption": "このデータセットに含まれる基本情報と参加者情報の概要。CSVファイルとして提供されます。"
+  },
+  "datasetTable": {
+    "caption": "動画ファイルのパス、カテゴリ、収録条件などの基本情報。",
+    "field": "フィールド名",
+    "type": "型",
+    "description": "説明",
+    "descriptions": {
+      "fileName": "ビデオサンプルのファイルパス",
+      "classes": "指文字の単位 (例: `[\"a\"]`, `[\"ka\", \"ma\", \"ku\", \"ra\"]`)",
+      "category": "言語単位のカテゴリ: `0=音節`, `1=シーケンス`, `2=単語`",
+      "participantId": "参加者識別子 (例: `18`)",
+      "recordingDate": "記録年月 (例: `202403`)",
+      "participantGender": "参加者の性別: `male`, `female`, または `unknown`",
+      "participantAge": "記録時の参加者年齢: `18-23`, `24-29`, ..., `60+`, または `-1` (不明)",
+      "signLanguageExperience": "手話経験年数: `1-3`, `4-6`, ..., `51+` または `-1` のいずれか",
+      "hearingLevel": "自己申告による聴力レベル: `0` (問題なし) から `4` (重度), または `-1` (不明)",
+      "faceVisibility": "顔の可視性に関する同意: `1=同意`, `0=拒否`"
+    }
+  },
+  "participantsTable": {
+    "caption": "データセットに含まれる参加者の人口統計情報と同意の詳細。",
+    "descriptions": {
+      "participantId": "参加者の一意識別子",
+      "gender": "参加者の性別: `male`, `female`, または `unknown`",
+      "age": "記録時の参加者年齢グループ: `18-23`, `24-29`, ..., `60+`, または `-1` (不明)",
+      "signLanguageExperience": "手話経験年数: `1-3`, `4-6`, ..., `51+` または `-1` のいずれか",
+      "hearingLevel": "自己申告による聴力レベル: `0` (問題なし) から `4` (重度), または `-1` (不明)",
+      "faceVisibility": "顔の可視性に関する同意: `1=同意`, `0=拒否`"
+    }
+  },
+  "temporalAnnotation": {
+    "title": "時間的アノテーション",
+    "caption": "指文字シーケンスの正確な開始・終了時刻を示す時間的アノテーションの例。各行は、フレームレベルの精度を持つ指文字単位を表しています。"
+  },
+  "demo": {
+    "title": "サンプル動画",
+    "caption": "さまざまな指文字パターンを示すub-MOJIデータセットの代表的なサンプル"
+  }
+}

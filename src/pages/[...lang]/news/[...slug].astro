@@ -1,0 +1,65 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header/index.astro";
+import Layout from "@/layouts/Layout.astro";
+import { useTranslations } from "@/lib/i18n";
+import { DEFAULT_LOCALE, type Locale, isLocale } from "@/lib/locales";
+import {
+  type NewsPost,
+  generatePathsFromPosts,
+  renderNewsPostContent,
+} from "@/lib/news";
+
+export async function getStaticPaths() {
+  // Get English news posts
+  const enPosts = (await Astro.glob("../../news/*.md")) as NewsPost[];
+
+  // Get Japanese news posts
+  const jaPosts = (await Astro.glob("../../ja/news/*.md")) as NewsPost[];
+
+  return generatePathsFromPosts(enPosts, jaPosts);
+}
+
+const raw: string | undefined = Astro.params.lang;
+const lang: Locale = isLocale(raw) ? raw : DEFAULT_LOCALE;
+const t = useTranslations(lang);
+const { post }: { post: NewsPost } = Astro.props;
+
+const Content = await renderNewsPostContent(post);
+---
+
+<Layout>
+  <Header />
+
+  <main class="container mx-auto px-4 py-10 min-h-screen">
+    <nav class="mb-6">
+      <a href={getRelativeLocaleUrl(lang, "news")} class="text-blue-600 hover:underline">
+        ← {t("news.backToList")}
+      </a>
+    </nav>
+
+    <article class="prose prose-lg max-w-4xl mx-auto">
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          {post.frontmatter.title}
+        </h1>
+        {post.frontmatter.pubDate && (
+          <time class="text-gray-600">
+            {new Intl.DateTimeFormat(lang, {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }).format(new Date(post.frontmatter.pubDate))}
+          </time>
+        )}
+      </header>
+
+      <div class="text-gray-800 leading-relaxed">
+        <Content />
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

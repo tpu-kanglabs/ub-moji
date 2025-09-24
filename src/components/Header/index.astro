@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher.astro";
-import { languages } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
+import { useTranslations } from "@/lib/i18n";
+import { LANGUAGES } from "@/lib/locales";
 import { computeRel } from "@/lib/utils";
 import logo from "../../assets/logo.png";
 import MobileNav from "./MobileNav.tsx";
@@ -16,13 +16,13 @@ const REPO_SLUG = import.meta.env.BASE_URL
   ? import.meta.env.BASE_URL.replace(/^\/+|\/+$/g, "")
   : "";
 
-const LOCALES = Object.keys(languages) as Array<keyof typeof languages>;
+const LOCALES = Object.keys(LANGUAGES) as Array<keyof typeof LANGUAGES>;
 
 const rel = computeRel(pathname, REPO_SLUG, LOCALES);
 
 // If rel is empty, it means the root page
 const languageUrls = Object.fromEntries(
-  Object.keys(languages).map((lang) => [
+  Object.keys(LANGUAGES).map((lang) => [
     lang,
     rel ? getRelativeLocaleUrl(lang, rel) : getRelativeLocaleUrl(lang),
   ]),
@@ -56,7 +56,7 @@ const languageUrls = Object.fromEntries(
           papersUrl={getRelativeLocaleUrl(currentLang, "papers")}
           newsText={t('nav.news')}
           newsUrl={getRelativeLocaleUrl(currentLang, "news")}
-          languages={languages}
+          languages={LANGUAGES}
           languageUrls={languageUrls}
           client:load 
         />

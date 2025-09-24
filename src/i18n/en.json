@@ -1,0 +1,88 @@
+{
+  "site": {
+    "title": "ub-MOJI | AI Vision Lab",
+    "description": "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition."
+  },
+  "nav": {
+    "papers": "Papers",
+    "news": "News"
+  },
+  "hero": {
+    "title": "ub-MOJI: A Japanese Fingerspelling Video Dataset",
+    "description": "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition",
+    "cta": "View Dataset"
+  },
+  "features": {
+    "title": "ub-MOJI Features",
+    "fingerspelling": {
+      "title": "Japanese Fingerspelling Coverage",
+      "description": "Supports syllables, 5-character sequences, and full words"
+    },
+    "temporal": {
+      "title": "Temporal Annotation",
+      "description": "Precise start-end timing for every fingerspelled unit"
+    },
+    "metadata": {
+      "title": "Rich Participant Metadata",
+      "description": "Includes detailed demographic and consent metadata for participant-aware modeling and analysis."
+    },
+    "license": {
+      "title": "Academic-Only License",
+      "description": "Available under terms restricting use to non-commercial academic research"
+    }
+  },
+  "papers": {
+    "title": "Related Papers",
+    "description": "Publications using this dataset"
+  },
+  "news": {
+    "title": "News",
+    "description": "Latest updates and announcements",
+    "empty": "No news has been published yet.",
+    "backToList": "Back to list"
+  },
+  "authors": {
+    "title": "Authors"
+  },
+  "metadata": {
+    "title": "Metadata Overview",
+    "caption": "An overview of the basic information and participant information included in this dataset. Provided as CSV files."
+  },
+  "datasetTable": {
+    "caption": "Basic information such as the video file path, category, and recording conditions.",
+    "field": "Field Name",
+    "type": "Type",
+    "description": "Description",
+    "descriptions": {
+      "fileName": "File path of the video sample",
+      "classes": "Fingerspelled unit (e.g., `[\"a\"]`, `[\"ka\", \"ma\", \"ku\", \"ra\"]`)",
+      "category": "Linguistic unit category: `0=syllable`, `1=sequence`, or `2=word`",
+      "participantId": "Participant identifier (e.g., `18`)",
+      "recordingDate": "Year and month of recording (e.g., `202403`)",
+      "participantGender": "Gender of the participant: `male`, `female`, or `unknown`",
+      "participantAge": "Age of the participant at time of recording: `18-23`, `24-29`, ..., `60+`, or `-1` (unknown)",
+      "signLanguageExperience": "Years of sign language experience: `1-3`, `4-6`, ..., `51+`, or `-1`",
+      "hearingLevel": "Self-reported hearing level: `0` (no issues) to `4` (severe), or `-1` (unknown)",
+      "faceVisibility": "Face visibility consent: `1=consented`, `0=declined`"
+    }
+  },
+  "participantsTable": {
+    "caption": "Demographic information and consent details for participants in the dataset.",
+    "descriptions": {
+      "participantId": "Unique identifier for the participant",
+      "gender": "Gender of the participant: `male`, `female`, or `unknown`",
+      "age": "Age group of the participant at time of recording: `18-23`, `24-29`, ..., `60+`, or `-1` (unknown)",
+      "signLanguageExperience": "Years of sign language experience: `1-3`, `4-6`, ..., `51+`, or `-1`",
+      "hearingLevel": "Self-reported hearing level: `0` (no issues) to `4` (severe), or `-1` (unknown)",
+      "faceVisibility": "Face visibility consent: `1=consented`, `0=declined`"
+    }
+  },
+  "temporalAnnotation": {
+    "title": "Temporal Annotation",
+    "caption": "Example temporal annotation showing precise start and end timing for fingerspelling sequences. Each row represents a fingerspelling unit with frame-level accuracy."
+  },
+  "demo": {
+    "title": "Sample Videos",
+    "caption": "Representative samples from the ub-MOJI dataset showing various fingerspelling patterns"
+  }
+}
