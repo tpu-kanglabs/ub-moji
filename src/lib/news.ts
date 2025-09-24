@@ -20,6 +20,19 @@ export function extractLogicalSlugFromEntry(entry: NewsEntry): string {
   return entry.slug.split("/").pop() || entry.slug;
 }
 
+export function getLocaleFromEntry(entry: NewsEntry): Locale {
+  // Extract locale from slug path (e.g., "en/release-2505" -> "en")
+  const pathParts = entry.slug.split("/");
+  if (
+    pathParts.length > 1 &&
+    (pathParts[0] === "en" || pathParts[0] === "ja")
+  ) {
+    return pathParts[0] as Locale;
+  }
+  // Fallback to frontmatter locale
+  return entry.data.locale;
+}
+
 export async function getNewsCollection(): Promise<NewsEntry[]> {
   return await getCollection("news", ({ data }) => {
     // Filter out draft posts
@@ -29,7 +42,7 @@ export async function getNewsCollection(): Promise<NewsEntry[]> {
 
 export async function getNewsByLocale(locale: Locale): Promise<NewsEntry[]> {
   const allNews = await getNewsCollection();
-  return allNews.filter((entry) => entry.data.locale === locale);
+  return allNews.filter((entry) => getLocaleFromEntry(entry) === locale);
 }
 
 export function generatePathsFromEntries(
@@ -39,7 +52,7 @@ export function generatePathsFromEntries(
 
   for (const entry of allEntries) {
     const slug = extractLogicalSlugFromEntry(entry);
-    const locale = entry.data.locale;
+    const locale = getLocaleFromEntry(entry);
 
     if (locale === "en") {
       // Default locale: /news/slug
