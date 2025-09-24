@@ -12,6 +12,9 @@ const baseUrl = import.meta.env.BASE_URL || "/";
 const lang = Astro.currentLocale || "en";
 const t = useTranslations(lang as "en" | "ja");
 const ogImageUrl = new URL(ogpImage.src, Astro.site).toString();
+
+const { title = t("site.title"), description = t("site.description") } =
+  Astro.props;
 ---
 
 <!doctype html>
@@ -24,13 +27,14 @@ const ogImageUrl = new URL(ogpImage.src, Astro.site).toString();
 		<link rel="preload" as="image" href={demoPoster.src} fetchpriority="high">
 		<link rel="sitemap" href={`${baseUrl}/sitemap-index.xml`} />
 		<meta name="generator" content={Astro.generator} />
-		<title>{t('site.title')}</title>
+		<title>{title} | ub-MOJI</title>
 		<SEO
-		  title="ub-MOJI | AI Vision Lab"
-		  description={t('site.description')}
+		  title="%s | ub-MOJI"
+		  titleDefault="ub-MOJI"
+		  description={description}
 		  openGraph={{
 			basic: {
-			title: "ub-MOJI",
+			title: `${title} | ub-MOJI`,
 			type: "website",
 			image: ogImageUrl,
 		  }

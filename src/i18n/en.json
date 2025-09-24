@@ -3,6 +3,10 @@
     "title": "ub-MOJI | AI Vision Lab",
     "description": "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition."
   },
+  "home": {
+    "title": "Home",
+    "description": "ub-MOJI is a Japanese fingerspelling video dataset designed to advance research in sign language recognition"
+  },
   "nav": {
     "papers": "Papers",
     "news": "News"

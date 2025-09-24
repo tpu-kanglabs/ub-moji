@@ -24,7 +24,7 @@ const lang = isLocale(raw) ? raw : DEFAULT_LOCALE; // fallback to default locale
 const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout title={t("home.title")} description={t("home.description")}>
   <Header />
   <Hero />
   <DemoVideo />
