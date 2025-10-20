@@ -19,7 +19,7 @@ importers:
         version: 3.6.0
       '@lucide/astro':
         specifier: ^0.545.0
-        version: 0.545.0(astro@5.14.4(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
+        version: 0.545.0(astro@5.14.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -36,8 +36,8 @@ importers:
         specifier: ^19.2.2
         version: 19.2.2(@types/react@19.2.2)
       astro:
-        specifier: ^5.14.4
-        version: 5.14.4(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+        specifier: ^5.14.5
+        version: 5.14.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(typescript@5.8.3)
@@ -1152,8 +1152,8 @@ packages:
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
-  astro@5.14.4:
-    resolution: {integrity: sha512-yqgMAO2Whi9GmZkByyiPcG7CiiPr0Me0iBSorMa6M0g+wQk/ewnIqUyr7T/uFCPTQndoKwucnYFTrf0yfb0urw==}
+  astro@5.14.6:
+    resolution: {integrity: sha512-MSdjKt2W2a56x868DqDWgbfw4D689/8EGhHG4465h7eivTI237u1aBx4iJvgI6WfgdUE61+coAvMjUkEvOWbpA==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2084,6 +2084,7 @@ packages:
   sitemap@8.0.0:
     resolution: {integrity: sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    deprecated: 'SECURITY: Multiple vulnerabilities fixed in 8.0.1 (XML injection, path traversal, command injection, protocol injection). Upgrade immediately: npm install sitemap@8.0.1'
     hasBin: true
 
   smol-toml@1.4.2:
@@ -3057,9 +3058,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.545.0(astro@5.14.4(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
+  '@lucide/astro@0.545.0(astro@5.14.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
     dependencies:
-      astro: 5.14.4(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+      astro: 5.14.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -3577,7 +3578,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.14.4(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
+  astro@5.14.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.4
