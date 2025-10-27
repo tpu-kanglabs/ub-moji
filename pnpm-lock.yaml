@@ -27,7 +27,7 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(@types/react@19.2.2)(react@19.2.0)
       '@tailwindcss/vite':
-        specifier: ^4.1.15
+        specifier: ^4.1.16
         version: 4.1.16(vite@6.3.6(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@types/react':
         specifier: ^19.2.2
@@ -63,7 +63,7 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       tailwindcss:
-        specifier: ^4.1.15
+        specifier: ^4.1.16
         version: 4.1.16
     devDependencies:
       '@biomejs/biome':
