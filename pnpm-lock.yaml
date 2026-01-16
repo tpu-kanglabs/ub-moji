@@ -19,7 +19,7 @@ importers:
         version: 3.6.1
       '@lucide/astro':
         specifier: ^0.562.0
-        version: 0.562.0(astro@5.16.8(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
+        version: 0.562.0(astro@5.16.9(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -36,8 +36,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.8)
       astro:
-        specifier: ^5.16.8
-        version: 5.16.8(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+        specifier: ^5.16.9
+        version: 5.16.9(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(typescript@5.8.3)
@@ -1159,8 +1159,8 @@ packages:
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
-  astro@5.16.8:
-    resolution: {integrity: sha512-gzZE+epuCrNuxOa8/F1dzkllDOFvxWhGeobQKeBRIAef5sUpUKMHZo/8clse+02rYnKJCgwXBgjW4uTu9mqUUw==}
+  astro@5.16.9:
+    resolution: {integrity: sha512-gJvoZv0v8xCcKBcsxz1ZfXqoJ7sJJcyoKP8bUTjkuD4vDShLe0N26em4LQxitVv/2HLOpldQg67bEHB/qGoxJA==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1432,14 +1432,6 @@ packages:
 
   fastq@1.19.1:
     resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
-
-  fdir@6.4.5:
-    resolution: {integrity: sha512-4BG7puHpVsIYxZUbiUE3RqGloLaSSwzYie5jvasC4LWuBWzZawynvYouhjbQKw2JuIGYdm0DzIxl8iVidKlUEw==}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -2180,10 +2172,6 @@ packages:
   tinyexec@1.0.2:
     resolution: {integrity: sha512-W/KYk+NFhkmsYpuHq5JykngiOCnxeVL8v8dFnqxSD8qEEdRfXk1SDM6JzNqcERbcGYj9tMrDQBYV9cjgnunFIg==}
     engines: {node: '>=18'}
-
-  tinyglobby@0.2.14:
-    resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
-    engines: {node: '>=12.0.0'}
 
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
@@ -3095,9 +3083,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.562.0(astro@5.16.8(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
+  '@lucide/astro@0.562.0(astro@5.16.9(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
     dependencies:
-      astro: 5.16.8(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+      astro: 5.16.9(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -3611,7 +3599,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.16.8(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
+  astro@5.16.9(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -3974,10 +3962,6 @@ snapshots:
   fastq@1.19.1:
     dependencies:
       reusify: 1.1.0
-
-  fdir@6.4.5(picomatch@4.0.3):
-    optionalDependencies:
-      picomatch: 4.0.3
 
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
@@ -4967,11 +4951,6 @@ snapshots:
 
   tinyexec@1.0.2: {}
 
-  tinyglobby@0.2.14:
-    dependencies:
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-
   tinyglobby@0.2.15:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.3)
@@ -5119,11 +5098,11 @@ snapshots:
   vite@6.4.1(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.5
-      fdir: 6.4.5(picomatch@4.0.3)
+      fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
       postcss: 8.5.4
       rollup: 4.41.1
-      tinyglobby: 0.2.14
+      tinyglobby: 0.2.15
     optionalDependencies:
       '@types/node': 22.15.29
       fsevents: 2.3.3
