@@ -60,7 +60,7 @@ importers:
         specifier: ^0.34.5
         version: 0.34.5
       tailwind-merge:
-        specifier: ^3.4.1
+        specifier: ^3.5.0
         version: 3.5.0
       tailwindcss:
         specifier: ^4.1.18
