@@ -19,7 +19,7 @@ importers:
         version: 3.7.0
       '@lucide/astro':
         specifier: ^0.575.0
-        version: 0.575.0(astro@5.17.2(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
+        version: 0.575.0(astro@5.17.3(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))
       '@radix-ui/react-dialog':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -36,8 +36,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       astro:
-        specifier: ^5.17.2
-        version: 5.17.2(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+        specifier: ^5.17.3
+        version: 5.17.3(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
       astro-seo:
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.8.1)(typescript@5.8.3)
@@ -1346,8 +1346,8 @@ packages:
   astro-seo@1.1.0:
     resolution: {integrity: sha512-G6LDNDyga30o+52v58jU7C35n3cORUzk7RSuY+xf/ZRbW6JiNplyaOO1VoYVKO+xzYNaBcxqNln2RFRR/wgJNQ==}
 
-  astro@5.17.2:
-    resolution: {integrity: sha512-7jnMqGo53hOQNwo1N/wqeOvUp8wwW/p+DeerSjSkHNx8L/1mhy6P7rVo7EhdmF8DpKqw0tl/B5Fx1WcIzg1ysA==}
+  astro@5.17.3:
+    resolution: {integrity: sha512-69dcfPe8LsHzklwj+hl+vunWUbpMB6pmg35mACjetxbJeUNNys90JaBM8ZiwsPK689SAj/4Zqb1ayaANls9/MA==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3285,9 +3285,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.575.0(astro@5.17.2(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
+  '@lucide/astro@0.575.0(astro@5.17.3(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1))':
     dependencies:
-      astro: 5.17.2(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
+      astro: 5.17.3(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1)
 
   '@oslojs/encoding@1.1.0': {}
 
@@ -3793,7 +3793,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.17.2(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
+  astro@5.17.3(@types/node@22.15.29)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.41.1)(typescript@5.8.3)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
