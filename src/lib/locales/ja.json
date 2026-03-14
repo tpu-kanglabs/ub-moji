@@ -1,0 +1,17 @@
+{
+  "siteName": "ub-moji",
+  "siteTagline": "日本語指文字データセット",
+  "navHome": "ホーム",
+  "navNews": "ニュース",
+  "navPapers": "論文",
+  "languageLabel": "言語",
+  "languageEnglish": "英語",
+  "languageJapanese": "日本語",
+  "datasetTitle": "日本語指文字のためのオープンデータセット",
+  "datasetBody": "手話認識および系列モデリング研究のための、日本語指文字を対象とした時間アノテーション付きの公開動画データセット。",
+  "datasetCtaAlt": "Hugging Face で ub-MOJI データセットを見る",
+  "buttonLabel": "ボタン",
+  "authorSectionTitle": "著者",
+  "authorSectionAffiliation": "東京工芸大学 情報処理研究室",
+  "footerLogoAlt": "ub-moji ロゴ"
+}

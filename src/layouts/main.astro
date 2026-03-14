@@ -1,0 +1,28 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer.astro";
+import { defaultLocale, isLocale } from "@/lib/i18n";
+
+const { lang } = Astro.props;
+const locale = isLocale(lang) ? lang : defaultLocale;
+const pathname = Astro.url.pathname;
+const basePath = import.meta.env.BASE_URL;
+const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.svg`;
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={faviconHref} />
+    <title>ub-moji</title>
+  </head>
+  <body class="flex min-h-svh flex-col">
+    <Header client:load basePath={basePath} locale={locale} pathname={pathname} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={locale} />
+  </body>
+</html>
