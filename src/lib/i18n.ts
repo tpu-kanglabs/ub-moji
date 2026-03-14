@@ -1,5 +1,5 @@
-import en from "@/lib/locales/en.json";
-import ja from "@/lib/locales/ja.json";
+import en from "@/lib/locales/en.json" with { type: "json" };
+import ja from "@/lib/locales/ja.json" with { type: "json" };
 
 export const locales = ["en", "ja"] as const;
 export type Locale = (typeof locales)[number];

@@ -1,9 +1,13 @@
 ---
 import Layout from "@/layouts/main.astro";
-import HomePageContent from "@/components/HomePageContent.astro";
+import Hero from "@/components/hero/Hero.astro";
+import DatasetOverview from "@/components/dataset/DatasetOverview.astro";
+import UbMojiDatasetSection from "@/components/ub-moji/UbMojiDatasetSection.astro";
 import { defaultLocale } from "@/lib/i18n";
 ---
 
 <Layout lang={defaultLocale}>
-  <HomePageContent locale={defaultLocale} />
+  <Hero />
+  <DatasetOverview locale={defaultLocale} />
+  <UbMojiDatasetSection locale={defaultLocale} />
 </Layout>
