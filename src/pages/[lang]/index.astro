@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro";
 import Hero from "@/components/hero/Hero.astro";
+import DatasetOverview from "@/components/dataset/DatasetOverview.astro";
 import { defaultLocale, isLocale, locales } from "@/lib/i18n";
 
 export function getStaticPaths() {
@@ -17,4 +18,5 @@ const locale = isLocale(lang) ? lang : defaultLocale;
 
 <Layout lang={locale}>
   <Hero />
+  <DatasetOverview locale={locale} />
 </Layout>
