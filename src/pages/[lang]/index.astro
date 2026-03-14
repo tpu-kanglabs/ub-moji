@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro";
-import HomePageContent from "@/components/HomePageContent.astro";
-import { defaultLocale, isLocale, locales, t } from "@/lib/i18n";
+import Hero from "@/components/hero/Hero.astro";
+import { defaultLocale, isLocale, locales } from "@/lib/i18n";
 
 export function getStaticPaths() {
   return locales
@@ -16,5 +16,5 @@ const locale = isLocale(lang) ? lang : defaultLocale;
 ---
 
 <Layout lang={locale}>
-  <HomePageContent locale={locale} />
+  <Hero />
 </Layout>
