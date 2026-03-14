@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-03-15
 
 ## Active Technologies
+- TypeScript 5.9 (strict) + Astro 6.x, React 19, TailwindCSS 4, shadcn/ui, Radix UI (002-hero-video)
+- N/A (static assets only) (002-hero-video)
 
 - TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI (001-header-footer-i18n)
 
@@ -23,6 +25,7 @@ npm test && npm run lint
 TypeScript 5.9 (strict): Follow standard conventions
 
 ## Recent Changes
+- 002-hero-video: Added TypeScript 5.9 (strict) + Astro 6.x, React 19, TailwindCSS 4, shadcn/ui, Radix UI
 
 - 001-header-footer-i18n: Added TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI
 
