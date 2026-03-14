@@ -106,21 +106,21 @@ export default function UbMojiDatasetTables({
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{details.usage.title}</CardTitle>
-          <CardDescription>{details.usage.note}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {details.usage.items.map((item) => (
-              <Badge key={item} variant="secondary">
-                {item}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <div className="flex flex-col gap-3">
+        <p className="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl">
+          {details.license.title}
+        </p>
+        <p className="text-sm text-muted-foreground sm:text-base">
+          {details.license.note}
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {details.license.items.map((item) => (
+            <Badge key={item} variant="secondary" className="px-3 py-1 text-sm">
+              {item}
+            </Badge>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

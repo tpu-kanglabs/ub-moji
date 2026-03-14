@@ -11,14 +11,14 @@ describe("UbMojiDatasetTables", () => {
     expect(screen.getByText("Metadata Files")).toBeInTheDocument();
   });
 
-  it("renders naming convention and usage constraints", () => {
+  it("renders naming convention and license", () => {
     render(<UbMojiDatasetTables details={getUbMojiDatasetDetails("en")} />);
 
     expect(screen.getByText("File Naming Convention")).toBeInTheDocument();
     expect(
       screen.getByText("{content}_{participantID}_{yyyymm}_{take}.mp4"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Usage Constraints")).toBeInTheDocument();
+    expect(screen.getByText("License")).toBeInTheDocument();
     expect(screen.getByText("Academic research only")).toBeInTheDocument();
   });
 });

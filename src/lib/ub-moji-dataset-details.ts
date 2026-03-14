@@ -27,7 +27,7 @@ export type DatasetDetails = {
   consentNote: string;
   tables: DatasetTable[];
   naming: NamingRule;
-  usage: UsageBlock;
+  license: UsageBlock;
 };
 
 const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
@@ -110,8 +110,8 @@ const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
         ["take", "Take number", "t001"],
       ],
     },
-    usage: {
-      title: "Usage Constraints",
+    license: {
+      title: "License",
       items: [
         "Academic research only",
         "Non-commercial use",
@@ -176,8 +176,8 @@ const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
         ["take", "テイク番号", "t001"],
       ],
     },
-    usage: {
-      title: "利用条件",
+    license: {
+      title: "ライセンス",
       items: ["学術目的のみ", "商用不可", "再配布不可"],
       note: "利用には Hugging Face の規約への同意が必要です。個人識別・プライバシー侵害目的の使用は禁止され、論文等では適切に引用してください。",
     },
