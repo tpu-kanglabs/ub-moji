@@ -149,19 +149,17 @@ const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
       {
         title: "メタデータ",
         description: "サンプル単位・参加者単位の CSV が提供されます。",
-        columns: ["ファイル", "単位", "代表項目", "補足"],
+        columns: ["ファイル", "単位", "代表項目"],
         rows: [
           [
             "metadata.csv",
             "サンプル",
             "file_name, classes, category, participant_id, recording_date, fps",
-            "",
           ],
           [
             "participants.csv",
             "参加者",
             "participant_id, age_group, gender, dominant_hand, experience_years, hearing_level, face_visibility",
-            "-1 は欠損",
           ],
         ],
         note: "未提供項目は -1 で表記されます。",
