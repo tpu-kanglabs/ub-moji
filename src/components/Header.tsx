@@ -77,7 +77,7 @@ export default function Header({
       data-testid="site-header"
       className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur motion-reduce:transition-none"
     >
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-3 px-4 py-3">
         <a
           href={buildLocalePath(pathname, currentLocale, basePath)}
           aria-label={t(currentLocale, "siteName")}
@@ -93,7 +93,7 @@ export default function Header({
         </a>
 
         <nav
-          className="order-3 flex w-full flex-wrap items-center gap-3 text-xs text-foreground/80 md:order-none md:w-auto md:text-sm"
+          className="order-3 flex w-full flex-wrap items-center gap-3 text-xs text-foreground/80 md:order-none md:ml-6 md:w-auto md:text-sm"
           aria-label="Primary"
         >
           <a className="hover:text-foreground" href={homeHref}>
@@ -107,10 +107,11 @@ export default function Header({
           </a>
         </nav>
 
-        <div className="order-2 md:order-none">
+        <div className="order-2 ml-auto md:order-none">
           <NativeSelect
             ariaLabel={t(currentLocale, "languageLabel")}
             className="motion-reduce:transition-none"
+            compactOnMobile
             options={languageOptions}
             value={currentLanguagePath}
           />

@@ -1,6 +1,11 @@
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  GlobeIcon,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -163,10 +168,11 @@ const NativeSelect = React.forwardRef<
   {
     ariaLabel: string;
     className?: string;
+    compactOnMobile?: boolean;
     options: NativeSelectOption[];
     value: string;
   }
->(({ ariaLabel, className, options, value }, ref) => {
+>(({ ariaLabel, className, compactOnMobile = false, options, value }, ref) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     window.location.assign(event.currentTarget.value);
   };
@@ -179,6 +185,8 @@ const NativeSelect = React.forwardRef<
         aria-label={ariaLabel}
         className={cn(
           "flex h-8 min-w-28 appearance-none items-center rounded-lg border border-input bg-transparent py-2 pr-8 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
+          compactOnMobile &&
+            "min-w-0 w-9 px-0 text-transparent md:min-w-28 md:w-auto md:pr-8 md:pl-2.5 md:text-sm md:text-foreground",
           className,
         )}
         value={value}
@@ -192,7 +200,17 @@ const NativeSelect = React.forwardRef<
       </select>
       <ChevronDownIcon
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 right-2 size-4 -translate-y-1/2 text-muted-foreground"
+        className={cn(
+          "pointer-events-none absolute top-1/2 right-2 size-4 -translate-y-1/2 text-muted-foreground",
+          compactOnMobile && "hidden md:block",
+        )}
+      />
+      <GlobeIcon
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute top-1/2 left-1/2 hidden size-4 -translate-x-1/2 -translate-y-1/2 text-muted-foreground",
+          compactOnMobile && "block md:hidden",
+        )}
       />
     </div>
   );
