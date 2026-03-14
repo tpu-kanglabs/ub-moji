@@ -1,5 +1,8 @@
 ---
+import AuthorSection from "@/components/AuthorSection.astro";
+import { authors } from "@/lib/authors";
 import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
 import { getUbMojiDatasetDetails } from "@/lib/ub-moji-dataset-details";
 import UbMojiDatasetTables from "@/components/ub-moji/UbMojiDatasetTables";
 
@@ -26,6 +29,14 @@ const details = getUbMojiDatasetDetails(locale);
 
       <div class="mt-10">
         <UbMojiDatasetTables details={details} />
+      </div>
+
+      <div class="mt-16">
+        <AuthorSection
+          title={t(locale, "authorSectionTitle")}
+          authors={authors}
+          affiliation={t(locale, "authorSectionAffiliation")}
+        />
       </div>
     </div>
   </div>

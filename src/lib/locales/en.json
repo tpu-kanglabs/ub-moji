@@ -11,5 +11,7 @@
   "datasetBody": "A publicly available, temporally annotated video dataset of Japanese fingerspelling for sign language recognition and sequence modeling.",
   "datasetCtaAlt": "View ub-MOJI dataset on Hugging Face",
   "buttonLabel": "Button",
+  "authorSectionTitle": "Authors",
+  "authorSectionAffiliation": "AI Vision Lab, Tokyo Polytechnic University",
   "footerLogoAlt": "ub-moji logo"
 }
