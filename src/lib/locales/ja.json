@@ -7,9 +7,9 @@
   "languageLabel": "言語",
   "languageEnglish": "英語",
   "languageJapanese": "日本語",
-  "heroTitle": "準備完了！",
-  "heroBody1": "これでコンポーネントを追加して開発を始められます。",
-  "heroBody2": "ボタンコンポーネントは既に追加されています。",
+  "datasetTitle": "日本語指文字のためのオープンデータセット",
+  "datasetBody": "手話認識および系列モデリング研究のための、日本語指文字を対象とした時間アノテーション付きの公開動画データセット。",
+  "datasetCtaAlt": "Hugging Face で ub-MOJI データセットを見る",
   "buttonLabel": "ボタン",
   "footerLogoAlt": "ub-moji ロゴ"
 }

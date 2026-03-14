@@ -7,9 +7,9 @@
   "languageLabel": "Language",
   "languageEnglish": "English",
   "languageJapanese": "Japanese",
-  "heroTitle": "Project ready!",
-  "heroBody1": "You may now add components and start building.",
-  "heroBody2": "We've already added the button component for you.",
+  "datasetTitle": "An Open Dataset for Japanese Fingerspelling",
+  "datasetBody": "A publicly available, temporally annotated video dataset of Japanese fingerspelling for sign language recognition and sequence modeling.",
+  "datasetCtaAlt": "View ub-MOJI dataset on Hugging Face",
   "buttonLabel": "Button",
   "footerLogoAlt": "ub-moji logo"
 }
