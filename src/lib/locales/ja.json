@@ -1,0 +1,15 @@
+{
+  "siteName": "ub-moji",
+  "siteTagline": "日本語指文字データセット",
+  "navHome": "ホーム",
+  "navNews": "ニュース",
+  "navPapers": "論文",
+  "languageLabel": "言語",
+  "languageEnglish": "英語",
+  "languageJapanese": "日本語",
+  "heroTitle": "準備完了！",
+  "heroBody1": "これでコンポーネントを追加して開発を始められます。",
+  "heroBody2": "ボタンコンポーネントは既に追加されています。",
+  "buttonLabel": "ボタン",
+  "footerLogoAlt": "ub-moji ロゴ"
+}

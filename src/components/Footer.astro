@@ -1,0 +1,22 @@
+---
+import { defaultLocale, isLocale, t } from "@/lib/i18n";
+
+const { lang } = Astro.props;
+const locale = isLocale(lang) ? lang : defaultLocale;
+const logoSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}favicon.svg`;
+---
+
+<footer data-testid="site-footer" class="border-t border-border/60 bg-muted/40">
+  <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4 py-6 text-sm">
+    <div class="flex items-center gap-3">
+      <img
+        data-testid="site-footer-logo"
+        src={logoSrc}
+        alt={t(locale, "footerLogoAlt")}
+        class="size-9 object-contain"
+      />
+      <span class="font-medium">{t(locale, "siteName")}</span>
+    </div>
+    <span class="text-muted-foreground">{t(locale, "siteTagline")}</span>
+  </div>
+</footer>

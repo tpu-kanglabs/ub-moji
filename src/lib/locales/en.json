@@ -1,0 +1,15 @@
+{
+  "siteName": "ub-moji",
+  "siteTagline": "Japanese fingerspelling dataset",
+  "navHome": "Home",
+  "navNews": "News",
+  "navPapers": "Papers",
+  "languageLabel": "Language",
+  "languageEnglish": "English",
+  "languageJapanese": "Japanese",
+  "heroTitle": "Project ready!",
+  "heroBody1": "You may now add components and start building.",
+  "heroBody2": "We've already added the button component for you.",
+  "buttonLabel": "Button",
+  "footerLogoAlt": "ub-moji logo"
+}
