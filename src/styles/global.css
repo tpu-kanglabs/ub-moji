@@ -6,6 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --header-height: 3.75rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -125,5 +126,8 @@
   }
   html {
     @apply font-sans;
+  }
+  section[id] {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
   }
 }
