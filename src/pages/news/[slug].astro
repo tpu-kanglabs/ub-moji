@@ -1,0 +1,58 @@
+---
+import NewsArticle from "@/components/news/NewsArticle.astro";
+import NewsLayout from "@/components/news/NewsLayout.astro";
+import NewsNotFoundState from "@/components/news/NewsNotFoundState.astro";
+import Layout from "@/layouts/main.astro";
+import { defaultLocale } from "@/lib/i18n";
+import {
+  getCanonicalNewsSlugs,
+  getNewsArticleState,
+  type NewsEntry,
+} from "@/lib/news";
+import { buildNewsIndexPath } from "@/lib/news-routes";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("news");
+  return getCanonicalNewsSlugs(entries).map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const locale = defaultLocale;
+const slug = Astro.params.slug ?? "";
+const basePath = import.meta.env.BASE_URL;
+const entries = await getCollection("news");
+const articleState = getNewsArticleState(entries, slug, locale, basePath);
+
+let articleEntry: NewsEntry | null = null;
+let Content: Awaited<ReturnType<typeof render>>["Content"] | null = null;
+
+if (articleState.kind === "available") {
+  articleEntry = articleState.entry;
+  ({ Content } = await render(articleEntry));
+}
+---
+
+<Layout lang={locale}>
+  {
+    articleState.kind === "available" && articleEntry && Content ? (
+      <div class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
+        <NewsArticle
+          backHref={buildNewsIndexPath(locale, basePath)}
+          locale={locale}
+          publishedAt={articleEntry.data.publishedAt}
+          summary={articleEntry.data.summary}
+          tag={articleEntry.data.tag}
+          title={articleEntry.data.title}
+        >
+          <Content />
+        </NewsArticle>
+      </div>
+    ) : (
+      <NewsLayout locale={locale} title="News" intro="">
+        <NewsNotFoundState slot="default" indexHref={articleState.indexHref} locale={locale} />
+      </NewsLayout>
+    )
+  }
+</Layout>

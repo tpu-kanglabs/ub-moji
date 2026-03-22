@@ -1,5 +1,6 @@
 import { NativeSelect } from "@/components/ui/select";
 import { defaultLocale, type Locale, locales, t } from "@/lib/i18n";
+import { buildNewsIndexPath } from "@/lib/news-routes";
 
 type HeaderProps = {
   basePath?: string;
@@ -53,7 +54,7 @@ export default function Header({
 }: HeaderProps) {
   const currentLocale = locales.includes(locale) ? locale : defaultLocale;
   const homeHref = buildLocalePath("/", currentLocale, basePath);
-  const newsHref = `${homeHref}#news`;
+  const newsHref = buildNewsIndexPath(currentLocale, basePath);
   const papersHref = `${homeHref}#papers`;
   const logoSrc = `${basePath.replace(/\/?$/, "/")}favicon.svg`;
   const currentLanguagePath = buildLocalePath(
@@ -79,7 +80,7 @@ export default function Header({
     >
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-3 px-4 py-3">
         <a
-          href={buildLocalePath(pathname, currentLocale, basePath)}
+          href={homeHref}
           aria-label={t(currentLocale, "siteName")}
           className="flex items-center gap-2 text-sm font-semibold"
         >

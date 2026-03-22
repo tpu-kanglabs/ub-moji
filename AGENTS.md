@@ -1,6 +1,6 @@
 # ub-moji Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-03-15
+Auto-generated from all feature plans. Last updated: 2026-03-22
 
 ## Active Technologies
 - TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI (004-add-author-section)
@@ -8,6 +8,8 @@ Auto-generated from all feature plans. Last updated: 2026-03-15
 - N/A (static assets only) (002-hero-video)
 - N/A (静的コンテンツ) (003-add-dataset-details)
 - TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui (Radix), Radix UI (005-bibtex-citation-tabs)
+- TypeScript 5.9 (strict) + Astro 6.x, astro:content content collections, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI (006-news-pages)
+- File-based Markdown content in `src/contents/news/` (006-news-pages)
 
 - TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI (001-header-footer-i18n)
 
@@ -28,9 +30,9 @@ npm test && npm run lint
 TypeScript 5.9 (strict): Follow standard conventions
 
 ## Recent Changes
+- 006-news-pages: Added TypeScript 5.9 (strict) + Astro 6.x, astro:content content collections, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI
 - 005-bibtex-citation-tabs: Added TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui (Radix), Radix UI
 - 004-add-author-section: Added TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI
-- 003-add-dataset-details: Added TypeScript 5.9 (strict) + Astro 6.x, React 19 islands, TailwindCSS 4, shadcn/ui, Radix UI
 
 
 <!-- MANUAL ADDITIONS START -->

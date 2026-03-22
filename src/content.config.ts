@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { file } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const citations = defineCollection({
@@ -12,4 +12,15 @@ const citations = defineCollection({
   }),
 });
 
-export const collections = { citations };
+const news = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/contents/news" }),
+  schema: z.object({
+    tag: z.string().min(1).max(40),
+    title: z.string().min(1),
+    summary: z.string().min(1).max(220),
+    publishedAt: z.coerce.date(),
+    isPublished: z.boolean().default(true),
+  }),
+});
+
+export const collections = { citations, news };

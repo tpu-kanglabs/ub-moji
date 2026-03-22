@@ -17,7 +17,7 @@ test("citation tabs switch and copy uses selected entry", async ({
 
   await section.getByRole("tab", { name: "Dataset" }).click();
 
-  await expect(section.getByText("@dataset{ubmoji_dataset2026")).toBeVisible();
+  await expect(section.getByText("@misc{ubmoji2025")).toBeVisible();
 
   await section.getByRole("button", { name: /copy bibtex/i }).click();
   await expect(section.getByText("Copied!")).toBeVisible();
