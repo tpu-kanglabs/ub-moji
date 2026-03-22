@@ -1,0 +1,46 @@
+---
+import DatasetBadge from "@/assets/dataset-on-hf-lg.svg";
+import DatasetBadgeDark from "@/assets/dataset-on-hf-lg-dark.svg";
+import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
+
+type Props = {
+  locale: Locale;
+};
+
+const { locale } = Astro.props as Props;
+---
+
+<section class="w-full py-16 sm:py-20" data-testid="dataset-overview">
+  <div class="mx-auto w-full max-w-5xl px-4">
+    <div class="border-t border-border/60 pt-10 sm:pt-12">
+      <div class="max-w-3xl">
+        <p
+          class="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl md:text-4xl"
+        >
+          {t(locale, "datasetTitle")}
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {t(locale, "datasetBody")}
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+        <a
+          class="group inline-flex items-center p-1 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/30"
+          href="https://huggingface.co/datasets/kanglabs/ub-MOJI"
+          aria-label={t(locale, "datasetCtaAlt")}
+        >
+          <DatasetBadge
+            class="h-12 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.12)] sm:h-14 dark:hidden"
+            aria-hidden="true"
+          />
+          <DatasetBadgeDark
+            class="hidden h-12 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:h-14 dark:block"
+            aria-hidden="true"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
