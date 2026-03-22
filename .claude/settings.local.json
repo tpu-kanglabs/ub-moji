@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify/scripts/bash/create-new-feature.sh \"Please create a project page for the Japanese finger-spelling dataset \\\\\"ub-MOJI.\\\\\" It should be an attractive website that provides meaningful information about the dataset to researchers and the general public. The site should be mobile-friendly. It should feature a fixed header at the top, a hero section displaying sample videos across the full width of the screen, and various information displayed below that.\" --json --short-name \"ub-moji-project-page\" \"ub-MOJI Dataset Project Page\")",
+      "Bash(.specify/scripts/bash/create-new-feature.sh \"ub-MOJI Dataset Project Page\" --json --short-name \"ub-moji-project-page\")"
+    ]
+  }
+}

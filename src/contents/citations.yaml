@@ -1,0 +1,27 @@
+- id: paper
+  order: 0
+  label: Paper
+  content: ""
+  placeholder: |
+    @InProceedings{Murai_2025_ICCV,
+        author    = {Murai, Ryota and Tsuta, Naoto and Shin, Duk and Kang, Yousun},
+        title     = {Point-Supervised Japanese Fingerspelling Localization via HR-Pro and Contrastive Learning},
+        booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+        month     = {October},
+        year      = {2025},
+        pages     = {4975-4982}
+        doi       = {10.1109/ICCVW69036.2025.00516},
+    }
+
+- id: dataset
+  order: 1
+  label: Dataset
+  content: ""
+  placeholder: |
+    @misc{ubmoji2025,
+      title        = {ub-MOJI},
+      author       = {Kondo, Tamon and Murai, Ryota and Tsuta, Naoto and Kang, Yousun},
+      year         = {2025},
+      url          = {https://huggingface.co/datasets/kanglabs/ub-MOJI},
+      publisher    = {Hugging Face},
+    }
