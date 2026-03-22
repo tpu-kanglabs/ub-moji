@@ -1,6 +1,5 @@
 ---
-articleSlug: research-brief
-locale: en
+tag: Research
 title: Research Brief for the Next Evaluation Cycle
 summary: A short note on the next round of evaluation targets and what will be measured.
 publishedAt: 2026-03-24

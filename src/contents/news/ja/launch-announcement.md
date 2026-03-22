@@ -1,6 +1,5 @@
 ---
-articleSlug: launch-announcement
-locale: ja
+tag: Release
 title: ub-moji のニュースページを公開しました
 summary: ub-moji の更新情報や研究関連のお知らせを公開するためのニュースページを追加しました。
 publishedAt: 2026-03-22

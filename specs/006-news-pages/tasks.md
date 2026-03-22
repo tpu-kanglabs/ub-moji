@@ -19,7 +19,7 @@
 
 - [X] T001 Create news feature scaffolding in `src/components/news/`, `src/pages/news/`, `src/pages/[lang]/news/`, and `src/contents/news/`
 - [X] T002 [P] Add localized news UI copy keys for index, article, empty, not-found, and unavailable states in `src/lib/locales/en.json` and `src/lib/locales/ja.json`
-- [X] T003 [P] Add initial localized Markdown fixtures for news articles in `src/contents/news/launch-announcement-en.md` and `src/contents/news/launch-announcement-ja.md`
+- [X] T003 [P] Add initial localized Markdown fixtures for news articles in `src/contents/news/en/launch-announcement.md` and `src/contents/news/ja/launch-announcement.md`
 
 ---
 

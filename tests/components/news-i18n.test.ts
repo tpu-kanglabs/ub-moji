@@ -11,13 +11,13 @@ function createNewsEntry(
     body: "",
     collection: "news",
     data: {
-      articleSlug: slug,
       isPublished,
-      locale,
       publishedAt: new Date("2026-03-22"),
       summary: `${slug} summary`,
+      tag: `${slug} tag`,
       title: `${slug} title`,
     },
+    filePath: `src/contents/news/${locale}/${slug}.md`,
     id,
     render: vi.fn(),
   } as unknown as NewsEntry;
@@ -35,7 +35,7 @@ describe("localized news resolution", () => {
 
     expect(state.kind).toBe("available");
     if (state.kind === "available") {
-      expect(state.entry.data.locale).toBe("ja");
+      expect(state.entry.filePath).toContain("/ja/");
       expect(state.availableLocales).toEqual(["en", "ja"]);
     }
   });

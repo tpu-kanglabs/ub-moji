@@ -12,13 +12,13 @@ function createNewsEntry(
     body: "",
     collection: "news",
     data: {
-      articleSlug: slug,
       isPublished,
-      locale,
       publishedAt: new Date(publishedAt),
       summary: `${slug} summary`,
+      tag: `${slug} tag`,
       title: `${slug} title`,
     },
+    filePath: `src/contents/news/${locale}/${slug}.md`,
     id,
     render: vi.fn(),
   } as unknown as NewsEntry;
@@ -38,6 +38,7 @@ describe("news collection helpers", () => {
     expect(items).toHaveLength(2);
     expect(items.map((item) => item.slug)).toEqual(["launch", "older"]);
     expect(items[0]?.href).toBe("/ub-moji/news/launch/");
+    expect(items[0]?.tag).toBe("launch tag");
   });
 
   it("returns stable canonical slugs across locales", () => {

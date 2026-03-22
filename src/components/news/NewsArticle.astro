@@ -8,10 +8,12 @@ type Props = {
   locale: Locale;
   publishedAt: Date;
   summary: string;
+  tag: string;
   title: string;
 };
 
-const { backHref, locale, publishedAt, summary, title } = Astro.props as Props;
+const { backHref, locale, publishedAt, summary, tag, title } =
+  Astro.props as Props;
 
 const formatter = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
 ---
@@ -30,7 +32,7 @@ const formatter = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
         <span class="rounded-full bg-muted px-3 py-1 font-medium">
           {formatter.format(publishedAt)}
         </span>
-        <span class="text-xs font-medium uppercase tracking-[0.2em]">{t(locale, "newsLabel")}</span>
+        <span class="text-xs font-medium uppercase tracking-[0.2em]">{tag}</span>
       </div>
       <div class="max-w-3xl space-y-4">
         <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>

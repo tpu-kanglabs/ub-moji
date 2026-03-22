@@ -15,7 +15,7 @@
 - **Purpose**: A single locale-specific article entry authored in Markdown and published as one route.
 - **Attributes**:
   - `slug`: Canonical article slug shared with sibling locales
-  - `locale`: Supported locale for this variant
+  - `tag`: Editorial label shown on index and article pages
   - `title`: Display title used on the index and detail page
   - `publishedAt`: Publication date shown to readers
   - `summary`: Short summary shown on the news index
@@ -51,7 +51,7 @@
 ## Validation Rules
 
 - `slug` must be unique per canonical article and reused consistently across localized variants.
-- `locale` must be one of the supported site locales.
+- Locale is derived from the locale directory under `src/contents/news/<locale>/`.
 - Published variants must include `title`, `publishedAt`, `summary`, and Markdown body content.
 - Each published canonical article must have a default-locale variant.
 - Only published variants appear in the news index or receive generated routes.

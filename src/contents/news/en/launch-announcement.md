@@ -1,6 +1,5 @@
 ---
-articleSlug: launch-announcement
-locale: en
+tag: Release
 title: Introducing the ub-moji Newsroom
 summary: A new place to publish dataset updates, milestones, and research announcements for ub-moji.
 publishedAt: 2026-03-22

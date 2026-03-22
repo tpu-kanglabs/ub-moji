@@ -13,8 +13,10 @@ pnpm install
 
 ## Content authoring
 
-- Add news article Markdown files under `src/contents/news/`.
-- Provide required frontmatter for locale, slug, title, publication date, short summary, and publish status.
+- Add news article Markdown files under `src/contents/news/<locale>/`.
+- Use the locale directory name as the locale source of truth.
+- Use the Markdown filename as the article slug.
+- Provide required frontmatter for tag, title, publication date, short summary, and publish status.
 - Create one file per localized article variant.
 
 ## Run locally

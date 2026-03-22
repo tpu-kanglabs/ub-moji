@@ -29,7 +29,7 @@ const formatter = new Intl.DateTimeFormat(locale, {
                 {formatter.format(entry.publishedAt)}
               </span>
               <span class="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/90">
-                {t(locale, "newsLabel")}
+                {entry.tag}
               </span>
             </div>
             <div class="space-y-3">

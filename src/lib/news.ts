@@ -10,6 +10,7 @@ export type NewsIndexItem = {
   publishedAt: Date;
   slug: string;
   summary: string;
+  tag: string;
   title: string;
 };
 
@@ -38,6 +39,32 @@ function isSupportedLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
+export function getNewsEntryLocale(entry: NewsEntry): Locale {
+  if (!entry.filePath) {
+    return defaultLocale;
+  }
+
+  const segments = entry.filePath.split("/");
+  const newsIndex = segments.lastIndexOf("news");
+  const locale = newsIndex >= 0 ? segments[newsIndex + 1] : undefined;
+
+  if (locale && isSupportedLocale(locale)) {
+    return locale;
+  }
+
+  return defaultLocale;
+}
+
+export function getNewsEntrySlug(entry: NewsEntry): string {
+  if (!entry.filePath) {
+    return entry.id;
+  }
+
+  const segments = entry.filePath.split("/");
+  const fileName = segments.at(-1) ?? entry.id;
+  return fileName.replace(/\.md$/, "");
+}
+
 export function sortNewsEntries(entries: NewsEntry[]): NewsEntry[] {
   return [...entries].sort(
     (left, right) =>
@@ -51,13 +78,13 @@ export function getPublishedNewsEntries(
 ): NewsEntry[] {
   return sortNewsEntries(
     entries.filter(
-      (entry) => entry.data.isPublished && entry.data.locale === locale,
+      (entry) => entry.data.isPublished && getNewsEntryLocale(entry) === locale,
     ),
   );
 }
 
 export function getCanonicalNewsSlugs(entries: NewsEntry[]): string[] {
-  return [...new Set(entries.map((entry) => entry.data.articleSlug))].sort();
+  return [...new Set(entries.map((entry) => getNewsEntrySlug(entry)))].sort();
 }
 
 export function getAvailableNewsLocales(
@@ -68,9 +95,9 @@ export function getAvailableNewsLocales(
     ...new Set(
       entries
         .filter(
-          (entry) => entry.data.isPublished && entry.data.articleSlug === slug,
+          (entry) => entry.data.isPublished && getNewsEntrySlug(entry) === slug,
         )
-        .map((entry) => entry.data.locale),
+        .map((entry) => getNewsEntryLocale(entry)),
     ),
   ].filter(isSupportedLocale);
 }
@@ -83,8 +110,8 @@ export function findNewsVariant(
   return entries.find(
     (entry) =>
       entry.data.isPublished &&
-      entry.data.articleSlug === slug &&
-      entry.data.locale === locale,
+      getNewsEntrySlug(entry) === slug &&
+      getNewsEntryLocale(entry) === locale,
   );
 }
 
@@ -94,11 +121,12 @@ export function getNewsIndexItems(
   basePath = "/",
 ): NewsIndexItem[] {
   return getPublishedNewsEntries(entries, locale).map((entry) => ({
-    href: buildNewsArticlePath(locale, entry.data.articleSlug, basePath),
-    locale: entry.data.locale,
+    href: buildNewsArticlePath(locale, getNewsEntrySlug(entry), basePath),
+    locale: getNewsEntryLocale(entry),
     publishedAt: entry.data.publishedAt,
-    slug: entry.data.articleSlug,
+    slug: getNewsEntrySlug(entry),
     summary: entry.data.summary,
+    tag: entry.data.tag,
     title: entry.data.title,
   }));
 }
@@ -127,7 +155,7 @@ export function getNewsArticleState(
     return {
       availableLocales,
       defaultArticleHref: buildNewsArticlePath(
-        defaultEntry?.data.locale ?? defaultLocale,
+        defaultEntry ? getNewsEntryLocale(defaultEntry) : defaultLocale,
         slug,
         basePath,
       ),

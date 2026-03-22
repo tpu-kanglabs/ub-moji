@@ -10,11 +10,11 @@
 
 ## Decision 2: Model localized articles as separate locale-specific entries sharing one article slug
 
-- **Decision**: Treat each localized article as its own content entry with explicit locale metadata and a shared canonical article slug.
-- **Rationale**: This keeps locale availability explicit, supports routing and fallback decisions without hidden coupling, and makes it straightforward to detect missing localized variants.
+- **Decision**: Treat each localized article as its own content entry, derive locale from the `src/contents/news/<locale>/` directory path, and derive the article slug from the Markdown filename.
+- **Rationale**: This keeps locale availability explicit in the content tree, avoids duplicate routing metadata in frontmatter, and still makes missing localized variants straightforward to detect.
 - **Alternatives considered**:
   - Put all locale bodies into a single entry: rejected because per-locale Markdown authoring becomes awkward and harder to validate.
-  - Infer locale only from file paths without schema metadata: rejected because missing or malformed content becomes harder to detect reliably.
+  - Keep locale duplicated in frontmatter and file paths: rejected because the two sources can drift out of sync.
 
 ## Decision 3: Reuse the existing locale-prefixed routing model
 
@@ -41,7 +41,7 @@
 
 ## Decision 6: Treat article metadata as required editorial fields
 
-- **Decision**: Require each published article variant to provide title, publication date, short summary, locale, canonical slug, and publication status.
-- **Rationale**: These fields map directly to the spec’s discovery, localization, and routing requirements, and they make index rendering deterministic.
+- **Decision**: Require each published article variant to provide a tag, title, publication date, short summary, canonical slug, and publication status.
+- **Rationale**: These fields map directly to the spec’s discovery, editorial labeling, localization, and routing requirements, and they make index rendering deterministic.
 - **Alternatives considered**:
   - Allow partially filled metadata and patch it in code: rejected because it weakens content validation and creates unpredictable output.
