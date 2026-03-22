@@ -5,10 +5,10 @@ const appBasePath = "/ub-moji";
 test("keeps news pages readable on a mobile viewport", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
 
-  await page.goto(`${appBasePath}/news/launch-announcement/`);
+  await page.goto(`${appBasePath}/news/release-2509/`);
 
   await expect(
-    page.getByRole("heading", { name: "Introducing the ub-moji Newsroom" }),
+    page.getByRole("heading", { name: "Release of version 25.09" }),
   ).toBeVisible();
 
   const article = page.locator("article");

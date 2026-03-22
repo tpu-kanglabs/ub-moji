@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 const appBasePath = "/ub-moji";
 
-test("renders localized news index and unavailable-language recovery", async ({
+test("renders localized news index and localized article detail", async ({
   page,
 }) => {
   await page.goto(`${appBasePath}/ja/news/`);
@@ -11,20 +11,13 @@ test("renders localized news index and unavailable-language recovery", async ({
     page.getByRole("heading", { name: "ニュースと更新情報" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: /ub-moji のニュースページを公開しました/i }),
+    page.getByRole("link", { name: /バージョン 25.09のリリース/i }),
   ).toBeVisible();
 
-  await page.goto(`${appBasePath}/ja/news/research-brief/`);
+  await page.goto(`${appBasePath}/ja/news/release-2509/`);
 
   await expect(
-    page
-      .locator("main")
-      .getByRole("heading", {
-        name: "選択中の言語ではこの記事をまだ読めません",
-      })
-      .first(),
+    page.getByRole("heading", { name: "バージョン 25.09のリリース" }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: "既定言語の記事を開く" }),
-  ).toHaveAttribute("href", `${appBasePath}/news/research-brief/`);
+  await expect(page.getByText("濁音・半濁音・長音の追加")).toBeVisible();
 });
