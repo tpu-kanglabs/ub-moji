@@ -2,7 +2,10 @@ import { test, expect } from "@playwright/test";
 
 const appBasePath = "/ub-moji";
 
-test("citation tabs switch and copy uses selected entry", async ({ page, context }) => {
+test("citation tabs switch and copy uses selected entry", async ({
+  page,
+  context,
+}) => {
   await page.goto(`${appBasePath}/`);
 
   await context.grantPermissions(["clipboard-write"], {
