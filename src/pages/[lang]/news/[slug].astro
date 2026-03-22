@@ -1,0 +1,78 @@
+---
+import NewsArticle from "@/components/news/NewsArticle.astro";
+import NewsLayout from "@/components/news/NewsLayout.astro";
+import NewsNotFoundState from "@/components/news/NewsNotFoundState.astro";
+import NewsUnavailableState from "@/components/news/NewsUnavailableState.astro";
+import Layout from "@/layouts/main.astro";
+import { defaultLocale, isLocale, locales, t } from "@/lib/i18n";
+import {
+  getCanonicalNewsSlugs,
+  getNewsArticleState,
+  type NewsEntry,
+} from "@/lib/news";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("news");
+  const slugs = getCanonicalNewsSlugs(entries);
+
+  return locales
+    .filter((lang) => lang !== defaultLocale)
+    .flatMap((lang) =>
+      slugs.map((slug) => ({
+        params: { lang, slug },
+      })),
+    );
+}
+
+const lang = Astro.params.lang;
+const slug = Astro.params.slug ?? "";
+const locale = isLocale(lang ?? "") ? lang : defaultLocale;
+const basePath = import.meta.env.BASE_URL;
+const entries = await getCollection("news");
+const articleState = getNewsArticleState(entries, slug, locale, basePath);
+
+let articleEntry: NewsEntry | null = null;
+let Content: Awaited<ReturnType<typeof render>>["Content"] | null = null;
+
+if (articleState.kind === "available") {
+  articleEntry = articleState.entry;
+  ({ Content } = await render(articleEntry));
+}
+---
+
+<Layout lang={locale}>
+  {
+    articleState.kind === "available" && articleEntry && Content ? (
+      <div class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
+        <NewsArticle
+          backHref={articleState.indexHref}
+          locale={locale}
+          publishedAt={articleEntry.data.publishedAt}
+          summary={articleEntry.data.summary}
+          title={articleEntry.data.title}
+        >
+          <Content />
+        </NewsArticle>
+      </div>
+    ) : articleState.kind === "unavailable" ? (
+      <NewsLayout
+        locale={locale}
+        eyebrow={t(locale, "newsUnavailableEyebrow")}
+        title={t(locale, "newsUnavailableTitle")}
+        intro={t(locale, "newsUnavailableBody")}
+      >
+        <NewsUnavailableState
+          slot="default"
+          defaultArticleHref={articleState.defaultArticleHref}
+          indexHref={articleState.indexHref}
+          locale={locale}
+        />
+      </NewsLayout>
+    ) : (
+      <NewsLayout locale={locale} title={t(locale, "newsNotFoundTitle")} intro={t(locale, "newsNotFoundBody")}>
+        <NewsNotFoundState slot="default" indexHref={articleState.indexHref} locale={locale} />
+      </NewsLayout>
+    )
+  }
+</Layout>

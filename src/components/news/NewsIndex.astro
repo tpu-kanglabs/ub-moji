@@ -1,0 +1,63 @@
+---
+import type { NewsIndexItem } from "@/lib/news";
+import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
+
+type Props = {
+  entries: NewsIndexItem[];
+  locale: Locale;
+};
+
+const { entries, locale } = Astro.props as Props;
+
+const formatter = new Intl.DateTimeFormat(locale, {
+  dateStyle: "medium",
+});
+---
+
+{
+  entries.length > 0 ? (
+    <div class="grid gap-4 sm:gap-5">
+      {entries.map((entry) => (
+        <a
+          href={entry.href}
+          class="group block overflow-hidden rounded-3xl border border-border/70 bg-card/80 p-5 shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-md motion-reduce:transform-none sm:p-6"
+        >
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <span class="rounded-full bg-muted px-3 py-1 font-medium">
+                {formatter.format(entry.publishedAt)}
+              </span>
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/90">
+                {t(locale, "newsLabel")}
+              </span>
+            </div>
+            <div class="space-y-3">
+              <h2 class="text-2xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-foreground/85">
+                {entry.title}
+              </h2>
+              <p class="max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
+                {entry.summary}
+              </p>
+            </div>
+            <span class="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+              {t(locale, "newsReadMore")}
+              <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <div class="rounded-3xl border border-dashed border-border bg-muted/30 p-8 text-center sm:p-12">
+      <div class="mx-auto max-w-2xl space-y-3">
+        <h2 class="text-2xl font-semibold tracking-tight">{t(locale, "newsEmptyTitle")}</h2>
+        <p class="text-sm leading-7 text-muted-foreground sm:text-base">
+          {t(locale, "newsEmptyBody")}
+        </p>
+      </div>
+    </div>
+  )
+}

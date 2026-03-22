@@ -1,0 +1,45 @@
+---
+import { newsProseClassName } from "@/components/news/news-prose";
+import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
+
+type Props = {
+  backHref: string;
+  locale: Locale;
+  publishedAt: Date;
+  summary: string;
+  title: string;
+};
+
+const { backHref, locale, publishedAt, summary, title } = Astro.props as Props;
+
+const formatter = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
+---
+
+<article class="flex flex-col gap-8">
+  <div class="space-y-5">
+    <a
+      href={backHref}
+      class="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+    >
+      <span aria-hidden="true">←</span>
+      {t(locale, "newsBackToIndex")}
+    </a>
+    <div class="space-y-4">
+      <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <span class="rounded-full bg-muted px-3 py-1 font-medium">
+          {formatter.format(publishedAt)}
+        </span>
+        <span class="text-xs font-medium uppercase tracking-[0.2em]">{t(locale, "newsLabel")}</span>
+      </div>
+      <div class="max-w-3xl space-y-4">
+        <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
+        <p class="text-base leading-7 text-muted-foreground sm:text-lg">{summary}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class={`min-w-0 ${newsProseClassName}`}>
+    <slot />
+  </div>
+</article>

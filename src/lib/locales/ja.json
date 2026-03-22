@@ -13,5 +13,21 @@
   "buttonLabel": "ボタン",
   "authorSectionTitle": "著者",
   "authorSectionAffiliation": "東京工芸大学 情報処理研究室",
-  "footerLogoAlt": "ub-moji ロゴ"
+  "footerLogoAlt": "ub-moji ロゴ",
+  "newsLabel": "ニュース",
+  "newsIndexEyebrow": "Updates",
+  "newsIndexTitle": "ニュースと更新情報",
+  "newsIndexIntro": "データセット更新、告知、短いプロジェクトレポートをニュース一覧としてまとめて確認できます。",
+  "newsReadMore": "記事を読む",
+  "newsEmptyTitle": "まだニュース記事はありません",
+  "newsEmptyBody": "最初の記事が公開されると、ここに一覧表示されます。",
+  "newsBackToIndex": "ニュース一覧へ戻る",
+  "newsUnavailableEyebrow": "Unavailable",
+  "newsUnavailableTitle": "選択中の言語ではこの記事をまだ読めません",
+  "newsUnavailableBody": "この記事自体は存在しますが、この言語版はまだ公開されていません。ニュース一覧へ戻るか、既定言語の記事を開いてください。",
+  "newsUnavailableIndexCta": "ニュース一覧を開く",
+  "newsUnavailableDefaultCta": "既定言語の記事を開く",
+  "newsNotFoundTitle": "該当するニュース記事が見つかりません",
+  "newsNotFoundBody": "リンクが古いか、記事が公開終了になっている可能性があります。公開中の記事はニュース一覧から確認できます。",
+  "newsNotFoundIndexCta": "ニュース一覧を見る"
 }
