@@ -6,7 +6,8 @@ const entries = (await getCollection("citations"))
   .sort((a, b) => a.data.order - b.data.order)
   .map(({ data }) => {
     const trimmedContent = data.content.trim();
-    const displayText = trimmedContent.length > 0 ? trimmedContent : data.placeholder;
+    const displayText =
+      trimmedContent.length > 0 ? trimmedContent : data.placeholder;
 
     return {
       label: data.label,
