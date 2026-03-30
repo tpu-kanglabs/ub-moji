@@ -1,6 +1,11 @@
 ---
 import { Code } from "astro:components";
 import { getCollection } from "astro:content";
+import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props as Props;
 
 const entries = (await getCollection("citations"))
   .sort((a, b) => a.data.order - b.data.order)
@@ -19,13 +24,18 @@ const initialTab = entries[0]?.label ?? "";
 const language = "bibtex";
 ---
 
-<section class="w-full" data-testid="citation-section">
+<section
+  class="w-full"
+  data-testid="citation-section"
+  data-copied-text={t(locale, "citationCopied")}
+  data-copy-failed-text={t(locale, "citationCopyFailed")}
+>
   <div class="text-card-foreground">
     <div class="flex flex-col gap-4 py-2 sm:flex-row sm:items-start sm:justify-between">
       <div class="space-y-1.5">
-        <h2 class="text-2xl font-semibold leading-none tracking-tight">Citation</h2>
+        <h2 class="text-2xl font-semibold leading-none tracking-tight">{t(locale, "citationTitle")}</h2>
         <p class="text-sm text-muted-foreground">
-          Use the BibTeX below to cite the paper or dataset.
+          {t(locale, "citationDescription")}
         </p>
       </div>
       <div class="flex flex-col items-start gap-1 sm:items-end">
@@ -34,7 +44,7 @@ const language = "bibtex";
           class="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           data-copy-button
         >
-          Copy BibTeX
+          {t(locale, "citationCopyButton")}
         </button>
         <span
           role="status"
@@ -48,7 +58,7 @@ const language = "bibtex";
     <div class="py-4">
       <div
         role="tablist"
-        aria-label="Citation entries"
+        aria-label={t(locale, "citationEntriesLabel")}
         class="mb-4 inline-flex h-10 items-center justify-start gap-6 border-b border-border"
       >
         {entries.map((entry, index) => {
@@ -153,14 +163,17 @@ const language = "bibtex";
         window.clearTimeout(feedbackTimeout);
       }
 
+      const copiedText = root.dataset.copiedText ?? "Copied!";
+      const copyFailedText = root.dataset.copyFailedText ?? "Copy failed. Please try again.";
+
       try {
         await navigator.clipboard.writeText(copyText);
-        feedback.textContent = "Copied!";
+        feedback.textContent = copiedText;
         feedbackTimeout = window.setTimeout(() => {
           feedback.textContent = "";
         }, 2000);
       } catch {
-        feedback.textContent = "Copy failed. Please try again.";
+        feedback.textContent = copyFailedText;
       }
     });
   }

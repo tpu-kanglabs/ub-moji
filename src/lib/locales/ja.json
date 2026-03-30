@@ -28,5 +28,11 @@
   "newsUnavailableDefaultCta": "既定言語の記事を開く",
   "newsNotFoundTitle": "該当するニュース記事が見つかりません",
   "newsNotFoundBody": "リンクが古いか、記事が公開終了になっている可能性があります。公開中の記事はニュース一覧から確認できます。",
-  "newsNotFoundIndexCta": "ニュース一覧を見る"
+  "newsNotFoundIndexCta": "ニュース一覧を見る",
+  "citationTitle": "引用",
+  "citationDescription": "論文またはデータセットを引用する際は、以下のBibTeXをご利用ください。",
+  "citationCopyButton": "BibTeXをコピー",
+  "citationCopied": "コピーしました！",
+  "citationCopyFailed": "コピーに失敗しました。もう一度お試しください。",
+  "citationEntriesLabel": "引用エントリ"
 }
