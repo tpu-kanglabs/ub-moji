@@ -34,7 +34,7 @@ const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
   en: {
     title: "Dataset Details",
     intro:
-      "A structured overview of ub-MOJI. Tables summarize subsets, files, and metadata in the order: subsets, video/annotations, metadata.",
+      "This section describes the structure of the ub-MOJI dataset, covering its three subsets, video and annotation formats, metadata files, and file naming conventions.",
     consentNote:
       "Note: a portion of samples is not publicly released due to participant consent.",
     tables: [
@@ -123,7 +123,7 @@ const DETAILS_BY_LOCALE: Record<Locale, DatasetDetails> = {
   ja: {
     title: "データセット詳細",
     intro:
-      "ub-MOJI の構造を表で整理した概要です。順序は「サブセット → 動画/注釈 → メタデータ」。",
+      "このセクションでは、ub-MOJI データセットの構成（3 種類のサブセット・動画と注釈の形式・メタデータファイル・ファイル命名規則）について説明します。",
     consentNote: "注: 一部のサンプルは参加者同意の都合で非公開です。",
     tables: [
       {
