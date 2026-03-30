@@ -112,17 +112,21 @@ const language = "bibtex";
   </div>
 </section>
 
-<script is:inline>
+<script>
   const root = document.querySelector("[data-testid='citation-section']");
 
   if (root instanceof HTMLElement) {
-    const triggers = Array.from(root.querySelectorAll("[data-tab-trigger]"));
-    const panels = Array.from(root.querySelectorAll("[data-tab-panel]"));
+    const triggers = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-tab-trigger]"),
+    );
+    const panels = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-tab-panel]"),
+    );
     const copyButton = root.querySelector("[data-copy-button]");
     const feedback = root.querySelector("[data-copy-feedback]");
-    let feedbackTimeout = null;
+    let feedbackTimeout: ReturnType<typeof window.setTimeout> | null = null;
 
-    const setActiveTab = (value) => {
+    const setActiveTab = (value: string) => {
       triggers.forEach((trigger) => {
         const isActive = trigger.dataset.tabTarget === value;
         trigger.setAttribute("aria-selected", isActive ? "true" : "false");
@@ -164,7 +168,8 @@ const language = "bibtex";
       }
 
       const copiedText = root.dataset.copiedText ?? "Copied!";
-      const copyFailedText = root.dataset.copyFailedText ?? "Copy failed. Please try again.";
+      const copyFailedText =
+        root.dataset.copyFailedText ?? "Copy failed. Please try again.";
 
       try {
         await navigator.clipboard.writeText(copyText);
