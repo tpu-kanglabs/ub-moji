@@ -28,5 +28,11 @@
   "newsUnavailableDefaultCta": "Open default-language article",
   "newsNotFoundTitle": "This news article could not be found",
   "newsNotFoundBody": "The link may be outdated or the article may have been removed. Return to the news index to keep browsing published updates.",
-  "newsNotFoundIndexCta": "Browse news"
+  "newsNotFoundIndexCta": "Browse news",
+  "citationTitle": "Citation",
+  "citationDescription": "Use the BibTeX below to cite the paper or dataset.",
+  "citationCopyButton": "Copy BibTeX",
+  "citationCopied": "Copied!",
+  "citationCopyFailed": "Copy failed. Please try again.",
+  "citationEntriesLabel": "Citation entries"
 }
