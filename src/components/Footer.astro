@@ -15,8 +15,32 @@ const logoSrc = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}favicon.svg`;
         alt={t(locale, "footerLogoAlt")}
         class="size-9 object-contain"
       />
-      <span class="font-medium">{t(locale, "siteName")}</span>
+      <div class="flex flex-col gap-0.5">
+        <span class="font-medium">{t(locale, "siteName")}</span>
+        <span class="text-xs text-muted-foreground">
+          © 映像情報処理研究室 / AI Vision Lab.
+        </span>
+      </div>
     </div>
-    <span class="text-muted-foreground">{t(locale, "siteTagline")}</span>
+    <nav class="flex items-center gap-4 text-muted-foreground">
+      <a
+        href="https://www.kanglabs.net/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerLabWebsite")}</a>
+      <a
+        href="https://github.com/tpu-kanglabs/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerGitHub")}</a>
+      <a
+        href="https://huggingface.co/kanglabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerHuggingFace")}</a>
+    </nav>
   </div>
 </footer>
