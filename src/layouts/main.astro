@@ -1,14 +1,31 @@
 ---
+import { SEO } from "astro-seo";
 import "@/styles/global.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer.astro";
-import { defaultLocale, isLocale } from "@/lib/i18n";
+import { defaultLocale, isLocale, t } from "@/lib/i18n";
 
-const { lang } = Astro.props;
+interface Props {
+  lang?: string;
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { lang, title, description, noindex = false } = Astro.props;
 const locale = isLocale(lang) ? lang : defaultLocale;
 const pathname = Astro.url.pathname;
 const basePath = import.meta.env.BASE_URL;
 const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.svg`;
+
+const siteTitle = "ub-MOJI";
+const siteFullTitle = "ub-MOJI | AI Vision Lab";
+const siteDescription = t(locale, "siteDescription");
+const resolvedDescription = description ?? siteDescription;
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.href;
+const ogLocale = locale === "ja" ? "ja_JP" : "en_US";
 ---
 
 <html lang={locale}>
@@ -16,7 +33,28 @@ const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.svg`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={faviconHref} />
-    <title>ub-moji</title>
+    <SEO
+      title={title}
+      titleTemplate={`%s | ${siteTitle}`}
+      titleDefault={siteFullTitle}
+      description={resolvedDescription}
+      canonical={canonicalURL}
+      noindex={noindex}
+      nofollow={noindex}
+      extend={{
+        meta: [
+          { property: "og:type", content: "website" },
+          { property: "og:url", content: canonicalURL },
+          { property: "og:site_name", content: siteTitle },
+          {
+            property: "og:title",
+            content: title ? `${title} | ${siteTitle}` : siteFullTitle,
+          },
+          { property: "og:description", content: resolvedDescription },
+          { property: "og:locale", content: ogLocale },
+        ],
+      }}
+    />
   </head>
   <body class="flex min-h-svh flex-col">
     <Header client:load basePath={basePath} locale={locale} pathname={pathname} />

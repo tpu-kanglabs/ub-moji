@@ -1,6 +1,7 @@
 {
   "siteName": "ub-moji",
   "siteTagline": "Japanese fingerspelling dataset",
+  "siteDescription": "A publicly available, temporally annotated video dataset of Japanese fingerspelling for sign language recognition and sequence modeling.",
   "navHome": "Home",
   "navNews": "News",
   "navPapers": "Papers",

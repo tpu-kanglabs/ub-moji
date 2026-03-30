@@ -32,9 +32,12 @@ if (articleState.kind === "available") {
   articleEntry = articleState.entry;
   ({ Content } = await render(articleEntry));
 }
+
+const seoTitle = articleEntry?.data.title;
+const seoDescription = articleEntry?.data.summary;
 ---
 
-<Layout lang={locale}>
+<Layout lang={locale} title={seoTitle} description={seoDescription}>
   {
     articleState.kind === "available" && articleEntry && Content ? (
       <div class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
