@@ -9,7 +9,7 @@ const locale = getLocaleFromPath(Astro.url.pathname);
 const basePath = import.meta.env.BASE_URL;
 ---
 
-<Layout lang={locale}>
+<Layout lang={locale} noindex={true}>
   <NewsLayout
     locale={locale}
     eyebrow="404"

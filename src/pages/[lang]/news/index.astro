@@ -22,7 +22,7 @@ const entries = getNewsIndexItems(
 );
 ---
 
-<Layout lang={locale}>
+<Layout lang={locale} title={t(locale, "newsIndexTitle")} description={t(locale, "newsIndexIntro")}>
   <NewsLayout
     locale={locale}
     eyebrow={t(locale, "newsIndexEyebrow")}

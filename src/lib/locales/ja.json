@@ -1,6 +1,7 @@
 {
   "siteName": "ub-moji",
   "siteTagline": "日本語指文字データセット",
+  "siteDescription": "手話認識および系列モデリング研究のための、日本語指文字を対象とした時間アノテーション付きの公開動画データセット。",
   "navHome": "ホーム",
   "navNews": "ニュース",
   "navPapers": "論文",
