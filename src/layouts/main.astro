@@ -10,9 +10,18 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  nofollow?: boolean;
+  ogType?: "website" | "article";
 }
 
-const { lang, title, description, noindex = false } = Astro.props;
+const {
+  lang,
+  title,
+  description,
+  noindex = false,
+  nofollow = false,
+  ogType = "website",
+} = Astro.props as Props;
 const locale = isLocale(lang) ? lang : defaultLocale;
 const pathname = Astro.url.pathname;
 const basePath = import.meta.env.BASE_URL;
@@ -40,10 +49,10 @@ const ogLocale = locale === "ja" ? "ja_JP" : "en_US";
       description={resolvedDescription}
       canonical={canonicalURL}
       noindex={noindex}
-      nofollow={noindex}
+      nofollow={nofollow}
       extend={{
         meta: [
-          { property: "og:type", content: "website" },
+          { property: "og:type", content: ogType },
           { property: "og:url", content: canonicalURL },
           { property: "og:site_name", content: siteTitle },
           {
