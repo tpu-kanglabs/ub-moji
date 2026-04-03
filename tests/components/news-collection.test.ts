@@ -1,4 +1,9 @@
-import { getCanonicalNewsSlugs, getNewsIndexItems } from "@/lib/news";
+import {
+  getCanonicalNewsSlugs,
+  getNewsEntryLocale,
+  getNewsEntrySlug,
+  getNewsIndexItems,
+} from "@/lib/news";
 import type { NewsEntry } from "@/lib/news";
 
 function createNewsEntry(
@@ -23,6 +28,29 @@ function createNewsEntry(
     render: vi.fn(),
   } as unknown as NewsEntry;
 }
+
+describe("getNewsEntryLocale", () => {
+  it("extracts the locale from the file path", () => {
+    const enEntry = createNewsEntry("launch-en", "launch", "en", "2026-03-22");
+    const jaEntry = createNewsEntry("launch-ja", "launch", "ja", "2026-03-22");
+
+    expect(getNewsEntryLocale(enEntry)).toBe("en");
+    expect(getNewsEntryLocale(jaEntry)).toBe("ja");
+  });
+});
+
+describe("getNewsEntrySlug", () => {
+  it("extracts the slug from the file name", () => {
+    const entry = createNewsEntry(
+      "release-en",
+      "release-2509",
+      "en",
+      "2026-03-22",
+    );
+
+    expect(getNewsEntrySlug(entry)).toBe("release-2509");
+  });
+});
 
 describe("news collection helpers", () => {
   it("builds index items in reverse chronological order for a locale", () => {
