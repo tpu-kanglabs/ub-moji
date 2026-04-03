@@ -7,6 +7,11 @@ test("switches locale via header", async ({ page }) => {
 
   const languageSwitcher = page.getByRole("combobox", { name: "Language" });
   await expect(languageSwitcher).toBeVisible();
+  await page.waitForFunction(() => {
+    const header = document.querySelector("[data-testid='site-header']");
+    const island = header?.closest("astro-island");
+    return island ? !island.hasAttribute("ssr") : false;
+  });
 
   await languageSwitcher.selectOption(`${appBasePath}/ja/`);
 
