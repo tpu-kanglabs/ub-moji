@@ -25,7 +25,7 @@ const {
 const locale = isLocale(lang) ? lang : defaultLocale;
 const pathname = Astro.url.pathname;
 const basePath = import.meta.env.BASE_URL;
-const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.svg`;
+const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.ico`;
 
 const siteTitle = "ub-MOJI";
 const siteFullTitle = "ub-MOJI | AI Vision Lab";
@@ -41,7 +41,7 @@ const ogLocale = locale === "ja" ? "ja_JP" : "en_US";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={faviconHref} />
+    <link rel="icon" type="image/x-icon" href={faviconHref} />
     <SEO
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
