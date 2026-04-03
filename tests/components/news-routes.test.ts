@@ -1,22 +1,26 @@
-import { buildNewsArticlePath, buildNewsIndexPath } from "@/lib/news-routes";
+import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/news-routes";
 
-describe("buildNewsIndexPath", () => {
+describe("buildSectionIndexPath", () => {
   it("builds the English news index path with a base path", () => {
-    expect(buildNewsIndexPath("en", "/ub-moji")).toBe("/ub-moji/news/");
+    expect(buildSectionIndexPath("news", "en", "/ub-moji")).toBe(
+      "/ub-moji/news/",
+    );
   });
 
   it("builds the Japanese news index path with a base path", () => {
-    expect(buildNewsIndexPath("ja", "/ub-moji")).toBe("/ub-moji/ja/news/");
+    expect(buildSectionIndexPath("news", "ja", "/ub-moji")).toBe(
+      "/ub-moji/ja/news/",
+    );
   });
 
   it("builds paths using the default base path", () => {
-    expect(buildNewsIndexPath("en")).toBe("/news/");
-    expect(buildNewsIndexPath("ja")).toBe("/ja/news/");
+    expect(buildSectionIndexPath("news", "en")).toBe("/news/");
+    expect(buildSectionIndexPath("news", "ja")).toBe("/ja/news/");
   });
 
   it("treats root as an empty base path", () => {
-    expect(buildNewsIndexPath("en", "/")).toBe("/news/");
-    expect(buildNewsIndexPath("ja", "/")).toBe("/ja/news/");
+    expect(buildSectionIndexPath("news", "en", "/")).toBe("/news/");
+    expect(buildSectionIndexPath("news", "ja", "/")).toBe("/ja/news/");
   });
 });
 
