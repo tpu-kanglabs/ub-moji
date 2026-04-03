@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import UbMojiDatasetTables from "../../src/components/ub-moji/UbMojiDatasetTables";
+import UbMojiDatasetTables from "../../src/components/dataset/UbMojiDatasetTables";
 import { getUbMojiDatasetDetails } from "../../src/lib/ub-moji-dataset-details";
 
 describe("UbMojiDatasetTables metadata", () => {
