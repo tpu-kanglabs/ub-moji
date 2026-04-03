@@ -1,6 +1,6 @@
 import { NativeSelect } from "@/components/ui/select";
-import { defaultLocale, type Locale, locales, t } from "@/lib/i18n";
-import { buildSectionIndexPath } from "@/lib/news-routes";
+import { defaultLocale, isLocale, type Locale, t } from "@/lib/i18n";
+import { buildSectionIndexPath, normalizeBasePath } from "@/lib/news-routes";
 import logoSrc from "@/assets/logo.png";
 
 type HeaderProps = {
@@ -8,10 +8,6 @@ type HeaderProps = {
   locale: Locale;
   pathname: string;
 };
-
-function normalizeBasePath(basePath: string): string {
-  return basePath === "/" ? "" : basePath.replace(/\/$/, "");
-}
 
 function stripBase(pathname: string, basePath: string): string {
   const normalizedBase = normalizeBasePath(basePath);
@@ -34,7 +30,7 @@ function buildLocalePath(
   const hadTrailingSlash = normalizedPath.endsWith("/");
   const segments = normalizedPath.split("/").filter(Boolean);
 
-  if (segments.length > 0 && locales.includes(segments[0] as Locale)) {
+  if (segments.length > 0 && isLocale(segments[0])) {
     segments.shift();
   }
 
@@ -53,7 +49,7 @@ export default function Header({
   locale,
   pathname,
 }: HeaderProps) {
-  const currentLocale = locales.includes(locale) ? locale : defaultLocale;
+  const currentLocale = isLocale(locale) ? locale : defaultLocale;
   const homeHref = buildLocalePath("/", currentLocale, basePath);
   const newsHref = buildSectionIndexPath("news", currentLocale, basePath);
   const papersHref = buildSectionIndexPath("papers", currentLocale, basePath);
