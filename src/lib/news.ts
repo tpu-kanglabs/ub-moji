@@ -1,4 +1,4 @@
-import { defaultLocale, type Locale, locales } from "@/lib/i18n";
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
 import type { CollectionEntry } from "astro:content";
 import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/news-routes";
 
@@ -35,10 +35,6 @@ export type NewsArticleState =
       slug: string;
     };
 
-function isSupportedLocale(value: string): value is Locale {
-  return (locales as readonly string[]).includes(value);
-}
-
 export function getNewsEntryLocale(entry: NewsEntry): Locale {
   if (!entry.filePath) {
     return defaultLocale;
@@ -48,7 +44,7 @@ export function getNewsEntryLocale(entry: NewsEntry): Locale {
   const newsIndex = segments.lastIndexOf("news");
   const locale = newsIndex >= 0 ? segments[newsIndex + 1] : undefined;
 
-  if (locale && isSupportedLocale(locale)) {
+  if (locale && isLocale(locale)) {
     return locale;
   }
 
@@ -99,7 +95,7 @@ export function getAvailableNewsLocales(
         )
         .map((entry) => getNewsEntryLocale(entry)),
     ),
-  ].filter(isSupportedLocale);
+  ].filter(isLocale);
 }
 
 export function findNewsVariant(

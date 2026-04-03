@@ -22,7 +22,7 @@ const {
   nofollow = false,
   ogType = "website",
 } = Astro.props as Props;
-const locale = isLocale(lang) ? lang : defaultLocale;
+const locale = lang !== undefined && isLocale(lang) ? lang : defaultLocale;
 const pathname = Astro.url.pathname;
 const basePath = import.meta.env.BASE_URL;
 const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.ico`;

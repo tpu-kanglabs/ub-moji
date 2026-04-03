@@ -1,6 +1,6 @@
 import { defaultLocale, type Locale } from "@/lib/i18n";
 
-function normalizeBasePath(basePath: string): string {
+export function normalizeBasePath(basePath: string): string {
   return basePath === "/" ? "" : basePath.replace(/\/$/, "");
 }
 
