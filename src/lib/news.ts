@@ -1,6 +1,6 @@
 import { defaultLocale, type Locale, locales } from "@/lib/i18n";
 import type { CollectionEntry } from "astro:content";
-import { buildNewsArticlePath, buildNewsIndexPath } from "@/lib/news-routes";
+import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/news-routes";
 
 export type NewsEntry = CollectionEntry<"news">;
 
@@ -138,7 +138,7 @@ export function getNewsArticleState(
   basePath = "/",
 ): NewsArticleState {
   const availableLocales = getAvailableNewsLocales(entries, slug);
-  const indexHref = buildNewsIndexPath(locale, basePath);
+  const indexHref = buildSectionIndexPath("news", locale, basePath);
 
   if (availableLocales.length === 0) {
     return {

@@ -32,5 +32,5 @@ Thumbs.db
 # jetbrains setting folder
 .idea/
 
-# editor settings
-.vscode/
+# Agents
+.claude/settings.local.json

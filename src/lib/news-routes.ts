@@ -4,10 +4,14 @@ function normalizeBasePath(basePath: string): string {
   return basePath === "/" ? "" : basePath.replace(/\/$/, "");
 }
 
-export function buildNewsIndexPath(locale: Locale, basePath = "/"): string {
+export function buildSectionIndexPath(
+  section: string,
+  locale: Locale,
+  basePath = "/",
+): string {
   const normalizedBase = normalizeBasePath(basePath);
   const localeSegment = locale === defaultLocale ? "" : `/${locale}`;
-  return `${normalizedBase}${localeSegment}/news/`;
+  return `${normalizedBase}${localeSegment}/${section}/`;
 }
 
 export function buildNewsArticlePath(
@@ -15,5 +19,5 @@ export function buildNewsArticlePath(
   slug: string,
   basePath = "/",
 ): string {
-  return `${buildNewsIndexPath(locale, basePath)}${slug}/`;
+  return `${buildSectionIndexPath("news", locale, basePath)}${slug}/`;
 }

@@ -23,4 +23,16 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { citations, news };
+const papers = defineCollection({
+  loader: file("src/contents/papers.yaml"),
+  schema: z.object({
+    order: z.number().int().nonnegative(),
+    title: z.string().min(1),
+    authors: z.string().min(1),
+    venue: z.string().optional(),
+    year: z.number().int().optional(),
+    url: z.string().optional(),
+  }),
+});
+
+export const collections = { citations, news, papers };
