@@ -124,7 +124,7 @@ const language = "bibtex";
     );
     const copyButton = root.querySelector("[data-copy-button]");
     const feedback = root.querySelector("[data-copy-feedback]");
-    let feedbackTimeout: ReturnType<typeof window.setTimeout> | null = null;
+    let feedbackTimeout: number | null = null;
 
     const setActiveTab = (value: string) => {
       triggers.forEach((trigger) => {
