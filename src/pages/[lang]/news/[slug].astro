@@ -42,9 +42,14 @@ if (articleState.kind === "available") {
 
 const seoTitle = articleEntry?.data.title;
 const seoDescription = articleEntry?.data.summary;
+const normalizedBase = basePath.replace(/\/?$/, "/");
+const ogImageUrl =
+  articleState.kind === "available" && Astro.site
+    ? new URL(`${normalizedBase}og/news/${locale}/${slug}.png`, Astro.site).href
+    : undefined;
 ---
 
-<Layout lang={locale} title={seoTitle} description={seoDescription} ogType={articleState.kind === "available" ? "article" : "website"}>
+<Layout lang={locale} title={seoTitle} description={seoDescription} ogType={articleState.kind === "available" ? "article" : "website"} ogImage={ogImageUrl}>
   {
     articleState.kind === "available" && articleEntry && Content ? (
       <div class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
