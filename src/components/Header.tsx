@@ -1,6 +1,6 @@
 import { NativeSelect } from "@/components/ui/select";
 import { defaultLocale, type Locale, locales, t } from "@/lib/i18n";
-import { buildNewsIndexPath } from "@/lib/news-routes";
+import { buildSectionIndexPath } from "@/lib/news-routes";
 import logoSrc from "@/assets/logo.png";
 
 type HeaderProps = {
@@ -55,8 +55,8 @@ export default function Header({
 }: HeaderProps) {
   const currentLocale = locales.includes(locale) ? locale : defaultLocale;
   const homeHref = buildLocalePath("/", currentLocale, basePath);
-  const newsHref = buildNewsIndexPath(currentLocale, basePath);
-  const papersHref = `${homeHref}#papers`;
+  const newsHref = buildSectionIndexPath("news", currentLocale, basePath);
+  const papersHref = buildSectionIndexPath("papers", currentLocale, basePath);
   const currentLanguagePath = buildLocalePath(
     pathname,
     currentLocale,
