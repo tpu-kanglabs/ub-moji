@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Install dependencies and build project
-        uses: withastro/action@v5
+        uses: withastro/action@v6
 
   deploy:
     needs: build
