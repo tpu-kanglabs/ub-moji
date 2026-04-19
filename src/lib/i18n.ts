@@ -1,38 +1,33 @@
-import enDict from "../i18n/en.json";
-import jaDict from "../i18n/ja.json";
-import type { Locale } from "./locales";
+import en from "@/lib/locales/en.json" with { type: "json" };
+import ja from "@/lib/locales/ja.json" with { type: "json" };
 
-const dictionaries = {
-  en: enDict,
-  ja: jaDict,
+export const locales = ["en", "ja"] as const;
+export type Locale = (typeof locales)[number];
+
+export const defaultLocale: Locale = "en";
+
+const translations: Record<Locale, Record<string, string>> = {
+  en,
+  ja,
 };
 
-export function getDict(locale: Locale) {
-  return dictionaries[locale] || dictionaries.en;
+export function isLocale(value: string): value is Locale {
+  return (locales as readonly string[]).includes(value);
 }
 
-export function useTranslations(locale: Locale) {
-  const dict = getDict(locale);
+export function getLocaleFromPath(pathname: string): Locale {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  if (segment && isLocale(segment)) {
+    return segment;
+  }
+  return defaultLocale;
+}
 
-  return function t(key: string): string {
-    // Support nested keys like "site.title"
-    const keys = key.split(".");
-    let value: unknown = dict;
-
-    for (const k of keys) {
-      value = (value as Record<string, unknown>)?.[k];
-      if (value === undefined) {
-        // Fallback to English if key not found
-        const fallbackDict = dictionaries.en;
-        let fallbackValue: unknown = fallbackDict;
-        for (const k of keys) {
-          fallbackValue = (fallbackValue as Record<string, unknown>)?.[k];
-          if (fallbackValue === undefined) break;
-        }
-        return typeof fallbackValue === "string" ? fallbackValue : key;
-      }
-    }
-
-    return typeof value === "string" ? value : key;
-  };
+export function t(locale: Locale, key: string): string {
+  const localized = translations[locale]?.[key];
+  if (localized) {
+    return localized;
+  }
+  const fallback = translations[defaultLocale]?.[key];
+  return fallback ?? key;
 }

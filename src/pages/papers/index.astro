@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/main.astro";
+import NewsLayout from "@/components/news/NewsLayout.astro";
+import PapersSection from "@/components/papers/PapersSection.astro";
+import { defaultLocale, t } from "@/lib/i18n";
+import { getCollection } from "astro:content";
+
+const locale = defaultLocale;
+const papers = await getCollection("papers");
+---
+
+<Layout
+  lang={locale}
+  title={t(locale, "papersIndexTitle")}
+  description={t(locale, "papersIndexIntro")}
+>
+  <NewsLayout
+    locale={locale}
+    eyebrow={t(locale, "papersIndexEyebrow")}
+    title={t(locale, "papersIndexTitle")}
+    intro={t(locale, "papersIndexIntro")}
+  >
+    <PapersSection papers={papers} locale={locale} />
+  </NewsLayout>
+</Layout>
