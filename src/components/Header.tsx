@@ -90,16 +90,25 @@ export default function Header({
         </a>
 
         <nav
-          className="order-3 flex w-full flex-wrap items-center gap-3 text-xs text-foreground/80 md:order-none md:ml-6 md:w-auto md:text-sm"
+          className="order-3 flex w-full flex-wrap items-center gap-1 text-sm text-foreground/80 md:order-none md:ml-6 md:w-auto"
           aria-label="Primary"
         >
-          <a className="hover:text-foreground" href={homeHref}>
+          <a
+            className="rounded px-2 py-1 hover:text-foreground"
+            href={homeHref}
+          >
             {t(currentLocale, "navHome")}
           </a>
-          <a className="hover:text-foreground" href={newsHref}>
+          <a
+            className="rounded px-2 py-1 hover:text-foreground"
+            href={newsHref}
+          >
             {t(currentLocale, "navNews")}
           </a>
-          <a className="hover:text-foreground" href={papersHref}>
+          <a
+            className="rounded px-2 py-1 hover:text-foreground"
+            href={papersHref}
+          >
             {t(currentLocale, "navPapers")}
           </a>
         </nav>
