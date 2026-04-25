@@ -1,0 +1,88 @@
+---
+import { SEO } from "astro-seo";
+import "@/styles/global.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer.astro";
+import { defaultLocale, isLocale, t } from "@/lib/i18n";
+
+interface Props {
+  lang?: string;
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  ogType?: "website" | "article";
+  ogImage?: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  noindex = false,
+  nofollow = false,
+  ogType = "website",
+  ogImage,
+} = Astro.props as Props;
+const locale = lang !== undefined && isLocale(lang) ? lang : defaultLocale;
+const pathname = Astro.url.pathname;
+const basePath = import.meta.env.BASE_URL;
+const faviconHref = `${basePath.replace(/\/?$/, "/")}favicon.ico`;
+
+const siteTitle = "ub-MOJI";
+const siteFullTitle = "ub-MOJI | AI Vision Lab";
+const siteDescription = t(locale, "siteDescription");
+const resolvedDescription = description ?? siteDescription;
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.href;
+const ogLocale = locale === "ja" ? "ja_JP" : "en_US";
+const normalizedBase = basePath.replace(/\/?$/, "/");
+const defaultOgImageUrl = Astro.site
+  ? new URL(`${normalizedBase}og/default.png`, Astro.site).href
+  : `${normalizedBase}og/default.png`;
+const resolvedOgImage = ogImage ?? defaultOgImageUrl;
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href={faviconHref} />
+    <SEO
+      title={title}
+      titleTemplate={`%s | ${siteTitle}`}
+      titleDefault={siteFullTitle}
+      description={resolvedDescription}
+      canonical={canonicalURL}
+      noindex={noindex}
+      nofollow={nofollow}
+      extend={{
+        meta: [
+          { property: "og:type", content: ogType },
+          { property: "og:url", content: canonicalURL },
+          { property: "og:site_name", content: siteTitle },
+          {
+            property: "og:title",
+            content: title ? `${title} | ${siteTitle}` : siteFullTitle,
+          },
+          { property: "og:description", content: resolvedDescription },
+          { property: "og:locale", content: ogLocale },
+          { property: "og:image", content: resolvedOgImage },
+          { property: "og:image:width", content: "1200" },
+          { property: "og:image:height", content: "630" },
+          { property: "og:image:type", content: "image/png" },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:image", content: resolvedOgImage },
+        ],
+      }}
+    />
+  </head>
+  <body class="flex min-h-svh flex-col">
+    <Header client:load basePath={basePath} locale={locale} pathname={pathname} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={locale} />
+  </body>
+</html>

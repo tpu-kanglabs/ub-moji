@@ -1,0 +1,185 @@
+---
+import { Code } from "astro:components";
+import { getCollection } from "astro:content";
+import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
+
+type Props = { locale: Locale };
+const { locale } = Astro.props as Props;
+
+const entries = (await getCollection("citations"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(({ data }) => {
+    const trimmedContent = data.content.trim();
+    const displayText =
+      trimmedContent.length > 0 ? trimmedContent : data.placeholder;
+
+    return {
+      label: data.label,
+      displayText,
+    };
+  });
+
+const initialTab = entries[0]?.label ?? "";
+const language = "bibtex";
+---
+
+<section
+  class="w-full"
+  data-testid="citation-section"
+  data-copied-text={t(locale, "citationCopied")}
+  data-copy-failed-text={t(locale, "citationCopyFailed")}
+>
+  <div class="text-card-foreground">
+    <div class="flex flex-col gap-4 py-2 sm:flex-row sm:items-start sm:justify-between">
+      <div class="space-y-1.5">
+        <h2 class="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl">{t(locale, "citationTitle")}</h2>
+        <p class="text-sm text-muted-foreground">
+          {t(locale, "citationDescription")}
+        </p>
+      </div>
+      <div class="flex flex-col items-start gap-1 sm:items-end">
+        <button
+          type="button"
+          class="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          data-copy-button
+        >
+          {t(locale, "citationCopyButton")}
+        </button>
+        <span
+          role="status"
+          aria-live="polite"
+          class="min-h-4 text-xs text-muted-foreground"
+          data-copy-feedback
+        ></span>
+      </div>
+    </div>
+
+    <div class="py-4">
+      <div
+        role="tablist"
+        aria-label={t(locale, "citationEntriesLabel")}
+        class="mb-4 inline-flex h-10 items-center justify-start gap-6 border-b border-border"
+      >
+        {entries.map((entry, index) => {
+          const isActive = entry.label === initialTab;
+
+          return (
+            <button
+              type="button"
+              id={`citation-tab-${index}`}
+              role="tab"
+              aria-selected={isActive ? "true" : "false"}
+              aria-controls={`citation-panel-${index}`}
+              tabindex={isActive ? "0" : "-1"}
+              data-tab-trigger
+              data-tab-target={entry.label}
+              class:list={[
+                "inline-flex h-full items-center border-b-2 px-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+                isActive
+                  ? "border-primary text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground",
+              ]}
+            >
+              {entry.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {entries.map((entry, index) => {
+        const isActive = entry.label === initialTab;
+
+        return (
+          <div
+            id={`citation-panel-${index}`}
+            role="tabpanel"
+            aria-labelledby={`citation-tab-${index}`}
+            hidden={!isActive}
+            data-tab-panel
+            data-tab-value={entry.label}
+            data-copy-text={entry.displayText}
+          >
+            <div class="overflow-hidden rounded-xl border border-border">
+              <div class="[&_pre]:m-0 [&_pre]:overflow-x-auto [&_pre]:p-4 [&_code]:text-[0.8rem] sm:[&_code]:text-sm">
+                <Code code={entry.displayText} lang={language} theme="github-light" />
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector("[data-testid='citation-section']");
+
+  if (root instanceof HTMLElement) {
+    const triggers = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-tab-trigger]"),
+    );
+    const panels = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-tab-panel]"),
+    );
+    const copyButton = root.querySelector("[data-copy-button]");
+    const feedback = root.querySelector("[data-copy-feedback]");
+    let feedbackTimeout: number | null = null;
+
+    const setActiveTab = (value: string) => {
+      triggers.forEach((trigger) => {
+        const isActive = trigger.dataset.tabTarget === value;
+        trigger.setAttribute("aria-selected", isActive ? "true" : "false");
+        trigger.setAttribute("tabindex", isActive ? "0" : "-1");
+        trigger.classList.toggle("border-primary", isActive);
+        trigger.classList.toggle("text-foreground", isActive);
+        trigger.classList.toggle("border-transparent", !isActive);
+        trigger.classList.toggle("text-muted-foreground", !isActive);
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.tabValue !== value;
+      });
+    };
+
+    const getActivePanel = () => {
+      return panels.find((panel) => !panel.hidden);
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const value = trigger.dataset.tabTarget;
+        if (value) {
+          setActiveTab(value);
+        }
+      });
+    });
+
+    copyButton?.addEventListener("click", async () => {
+      const activePanel = getActivePanel();
+      const copyText = activePanel?.dataset.copyText;
+
+      if (!copyText || !(feedback instanceof HTMLElement)) {
+        return;
+      }
+
+      if (feedbackTimeout) {
+        window.clearTimeout(feedbackTimeout);
+      }
+
+      const copiedText = root.dataset.copiedText ?? "Copied!";
+      const copyFailedText =
+        root.dataset.copyFailedText ?? "Copy failed. Please try again.";
+
+      try {
+        await navigator.clipboard.writeText(copyText);
+        feedback.textContent = copiedText;
+        feedbackTimeout = window.setTimeout(() => {
+          feedback.textContent = "";
+        }, 2000);
+      } catch {
+        feedback.textContent = copyFailedText;
+      }
+    });
+  }
+</script>

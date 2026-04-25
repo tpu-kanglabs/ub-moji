@@ -1,22 +1,49 @@
 ---
-const year = new Date().getFullYear();
+import { Image } from "astro:assets";
+import { defaultLocale, isLocale, t } from "@/lib/i18n";
+import logoSrc from "@/assets/logo.png";
+
+const { lang } = Astro.props;
+const locale = isLocale(lang) ? lang : defaultLocale;
 ---
 
-<footer class="border-t border-neutral-200 bg-neutral-100 mt-20">
-  <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between text-sm text-neutral-600">
-    <div class="mb-4 md:mb-0 text-center md:text-left">
-      &copy; {year} AI Vision Lab. All rights reserved.
+<footer data-testid="site-footer" class="border-t border-border/60 bg-muted/40">
+  <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4 py-6 text-sm">
+    <div class="flex items-center gap-3">
+      <Image
+        data-testid="site-footer-logo"
+        src={logoSrc}
+        alt={t(locale, "footerLogoAlt")}
+        width={36}
+        height={36}
+        class="size-9 object-contain"
+      />
+      <div class="flex flex-col gap-0.5">
+        <span class="font-medium">{t(locale, "siteName")}</span>
+        <span class="text-xs text-muted-foreground">
+          © 映像情報処理研究室 / AI Vision Lab.
+        </span>
+      </div>
     </div>
-    <div class="flex gap-6">
-      <a href="https://www.kanglabs.net/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        Website
-      </a>
-      <a href="https://github.com/tpu-kanglabs" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        GitHub
-      </a>
-      <a href="https://huggingface.co/kanglabs" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        Hugging Face
-      </a>
-    </div>
+    <nav class="flex items-center gap-4 text-muted-foreground">
+      <a
+        href="https://www.kanglabs.net/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerLabWebsite")}</a>
+      <a
+        href="https://github.com/tpu-kanglabs/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerGitHub")}</a>
+      <a
+        href="https://huggingface.co/kanglabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-foreground"
+      >{t(locale, "footerHuggingFace")}</a>
+    </nav>
   </div>
 </footer>

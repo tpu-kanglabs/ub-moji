@@ -1,0 +1,40 @@
+---
+import type { Author } from "@/lib/authors";
+
+type Props = {
+  title: string;
+  authors: Author[];
+  affiliation?: string;
+  className?: string;
+};
+
+const { title, authors, affiliation, className } = Astro.props as Props;
+---
+
+<div class={`flex flex-col gap-8 ${className ?? ""}`}>
+  <p class="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl">
+    {title}
+  </p>
+
+  <ul class="flex flex-wrap justify-center gap-6 pt-2 text-center text-base sm:gap-8 sm:text-lg lg:flex-nowrap lg:justify-between">
+    {authors.map((author, index) => (
+      <li class="flex min-w-[10rem] flex-1 flex-col items-center gap-2" data-testid={`author-${index}`}>
+        {author.url ? (
+          <a
+            class="font-semibold text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline"
+            href={author.url}
+          >
+            {author.name}
+          </a>
+        ) : (
+          <span class="font-semibold text-foreground">{author.name}</span>
+        )}
+      </li>
+    ))}
+  </ul>
+  {affiliation ? (
+    <p class="text-center text-sm text-muted-foreground sm:text-base">
+      {affiliation}
+    </p>
+  ) : null}
+</div>

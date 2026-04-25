@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/main.astro";
+import Hero from "@/components/hero/Hero.astro";
+import DatasetOverview from "@/components/dataset/DatasetOverview.astro";
+import UbMojiDatasetSection from "@/components/dataset/UbMojiDatasetSection.astro";
+import { defaultLocale } from "@/lib/i18n";
+---
+
+<Layout lang={defaultLocale}>
+  <Hero />
+  <DatasetOverview locale={defaultLocale} />
+  <UbMojiDatasetSection locale={defaultLocale} />
+</Layout>
