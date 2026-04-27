@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@astrojs/react':
-        specifier: ^5.0.0
+        specifier: ^5.0.4
         version: 5.0.4(@types/node@25.6.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.32.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(yaml@2.8.3)
       '@fontsource-variable/geist':
         specifier: ^5.2.8
@@ -30,7 +30,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       astro:
-        specifier: ^6.0.4
+        specifier: ^6.1.9
         version: 6.1.9(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(typescript@6.0.3)(yaml@2.8.3)
       astro-seo:
         specifier: ^1.1.0
@@ -79,7 +79,7 @@ importers:
         version: 1.4.0
     devDependencies:
       '@astrojs/check':
-        specifier: ^0.9.7
+        specifier: ^0.9.8
         version: 0.9.8(prettier@3.8.3)(typescript@6.0.3)
       '@biomejs/biome':
         specifier: ^2.4.13
