@@ -82,7 +82,7 @@ importers:
         specifier: ^0.9.7
         version: 0.9.8(prettier@3.8.3)(typescript@6.0.3)
       '@biomejs/biome':
-        specifier: ^2.4.12
+        specifier: ^2.4.13
         version: 2.4.13
       '@playwright/test':
         specifier: ^1.55.0
