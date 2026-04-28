@@ -48,7 +48,7 @@ importers:
         specifier: ^1.8.0
         version: 1.11.0(react@19.2.5)
       motion:
-        specifier: ^12.36.0
+        specifier: ^12.38.0
         version: 12.38.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       radix-ui:
         specifier: ^1.4.3
