@@ -30,8 +30,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       astro:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@25.6.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(yaml@2.8.3)
+        specifier: ^6.3.5
+        version: 6.3.7(@types/node@25.6.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(yaml@2.8.3)
       astro-seo:
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.8.3)(typescript@6.0.3)
@@ -2213,8 +2213,8 @@ packages:
   astro-seo@1.1.0:
     resolution: {integrity: sha512-G6LDNDyga30o+52v58jU7C35n3cORUzk7RSuY+xf/ZRbW6JiNplyaOO1VoYVKO+xzYNaBcxqNln2RFRR/wgJNQ==}
 
-  astro@6.3.3:
-    resolution: {integrity: sha512-wvLIZQYbBZt6U8gyflBW4SLBypaqdwLZUH93rT3oT53cmQ0bTGubvMAGjqBRoheOYzYcTJZtW6czztzbu4kQ5g==}
+  astro@6.3.7:
+    resolution: {integrity: sha512-zIeDRrI0qNgN1lcCjNqt6/IVCVej7VwSa326cO8uP9BOk1cg4QuffhLnOn2gCgWQr32/wxpSRFfXiLKHglu1Tw==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -6756,7 +6756,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@6.3.3(@types/node@25.6.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(yaml@2.8.3):
+  astro@6.3.7(@types/node@25.6.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(yaml@2.8.3):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.1
