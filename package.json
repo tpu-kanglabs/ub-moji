@@ -27,7 +27,7 @@
     "astro-seo": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "geist": "^1.7.0",
+    "geist": "^1.7.1",
     "lucide-react": "^1.16.0",
     "motion": "^12.40.0",
     "radix-ui": "^1.4.3",
