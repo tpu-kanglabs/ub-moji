@@ -30,7 +30,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.15)
       astro:
-        specifier: ^6.3.5
+        specifier: ^6.3.7
         version: 6.3.7(@types/node@25.9.1)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.2)(yaml@2.8.3)
       astro-seo:
         specifier: ^1.1.0
