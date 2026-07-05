@@ -1,0 +1,3 @@
+[tools]
+node = "24"
+"github:pnpm/pnpm" = "11"

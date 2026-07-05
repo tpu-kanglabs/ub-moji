@@ -13,8 +13,11 @@ Powered by Astro, React, Tailwind CSS, Radix UI, Lucide Icons, and Biome.
 
 ## Commands
 
-| Step                | Command                |
+[mise](https://mise.jdx.dev/) is essential for development.
+
+| Step                | Command               |
 |---------------------|-----------------------|
+| Install toolchain   | `mise i`              |
 | Install dependencies| `pnpm install`        |
 | Start dev server    | `pnpm dev`            |
 | Build               | `pnpm build`          |

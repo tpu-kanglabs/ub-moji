@@ -11,14 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          run_install: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 'lts/*'
-          cache: 'pnpm'
+      - name: Setup mise
+        uses: jdx/mise-action@v4
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
       - name: Run Biome
@@ -32,14 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          run_install: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 'lts/*'
-          cache: 'pnpm'
+      - name: Setup mise
+        uses: jdx/mise-action@v4
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
       - name: Install Playwright browsers
