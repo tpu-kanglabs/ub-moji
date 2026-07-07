@@ -37,10 +37,11 @@ pnpm exec playwright test tests/e2e/hero-section.test.ts
 ### i18n（国際化）
 
 外部ライブラリなし、カスタム実装:
-- `src/lib/i18n.ts`: `t(locale, key)` ヘルパー関数
+- `src/lib/i18n.ts`: `t(locale, key)` / `resolveLocale()` ヘルパー関数
+- `src/lib/routes.ts`: ロケール付きパスの構築（`buildSectionIndexPath` など）
 - `src/lib/locales/{en,ja}.json`: 翻訳文字列
 - ルーティング: `/` が英語（デフォルト）、`/ja/` が日本語
-- ページは `src/pages/[lang]/` 以下に配置
+- ページは `src/pages/[...lang]/` 以下に一本化（`lang` param が `undefined` なら英語、`ja` なら日本語。`getLangStaticPaths()` を使用）
 
 ### コンテンツ管理
 
