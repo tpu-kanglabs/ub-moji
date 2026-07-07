@@ -69,6 +69,13 @@ type UbMojiDatasetTablesProps = {
 export default function UbMojiDatasetTables({
   details,
 }: UbMojiDatasetTablesProps) {
+  const namingTable: DatasetTable = {
+    title: details.naming.title,
+    description: details.naming.pattern,
+    columns: details.naming.columns,
+    rows: details.naming.rows,
+  };
+
   return (
     <div className="flex flex-col gap-8">
       {details.tables.map((table) => (
@@ -77,34 +84,7 @@ export default function UbMojiDatasetTables({
 
       <Separator />
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{details.naming.title}</CardTitle>
-          <CardDescription>{details.naming.pattern}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-3">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                {details.naming.columns.map((column) => (
-                  <TableHead key={column}>{column}</TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {details.naming.rows.map((row) => (
-                <TableRow key={`naming-${row[0]}`}>
-                  {details.naming.columns.map((column, columnIndex) => (
-                    <TableCell key={`naming-${row[0]}-${column}`}>
-                      {row[columnIndex]}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+      <DatasetTableCard table={namingTable} />
 
       <div className="flex flex-col gap-3">
         <p className="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl">

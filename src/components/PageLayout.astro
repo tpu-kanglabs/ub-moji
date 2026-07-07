@@ -1,14 +1,11 @@
 ---
-import type { Locale } from "@/lib/i18n";
-
 type Props = {
   eyebrow?: string;
   intro?: string;
-  locale: Locale;
   title: string;
 };
 
-const { eyebrow, intro, title } = Astro.props as Props;
+const { eyebrow, intro, title } = Astro.props;
 ---
 
 <section class="relative overflow-hidden border-b border-border/70 bg-linear-to-b from-muted/50 via-background to-background">

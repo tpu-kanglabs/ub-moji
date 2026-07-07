@@ -1,0 +1,31 @@
+---
+type Props = {
+  title: string;
+  intro?: string;
+  note?: string;
+  testId?: string;
+};
+
+const { title, intro, note, testId } = Astro.props;
+---
+
+<section class="w-full py-16 sm:py-20" data-testid={testId}>
+  <div class="mx-auto w-full max-w-5xl px-4">
+    <div class="border-t border-border/60 pt-10 sm:pt-12">
+      <div class="max-w-3xl">
+        <p
+          class="text-balance text-2xl font-semibold tracking-[0.02em] text-foreground sm:text-3xl md:text-4xl"
+        >
+          {title}
+        </p>
+        {intro ? (
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {intro}
+          </p>
+        ) : null}
+        {note ? <p class="mt-3 text-sm text-muted-foreground">{note}</p> : null}
+      </div>
+      <slot />
+    </div>
+  </div>
+</section>

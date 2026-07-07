@@ -1,8 +1,8 @@
 ---
 import NewsArticle from "@/components/news/NewsArticle.astro";
-import NewsLayout from "@/components/news/NewsLayout.astro";
 import NewsNotFoundState from "@/components/news/NewsNotFoundState.astro";
 import NewsUnavailableState from "@/components/news/NewsUnavailableState.astro";
+import PageLayout from "@/components/PageLayout.astro";
 import Layout from "@/layouts/main.astro";
 import { locales, resolveLocale, t } from "@/lib/i18n";
 import {
@@ -62,8 +62,7 @@ const ogImageUrl =
         </NewsArticle>
       </div>
     ) : articleState.kind === "unavailable" ? (
-      <NewsLayout
-        locale={locale}
+      <PageLayout
         eyebrow={t(locale, "newsUnavailableEyebrow")}
         title={t(locale, "newsUnavailableTitle")}
         intro={t(locale, "newsUnavailableBody")}
@@ -74,11 +73,11 @@ const ogImageUrl =
           indexHref={articleState.indexHref}
           locale={locale}
         />
-      </NewsLayout>
+      </PageLayout>
     ) : (
-      <NewsLayout locale={locale} title={t(locale, "newsNotFoundTitle")} intro={t(locale, "newsNotFoundBody")}>
+      <PageLayout title={t(locale, "newsNotFoundTitle")} intro={t(locale, "newsNotFoundBody")}>
         <NewsNotFoundState slot="default" indexHref={articleState.indexHref} locale={locale} />
-      </NewsLayout>
+      </PageLayout>
     )
   }
 </Layout>

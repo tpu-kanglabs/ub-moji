@@ -1,6 +1,6 @@
 ---
 import NewsIndex from "@/components/news/NewsIndex.astro";
-import NewsLayout from "@/components/news/NewsLayout.astro";
+import PageLayout from "@/components/PageLayout.astro";
 import Layout from "@/layouts/main.astro";
 import { resolveLocale, t } from "@/lib/i18n";
 import { getNewsIndexItems } from "@/lib/news";
@@ -19,12 +19,11 @@ const entries = getNewsIndexItems(
 ---
 
 <Layout lang={locale} title={t(locale, "newsIndexTitle")} description={t(locale, "newsIndexIntro")}>
-  <NewsLayout
-    locale={locale}
+  <PageLayout
     eyebrow={t(locale, "newsIndexEyebrow")}
     title={t(locale, "newsIndexTitle")}
     intro={t(locale, "newsIndexIntro")}
   >
     <NewsIndex slot="default" entries={entries} locale={locale} />
-  </NewsLayout>
+  </PageLayout>
 </Layout>
