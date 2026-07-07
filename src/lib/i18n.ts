@@ -15,6 +15,10 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
+export function resolveLocale(value: string | null | undefined): Locale {
+  return value && isLocale(value) ? value : defaultLocale;
+}
+
 export function getLocaleFromPath(pathname: string): Locale {
   const segment = pathname.split("/").filter(Boolean)[0];
   if (segment && isLocale(segment)) {

@@ -1,6 +1,6 @@
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
 import type { CollectionEntry } from "astro:content";
-import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/news-routes";
+import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/routes";
 
 export type NewsEntry = CollectionEntry<"news">;
 
