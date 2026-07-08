@@ -1,4 +1,4 @@
-import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/news-routes";
+import { buildNewsArticlePath, buildSectionIndexPath } from "@/lib/routes";
 
 describe("buildSectionIndexPath", () => {
   it("builds the English news index path with a base path", () => {

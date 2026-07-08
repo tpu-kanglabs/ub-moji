@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import { isLocale, locales, type Locale } from "@/lib/i18n";
+import { locales, resolveLocale } from "@/lib/i18n";
 import { findNewsVariant, getCanonicalNewsSlugs } from "@/lib/news";
 import { generateArticleOgp } from "@/lib/ogp";
 
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 export const GET: APIRoute = async ({ params }) => {
   const { lang, slug } = params;
-  const locale: Locale = isLocale(lang ?? "") ? (lang as Locale) : "en";
+  const locale = resolveLocale(lang);
 
   const entries = await getCollection("news");
   const entry = findNewsVariant(entries, slug ?? "", locale);

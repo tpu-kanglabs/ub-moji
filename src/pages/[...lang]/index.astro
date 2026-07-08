@@ -1,0 +1,18 @@
+---
+import DatasetOverview from "@/components/home/DatasetOverview.astro";
+import Hero from "@/components/home/Hero.astro";
+import UbMojiDatasetSection from "@/components/home/UbMojiDatasetSection.astro";
+import Layout from "@/layouts/main.astro";
+import { resolveLocale } from "@/lib/i18n";
+import { getLangStaticPaths } from "@/lib/routes";
+
+export const getStaticPaths = getLangStaticPaths;
+
+const locale = resolveLocale(Astro.params.lang);
+---
+
+<Layout lang={locale}>
+  <Hero />
+  <DatasetOverview locale={locale} />
+  <UbMojiDatasetSection locale={locale} />
+</Layout>

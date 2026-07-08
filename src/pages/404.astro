@@ -1,17 +1,16 @@
 ---
-import NewsLayout from "@/components/news/NewsLayout.astro";
+import PageLayout from "@/components/PageLayout.astro";
 import NewsNotFoundState from "@/components/news/NewsNotFoundState.astro";
 import Layout from "@/layouts/main.astro";
 import { getLocaleFromPath, t } from "@/lib/i18n";
-import { buildSectionIndexPath } from "@/lib/news-routes";
+import { buildSectionIndexPath } from "@/lib/routes";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
 const basePath = import.meta.env.BASE_URL;
 ---
 
 <Layout lang={locale} noindex={true}>
-  <NewsLayout
-    locale={locale}
+  <PageLayout
     eyebrow="404"
     title={t(locale, "newsNotFoundTitle")}
     intro={t(locale, "newsNotFoundBody")}
@@ -21,5 +20,5 @@ const basePath = import.meta.env.BASE_URL;
       indexHref={buildSectionIndexPath("news", locale, basePath)}
       locale={locale}
     />
-  </NewsLayout>
+  </PageLayout>
 </Layout>

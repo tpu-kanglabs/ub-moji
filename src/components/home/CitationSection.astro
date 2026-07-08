@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 
 type Props = { locale: Locale };
-const { locale } = Astro.props as Props;
+const { locale } = Astro.props;
 
 const entries = (await getCollection("citations"))
   .sort((a, b) => a.data.order - b.data.order)
