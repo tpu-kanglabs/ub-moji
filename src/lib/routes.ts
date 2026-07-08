@@ -9,8 +9,8 @@ export function withTrailingSlash(basePath: string): string {
 }
 
 /**
- * `[...lang]` ルートの param 値。デフォルトロケールはプレフィックスなし
- * （undefined）、それ以外は locale 文字列。
+ * Parameter for `[...lang]` root. Default locale is represented as (undefined),
+ * while other locales are represented as their locale code.
  */
 export function toLangParam(locale: Locale): string | undefined {
   return locale === defaultLocale ? undefined : locale;
