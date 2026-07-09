@@ -63,8 +63,8 @@ importers:
         specifier: ^0.26.0
         version: 0.26.0
       shadcn:
-        specifier: ^4.12.0
-        version: 4.12.0(typescript@6.0.3)
+        specifier: ^4.13.0
+        version: 4.13.0(typescript@6.0.3)
       sharp:
         specifier: ^0.35.3
         version: 0.35.3(@types/node@25.9.4)
@@ -4071,8 +4071,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@4.12.0:
-    resolution: {integrity: sha512-o781ieQziCnXH2FKsEqxp1fnbHdbgAPO9inTSPeZ59hQfsZXuMGp3ul8oFSV5KQS4nbUK9b+DrDE6C7OvfKKQQ==}
+  shadcn@4.13.0:
+    resolution: {integrity: sha512-5fuJ4jI/GcPeA/iTL4cJivCZuYQGXz/N3bIzyd+Gd/FM6xUCy2MxGG+LaDQuw2cjNy9zGPSFPTEmI048UwPTZA==}
     engines: {node: '>=20.18.1'}
     hasBin: true
 
@@ -8631,7 +8631,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@4.12.0(typescript@6.0.3):
+  shadcn@4.13.0(typescript@6.0.3):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/parser': 7.29.7
@@ -8939,7 +8939,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.6:
     dependencies:
-      semver: 7.8.4
+      semver: 7.8.5
 
   typescript@6.0.3: {}
 
@@ -9138,7 +9138,7 @@ snapshots:
   volar-service-typescript@0.0.70(@volar/language-service@2.4.28):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.8.4
+      semver: 7.8.5
       typescript-auto-import-cache: 0.3.6
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
