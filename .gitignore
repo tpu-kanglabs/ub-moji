@@ -22,6 +22,7 @@ test-results/
 .env
 .env.production
 .env*
+mise.local.toml
 
 # macOS-specific files
 .DS_Store

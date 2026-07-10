@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 import "@/styles/global.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics.astro";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer.astro";
 import { resolveLocale, t } from "@/lib/i18n";
@@ -43,6 +44,7 @@ const defaultOgImageUrl = Astro.site
   ? new URL(`${normalizedBase}og/default.png`, Astro.site).href
   : `${normalizedBase}og/default.png`;
 const resolvedOgImage = ogImage ?? defaultOgImageUrl;
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
 <html lang={locale}>
@@ -50,6 +52,7 @@ const resolvedOgImage = ogImage ?? defaultOgImageUrl;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href={faviconHref} />
+    {gaMeasurementId ? <GoogleAnalytics id={gaMeasurementId} /> : null}
     <SEO
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
