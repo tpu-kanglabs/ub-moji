@@ -111,6 +111,7 @@ export async function generateDefaultOgp(): Promise<Buffer> {
   const svg = await satori(
     {
       type: "div",
+      key: null,
       props: {
         style: {
           width: OGP_WIDTH,
@@ -227,6 +228,7 @@ export async function generateArticleOgp({
   const svg = await satori(
     {
       type: "div",
+      key: null,
       props: {
         style: {
           width: OGP_WIDTH,
