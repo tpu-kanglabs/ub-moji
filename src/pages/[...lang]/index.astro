@@ -1,5 +1,4 @@
 ---
-import DatasetOverview from "@/components/home/DatasetOverview.astro";
 import Hero from "@/components/home/Hero.astro";
 import UbMojiDatasetSection from "@/components/home/UbMojiDatasetSection.astro";
 import Layout from "@/layouts/main.astro";
@@ -12,7 +11,6 @@ const locale = resolveLocale(Astro.params.lang);
 ---
 
 <Layout lang={locale}>
-  <Hero />
-  <DatasetOverview locale={locale} />
+  <Hero locale={locale} />
   <UbMojiDatasetSection locale={locale} />
 </Layout>
