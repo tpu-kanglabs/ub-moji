@@ -23,7 +23,7 @@ export const GET: APIRoute = async ({ params }) => {
   const tag = entry?.data.tag ?? "";
 
   const png = await generateArticleOgp({ title, tag, lang: locale });
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: { "Content-Type": "image/png" },
   });
 };
