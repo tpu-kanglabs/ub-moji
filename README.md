@@ -24,6 +24,8 @@ Powered by Astro, React, Tailwind CSS, Radix UI, Lucide Icons, and Biome.
 | Preview             | `pnpm preview`        |
 | Code check          | `pnpm check`          |
 
+To enable Google Analytics locally, set `PUBLIC_GA_MEASUREMENT_ID` in a `mise.local.toml` (see [mise environments](https://mise.jdx.dev/environments/)).
+
 ## Contributing
 
 Contributions are welcome! Please read the [contributing guide](https://github.com/tpu-kanglabs/.github/blob/main/.github/CONTRIBUTING.md) for details.
