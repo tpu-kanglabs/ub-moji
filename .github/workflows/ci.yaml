@@ -17,6 +17,8 @@ jobs:
         run: pnpm i --frozen-lockfile
       - name: Run Biome
         run: pnpm check
+      - name: Run type checks
+        run: pnpm typecheck
       - name: Run unit tests
         run: pnpm test
       - name: Build
