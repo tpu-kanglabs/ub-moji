@@ -52,7 +52,7 @@
     "@vitejs/plugin-react": "^6.0.5",
     "globals": "^17.9.0",
     "jsdom": "^30.0.1",
-    "typescript": "~6.0.3",
+    "typescript": "~7.0.2",
     "vitest": "^4.1.10"
   }
 }
