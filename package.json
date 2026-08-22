@@ -50,7 +50,7 @@
     "@testing-library/user-event": "^14.6.4",
     "@types/node": "^25.9.5",
     "@vitejs/plugin-react": "^6.0.5",
-    "globals": "^17.9.0",
+    "globals": "^17.11.0",
     "jsdom": "^30.0.1",
     "typescript": "~6.0.3",
     "vitest": "^4.1.10"
