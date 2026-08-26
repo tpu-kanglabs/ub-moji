@@ -12,7 +12,7 @@ importers:
         specifier: ^2.1.7
         version: 2.1.7
       '@astrojs/react':
-        specifier: ^6.0.3
+        specifier: ^6.0.4
         version: 6.0.4(@types/node@25.9.5)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(yaml@2.9.0)
       '@fontsource-variable/geist':
         specifier: ^5.3.0
@@ -33,7 +33,7 @@ importers:
         specifier: ^19.2.4
         version: 19.2.4(@types/react@19.2.18)
       astro:
-        specifier: ^7.2.3
+        specifier: ^7.2.4
         version: 7.2.4(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.9.5)(jiti@2.7.0)(yaml@2.9.0)
       astro-seo:
         specifier: ^1.1.0
