@@ -1,6 +1,6 @@
 [tools]
 node = "24"
-"github:pnpm/pnpm" = "11"
+"github:pnpm/pnpm" = "v12.3.0"
 
 # Set PUBLIC_GA_MEASUREMENT_ID in mise.local.toml to enable Google Analytics locally:
 # [env]
