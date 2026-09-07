@@ -106,7 +106,7 @@ importers:
         specifier: ^6.1.1
         version: 6.1.1(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
       globals:
-        specifier: ^17.11.0
+        specifier: ^17.12.0
         version: 17.12.0
       jsdom:
         specifier: ^30.0.1
