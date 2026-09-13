@@ -12,7 +12,7 @@ export const newsProseClassName = [
   "[&_code]:break-words [&_code]:rounded-md [&_code]:bg-muted/70 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm",
   "[&_pre_code]:bg-transparent [&_pre_code]:px-0 [&_pre_code]:py-0",
   "[&_img]:mt-8 [&_img]:w-full [&_img]:rounded-3xl [&_img]:border [&_img]:border-border/70 [&_img]:object-cover",
-  "[&_table]:mt-8 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto",
+  "[&_table]:mt-8 [&_table]:w-full [&_table]:table-auto [&_table]:overflow-x-auto",
   "[&_thead]:border-b [&_thead]:border-border",
   "[&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold",
   "[&_td]:px-3 [&_td]:py-2 [&_td]:text-sm",
