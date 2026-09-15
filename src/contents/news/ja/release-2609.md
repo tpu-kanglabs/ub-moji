@@ -59,3 +59,12 @@ continuous_dataset = load_dataset("kanglabs/ub-MOJI", "continuous", revision="v2
 - 新規追加サンプルの `fps`・`duration` の値を修正し、BibTeX の引用情報も修正しました。
 
 変更点の全リストは [CHANGELOG](https://huggingface.co/datasets/kanglabs/ub-MOJI/blob/main/CHANGELOG.md) をご参照ください。
+
+### 謝辞
+
+本データセットの撮影にあたり、以下の団体にご協力いただきました。心より御礼申し上げます。
+
+- [中野区社会福祉協議会 中野ボランティアセンター](https://nakanoshakyo.com/service/volunteer/)
+- 中野区聴覚障害者福祉協会
+
+また、撮影にご協力いただいた参加者の皆様にも、心より感謝申し上げます。
