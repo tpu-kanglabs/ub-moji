@@ -64,7 +64,7 @@ For the full list of changes, please refer to the [CHANGELOG](https://huggingfac
 
 We would like to express our sincere gratitude to the following organizations for their cooperation in the dataset recordings:
 
-- Nakano Volunteer Center, Nakano-City Social Welfare Conference (中野区社会福祉協議会 中野ボランティアセンター)
+- [Nakano Volunteer Center, Nakano-City Social Welfare Conference (中野区社会福祉協議会 中野ボランティアセンター)](https://nakanoshakyo.com/service/volunteer/)
 - 中野区聴覚障害者福祉協会
 
 We would also like to thank all the participants who took part in the recordings.
