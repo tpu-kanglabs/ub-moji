@@ -258,7 +258,7 @@ importers:
         specifier: ^14.6.7
         version: 14.6.7(@testing-library/dom@10.4.2)
       '@types/node':
-        specifier: ^25.9.8
+        specifier: ^25.9.9
         version: 25.9.9
       '@vitejs/plugin-react':
         specifier: ^6.1.1
