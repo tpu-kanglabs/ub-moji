@@ -243,7 +243,7 @@ importers:
         specifier: ^0.9.10
         version: 0.9.10(@emnapi/runtime@1.11.3)(prettier@3.9.9)(typescript@6.0.3)
       '@biomejs/biome':
-        specifier: ^2.5.14
+        specifier: ^2.5.15
         version: 2.5.15
       '@playwright/test':
         specifier: ^1.63.0
