@@ -206,7 +206,7 @@ importers:
         specifier: ^1.7.2
         version: 1.7.2(next@16.3.8(@babel/core@7.29.7)(@playwright/test@1.64.0)(@types/node@25.9.9)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       lucide-react:
-        specifier: ^1.54.0
+        specifier: ^1.55.0
         version: 1.55.0(@types/react@19.3.0)(react@19.3.0)
       motion:
         specifier: ^14.1.0
