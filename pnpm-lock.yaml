@@ -167,10 +167,10 @@ importers:
   .:
     dependencies:
       '@astrojs/partytown':
-        specifier: ^2.1.8
-        version: 2.1.8
+        specifier: ^2.1.9
+        version: 2.1.9
       '@astrojs/react':
-        specifier: ^7.1.0
+        specifier: ^7.1.1
         version: 7.1.1(@types/node@25.9.9)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(yaml@2.9.1)
       '@fontsource-variable/geist':
         specifier: ^5.3.0
@@ -191,7 +191,7 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
       astro:
-        specifier: ^7.4.1
+        specifier: ^7.4.2
         version: 7.4.2(@types/node@25.9.9)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
       astro-seo:
         specifier: ^1.2.0
@@ -240,7 +240,7 @@ importers:
         version: 1.4.0
     devDependencies:
       '@astrojs/check':
-        specifier: ^0.9.11
+        specifier: ^0.9.12
         version: 0.9.12(@emnapi/runtime@1.11.3)(prettier@3.9.9)(typescript@6.0.3)
       '@biomejs/biome':
         specifier: ^2.5.15
@@ -388,8 +388,8 @@ packages:
   '@astrojs/markdown-satteri@0.4.5':
     resolution: {integrity: sha512-0IeGdoFbv0f+442KJhYS44Wg8F3MuHmRsxIEYuFyqkjRubc6dPBFZ7azor5t4AeXLQoT5A5h9HyViKpd70Dl9w==}
 
-  '@astrojs/partytown@2.1.8':
-    resolution: {integrity: sha512-iCRNNPqvdQEORyAYC8jN8nTCN2wW66WS+Pft2fhqq52cj3GcWvzlAZlyfjtpCeiEYI0op6u5OtWqqItiS7INDA==}
+  '@astrojs/partytown@2.1.9':
+    resolution: {integrity: sha512-jAywLxinR9XRHH8NB4AOJL0cohFlqX+VWEsC9WUWTWNxfDun774rpi8DMaXPOieGjuAOSkr2BM5ejcdY/eZhsQ==}
 
   '@astrojs/prism@4.1.1':
     resolution: {integrity: sha512-sXlAXJX6t4QfuLg+CuCDzpg7NoxWcyb4paFprgtFppLeisCBmh935h+tJ5CWXfsXEoW2IDy/ihbRMtiu28Chjw==}
@@ -1217,8 +1217,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@qwik.dev/partytown@0.14.5':
-    resolution: {integrity: sha512-DxVGNgz2oWZvNT76LmMwxSroN1+r8rHqH/55fLGpO7tiVbYtC8PoXICyS1vGwL2mvmvfQhccqbudKrDnQO1mgg==}
+  '@qwik.dev/partytown@1.0.2':
+    resolution: {integrity: sha512-27Oe9GpbrPHrJC+CWqwW5GA+h4mFyK3ilWByPfICgFQXTUFDAFa3hOIQsE1qBeZ6a847AcAEyBPsQV/CoZm4ig==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4848,9 +4848,9 @@ snapshots:
       github-slugger: 2.0.0
       satteri: 0.10.5
 
-  '@astrojs/partytown@2.1.8':
+  '@astrojs/partytown@2.1.9':
     dependencies:
-      '@qwik.dev/partytown': 0.14.5
+      '@qwik.dev/partytown': 1.0.2
       mrmime: 2.0.1
 
   '@astrojs/prism@4.1.1':
@@ -5577,7 +5577,7 @@ snapshots:
     dependencies:
       playwright: 1.64.1
 
-  '@qwik.dev/partytown@0.14.5': {}
+  '@qwik.dev/partytown@1.0.2': {}
 
   '@radix-ui/number@1.1.3': {}
 
