@@ -34,7 +34,7 @@
     "radix-ui": "^1.8.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "satori": "^0.57.2",
+    "satori": "^0.63.2",
     "shadcn": "^4.21.4",
     "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.0",
