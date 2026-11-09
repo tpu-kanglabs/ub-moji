@@ -1,79 +1,29 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code when working in this repository.
 
-## Project Overview
+## Implementation
 
-**ub-moji** は日本語指文字データセット（ub-MOJI）の静的ウェブサイト。Astro + React islands アーキテクチャで構築され、英語/日本語の多言語対応を持つ。
+- Follow established best practices and idiomatic patterns for the language/library in use.
+- Apply DRY (no duplicated logic, config, or source of truth) and low coupling. Favor composition over inheritance and the simplest design that satisfies current requirements (YAGNI). These principles matter on every change, not only when explicitly requested.
+- Reuse existing components and conventions. Avoid unnecessary dependencies, abstractions, and unrelated changes.
+- Prefer static rendering over client-side JavaScript unless interactivity is required.
 
-## Commands
+## Content and Localization
 
-```bash
-pnpm dev          # 開発サーバー起動 (http://localhost:4321/ub-moji)
-pnpm build        # 本番ビルド
-pnpm check        # Biome による lint + フォーマットチェック（コミット前必須）
-pnpm typecheck    # astro check による型チェック
-pnpm test         # Vitest ユニットテスト
-pnpm test:watch   # ユニットテスト（watch モード）
-pnpm test:e2e     # Playwright E2E テスト
-```
+- Maintain scientific accuracy in dataset descriptions, statistics, citations, and release information. Never invent or assume facts.
+- Keep English and Japanese content consistent, using natural phrasing in each language.
+- Preserve accessibility, responsive behavior, and locale-aware navigation.
 
-単一テストの実行:
-```bash
-# ユニットテスト: vitest に --reporter verbose とファイル名パターンを指定
-pnpm exec vitest run tests/components/header.test.tsx
-# E2E テスト: playwright に特定ファイルを指定
-pnpm exec playwright test tests/e2e/hero-section.test.ts
-```
+## Verification
 
-## Architecture
+- Run relevant checks and tests after changes.
+- Add or update tests when behavior changes.
+- Report any verification that could not be completed.
 
-### Astro + React Islands
+## Git Workflow
 
-- `.astro` ファイル: サーバーサイドレンダリング（静的HTML）
-- `.tsx` ファイル: インタラクティブな部分のみ React island として使用（Header, dataset テーブルなど）
-- すべてのページは SSG でビルド時に静的生成
-
-### i18n（国際化）
-
-外部ライブラリなし、カスタム実装:
-- `src/lib/i18n.ts`: `t(locale, key)` / `resolveLocale()` ヘルパー関数
-- `src/lib/routes.ts`: ロケール付きパスの構築（`buildSectionIndexPath` など）
-- `src/lib/locales/{en,ja}.json`: 翻訳文字列
-- ルーティング: `/` が英語（デフォルト）、`/ja/` が日本語
-- ページは `src/pages/[...lang]/` 以下に一本化（`lang` param が `undefined` なら英語、`ja` なら日本語。`getLangStaticPaths()` を使用）
-
-### コンテンツ管理
-
-Astro Content Collections (`astro:content`) で型安全に管理:
-- `src/contents/citations.yaml`: 引用情報（YAML）
-- `src/contents/news/{en,ja}/*.md`: ニュース記事（Markdown）
-- スキーマ定義: `src/content.config.ts`
-
-### スタイリング
-
-- TailwindCSS v4（`@tailwindcss/vite` プラグイン経由）
-- shadcn/ui コンポーネント（`src/components/ui/`）、スタイル: `radix-nova`
-- `cn()` ユーティリティ（`src/lib/utils.ts`）: clsx + tailwind-merge
-- CSS変数: `src/styles/global.css`
-
-### パスエイリアス
-
-`@/` は `./src/` にマッピング（例: `@/lib/i18n`、`@/components/Header`）
-
-## テスト構成
-
-- ユニットテスト: `tests/components/**/*.test.{ts,tsx}` → Vitest + React Testing Library
-- E2E テスト: `tests/e2e/**/*.spec.ts` → Playwright（ポート4323でdevサーバーを起動）
-
-## デプロイ
-
-GitHub Pages: `https://tpu-kanglabs.github.io/ub-moji`
-
-`astro.config.mjs` の `base: "/ub-moji"` に注意。ローカル開発時のURLも `http://localhost:4321/ub-moji/` になる。
-
-## コード品質
-
-- Biome でフォーマット（インデント: 2スペース、クォート: ダブル）+ lint
-- TypeScript strict モード
-- コミット前に `pnpm check` と `pnpm build` が通ることを確認すること
+- Follow the Conventional Commits specification for commit messages.
+- Keep commits focused and logically organized.
+- Create separate pull requests for distinct scopes of work. Each PR should represent a single coherent change.
+- Avoid mixing unrelated features, fixes, or refactoring in the same PR.
