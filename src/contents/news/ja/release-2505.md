@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: バージョン 25.05のリリース
 summary: 日本初となる日本語指文字データセット「ub-MOJI」を公開しました。

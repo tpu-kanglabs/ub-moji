@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: Release of version 25.09
 summary: Add new data for voiced sounds, semi-voiced sounds, and long vowels
@@ -10,8 +11,8 @@ We are pleased to announce the release of the latest version of the ub-MOJI Data
 
 In this update, the following data have been newly added:
 
-- **Voiced sounds** (e.g., *ga*, *za*, *da*, *ba* rows)
-- **Semi-voiced sounds** (*pa* row)
+- **Voiced sounds** (e.g., _ga_, _za_, _da_, _ba_ rows)
+- **Semi-voiced sounds** (_pa_ row)
 - **Long vowel mark** (ー)
 
 With this release, the dataset now covers a wider variety of finger spelling expressions.

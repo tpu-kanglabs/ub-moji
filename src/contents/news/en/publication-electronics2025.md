@@ -1,4 +1,5 @@
 ---
+
 tag: Publication
 title: A Research Paper Using ub-MOJI Has Been Published
 summary: A research paper utilizing ub-MOJI has been published in the journal Electronics.
@@ -8,7 +9,7 @@ isPublished: true
 
 [Paper Link](https://www.mdpi.com/2079-9292/14/15/3052) | [University Press Release](https://www.t-kougei.ac.jp/activity/archives/2025/article_86510.html)
 
-We are pleased to announce that research using the **ub-MOJI** dataset has been published in the journal *Electronics*.
+We are pleased to announce that research using the **ub-MOJI** dataset has been published in the journal _Electronics_.
 
 In this study, we developed a **deep learning model based on finger angle features** to distinguish subtle differences in complex finger movements in Japanese fingerspelling.
 

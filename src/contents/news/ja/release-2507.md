@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: バージョン 25.07のリリース
 summary: バージョン 25.07 では、12名の新規参加者データ、classes.csv の追加、Hugging Face データセット形式への対応を行いました。

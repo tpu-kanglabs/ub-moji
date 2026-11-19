@@ -25,7 +25,7 @@ Always use `FieldGroup` + `Field` — never raw `div` with `space-y-*`:
     <FieldLabel htmlFor="password">Password</FieldLabel>
     <Input id="password" type="password" />
   </Field>
-</FieldGroup>
+</FieldGroup>;
 ```
 
 Use `Field orientation="horizontal"` for settings pages. Use `FieldLabel className="sr-only"` for visually hidden labels.
@@ -53,17 +53,17 @@ Never use raw `Input` or `Textarea` inside an `InputGroup`.
 ```tsx
 <InputGroup>
   <Input placeholder="Search..." />
-</InputGroup>
+</InputGroup>;
 ```
 
 **Correct:**
 
 ```tsx
-import { InputGroup, InputGroupInput } from "@/components/ui/input-group"
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 
 <InputGroup>
   <InputGroupInput placeholder="Search..." />
-</InputGroup>
+</InputGroup>;
 ```
 
 ---
@@ -80,13 +80,17 @@ Never place a `Button` directly inside or adjacent to an `Input` with custom pos
   <Button className="absolute right-0 top-0" size="icon">
     <SearchIcon />
   </Button>
-</div>
+</div>;
 ```
 
 **Correct:**
 
 ```tsx
-import { InputGroup, InputGroupInput, InputGroupAddon } from "@/components/ui/input-group"
+import {
+  InputGroup,
+  InputGroupInput,
+  InputGroupAddon,
+} from "@/components/ui/input-group";
 
 <InputGroup>
   <InputGroupInput placeholder="Search..." />
@@ -95,7 +99,7 @@ import { InputGroup, InputGroupInput, InputGroupAddon } from "@/components/ui/in
       <SearchIcon data-icon="inline-start" />
     </Button>
   </InputGroupAddon>
-</InputGroup>
+</InputGroup>;
 ```
 
 ---
@@ -125,13 +129,13 @@ const [selected, setSelected] = useState("daily")
 **Correct:**
 
 ```tsx
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 <ToggleGroup spacing={2}>
   <ToggleGroupItem value="daily">Daily</ToggleGroupItem>
   <ToggleGroupItem value="weekly">Weekly</ToggleGroupItem>
   <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
-</ToggleGroup>
+</ToggleGroup>;
 ```
 
 Combine with `Field` for labelled toggle groups:
@@ -144,7 +148,7 @@ Combine with `Field` for labelled toggle groups:
     <ToggleGroupItem value="dark">Dark</ToggleGroupItem>
     <ToggleGroupItem value="system">System</ToggleGroupItem>
   </ToggleGroup>
-</Field>
+</Field>;
 ```
 
 > **Note:** `defaultValue` and `type`/`multiple` props differ between base and radix. See [base-vs-radix.md](./base-vs-radix.md#togglegroup).
@@ -162,10 +166,12 @@ Use `FieldSet` + `FieldLegend` for related checkboxes, radios, or switches — n
   <FieldGroup className="gap-3">
     <Field orientation="horizontal">
       <Checkbox id="dark" />
-      <FieldLabel htmlFor="dark" className="font-normal">Dark mode</FieldLabel>
+      <FieldLabel htmlFor="dark" className="font-normal">
+        Dark mode
+      </FieldLabel>
     </Field>
   </FieldGroup>
-</FieldSet>
+</FieldSet>;
 ```
 
 ---
