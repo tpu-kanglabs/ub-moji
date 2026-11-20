@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: バージョン 25.09のリリース
 summary: 濁音・半濁音・長音の追加

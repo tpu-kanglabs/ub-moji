@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: "ub-MOJI v26.09: Over 5,000 New Video Samples Added"
 summary: 4 new participants bring roughly 7x more video samples. The dataset has been restructured and data quality improved.
@@ -12,11 +13,11 @@ We are pleased to announce the release of the latest version of the ub-MOJI Data
 
 This release welcomes **4 new participants** (participant IDs `23`–`26`), and with them the dataset has grown dramatically:
 
-| | v25.09 | v26.09 | Change |
-| --- | --- | --- | --- |
-| Syllable video samples | 765 | 5,394 | +4,629 |
-| Continuous video samples (sequences + words) | 183 | 1,295 | +1,112 |
-| **Total video samples** | **948** | **6,689** | **+5,741** |
+|                                              | v25.09  | v26.09    | Change     |
+| -------------------------------------------- | ------- | --------- | ---------- |
+| Syllable video samples                       | 765     | 5,394     | +4,629     |
+| Continuous video samples (sequences + words) | 183     | 1,295     | +1,112     |
+| **Total video samples**                      | **948** | **6,689** | **+5,741** |
 
 That's roughly **7x more video samples** than the previous release. The 4 new participants alone account for **5,536** of these new samples — **4,469 syllable video clips** and **1,067 continuous video recordings** (sequences/words). The remaining growth comes from filling in missing videos and correcting annotations for existing participants (see below).
 

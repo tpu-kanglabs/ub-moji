@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: Release of version 25.07
 summary: New participants, classes.csv, and dataset library support in version 25.07.
