@@ -1,4 +1,5 @@
 ---
+
 tag: Release
 title: Release of Version 25.05
 summary: We are excited to announce the public release of ub-MOJI, the first Japanese fingerspelling dataset.

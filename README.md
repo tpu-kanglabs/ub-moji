@@ -15,14 +15,14 @@ Powered by Astro, React, Tailwind CSS, Radix UI, Lucide Icons, and Biome.
 
 [mise](https://mise.jdx.dev/) is essential for development.
 
-| Step                | Command               |
-|---------------------|-----------------------|
-| Install toolchain   | `mise i`              |
-| Install dependencies| `pnpm install`        |
-| Start dev server    | `pnpm dev`            |
-| Build               | `pnpm build`          |
-| Preview             | `pnpm preview`        |
-| Code check          | `pnpm check`          |
+| Step                 | Command        |
+| -------------------- | -------------- |
+| Install toolchain    | `mise i`       |
+| Install dependencies | `pnpm install` |
+| Start dev server     | `pnpm dev`     |
+| Build                | `pnpm build`   |
+| Preview              | `pnpm preview` |
+| Code check           | `pnpm check`   |
 
 To enable Google Analytics locally, set `PUBLIC_GA_MEASUREMENT_ID` in a `mise.local.toml` (see [mise environments](https://mise.jdx.dev/environments/)).
 

@@ -1,4 +1,5 @@
 ---
+
 tag: Publication
 title: ub-MOJIを用いた研究論文が出版されました
 summary: ub-MOJIを活用した研究成果が、学術誌 Electronics に掲載されました。
@@ -8,7 +9,7 @@ isPublished: true
 
 [論文リンク](https://www.mdpi.com/2079-9292/14/15/3052) | [大学広報ページ](https://www.t-kougei.ac.jp/activity/archives/2025/article_86510.html)
 
-このたび、**ub-MOJI** を活用した研究成果が、学術誌 *Electronics* に掲載されました。
+このたび、**ub-MOJI** を活用した研究成果が、学術誌 _Electronics_ に掲載されました。
 
 本研究では、日本語の指文字における複雑な手指動作の違いを識別するため、**関節角度に基づいた特徴量を入力とするディープラーニングモデル**を開発しました。
 
