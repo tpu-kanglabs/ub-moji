@@ -11,6 +11,8 @@ describe("Header language switcher", () => {
     const items = await screen.findAllByRole("menuitem");
 
     expect(items).toHaveLength(2);
+    expect(items[0]).toHaveTextContent("English");
+    expect(items[1]).toHaveTextContent("日本語");
     expect(items[0]).toHaveAttribute("href", "/");
     expect(items[0]).toHaveAttribute("aria-current", "true");
     expect(items[1]).toHaveAttribute("href", "/ja/");
@@ -24,7 +26,7 @@ describe("Header language switcher", () => {
     await user.click(screen.getByRole("button", { name: "言語" }));
     const items = await screen.findAllByRole("menuitem");
 
-    expect(items[0]).toHaveTextContent("英語");
+    expect(items[0]).toHaveTextContent("English");
     expect(items[1]).toHaveTextContent("日本語");
     expect(items[0]).not.toHaveAttribute("aria-current");
     expect(items[1]).toHaveAttribute("aria-current", "true");
