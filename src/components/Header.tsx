@@ -24,6 +24,12 @@ type HeaderProps = {
   pathname: string;
 };
 
+// Each language is always shown in its own language so visitors can find it.
+const languageNames: { locale: Locale; label: string }[] = [
+  { locale: "en", label: "English" },
+  { locale: "ja", label: "日本語" },
+];
+
 function stripBase(pathname: string, basePath: string): string {
   const normalizedBase = normalizeBasePath(basePath);
   if (normalizedBase && pathname.startsWith(normalizedBase)) {
@@ -73,16 +79,13 @@ export default function Header({
     currentLocale,
     basePath,
   );
-  const languageOptions = [
-    {
-      value: buildLocalePath(pathname, "en", basePath),
-      label: t(currentLocale, "languageEnglish"),
-    },
-    {
-      value: buildLocalePath(pathname, "ja", basePath),
-      label: t(currentLocale, "languageJapanese"),
-    },
-  ];
+  const languageOptions = languageNames.map(
+    ({ locale: optionLocale, label }) => ({
+      value: buildLocalePath(pathname, optionLocale, basePath),
+      locale: optionLocale,
+      label,
+    }),
+  );
 
   return (
     <header
@@ -144,6 +147,7 @@ export default function Header({
                 <DropdownMenuItem key={option.value} asChild>
                   <a
                     href={option.value}
+                    lang={option.locale}
                     aria-current={
                       option.value === currentLanguagePath ? "true" : undefined
                     }

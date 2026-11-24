@@ -14,7 +14,7 @@ test("switches locale via header", async ({ page }) => {
   });
 
   await languageSwitcher.click();
-  await page.getByRole("menuitem", { name: "Japanese" }).click();
+  await page.getByRole("menuitem", { name: "日本語" }).click();
 
   await expect(page).toHaveURL(new RegExp(`${appBasePath}/ja/?$`));
 });
