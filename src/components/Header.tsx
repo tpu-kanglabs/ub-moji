@@ -1,4 +1,13 @@
-import { NativeSelect } from "@/components/ui/select";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
+import { CheckIcon } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   defaultLocale,
   isLocale,
@@ -120,13 +129,35 @@ export default function Header({
         </nav>
 
         <div className="order-2 ml-auto md:order-none">
-          <NativeSelect
-            ariaLabel={t(currentLocale, "languageLabel")}
-            className="motion-reduce:transition-none"
-            compactOnMobile
-            options={languageOptions}
-            value={currentLanguagePath}
-          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label={t(currentLocale, "languageLabel")}
+              >
+                <FontAwesomeIcon icon={faLanguage} aria-hidden="true" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {languageOptions.map((option) => (
+                <DropdownMenuItem key={option.value} asChild>
+                  <a
+                    href={option.value}
+                    aria-current={
+                      option.value === currentLanguagePath ? "true" : undefined
+                    }
+                    className="justify-between aria-[current=true]:font-semibold"
+                  >
+                    {option.label}
+                    {option.value === currentLanguagePath && (
+                      <CheckIcon aria-hidden="true" className="size-4" />
+                    )}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>
